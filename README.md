@@ -1,4 +1,9 @@
 ### Hi there 👋
+I am [Varun Sahni](https://varunsahni18.github.io), CS undergrad at BITS Pilani<br />
+Game developer | Flutter app developer | ML enthhusiast<br />
+Love to brainstorm at night ☕.<br /><br />
+[![Varun's github stats](https://github-readme-stats.vercel.app/api?username=varunsahni18&theme=radical&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
+
 
 <!--
 **varunsahni18/varunsahni18** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
