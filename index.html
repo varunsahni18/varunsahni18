@@ -26,6 +26,39 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <style>
+      /* Make bullet points visible in both light and dark mode */
+      .white-dot li {
+         position: relative;
+         padding-left: 20px;
+         margin-bottom: 8px;
+      }
+
+      .white-dot li::before {
+         content: "•";
+         position: absolute;
+         left: 0;
+         color: var(--vegas-gold);
+         /* Use the gold color for better visibility in both modes */
+         font-size: 12px;
+         font-weight: bold;
+      }
+
+      /* Override any other rules that might change the bullet color in light mode */
+      :root.light-mode .white-dot li::before {
+         color: var(--vegas-gold) !important;
+         /* Force gold color in light mode */
+      }
+
+      /* Increase font size for subheadings in Qualcomm section */
+      .timeline-item h5.h5 {
+         font-size: 1.1em;
+         margin-top: 15px;
+         margin-bottom: 10px;
+         color: var(--vegas-gold);
+         font-weight: 600;
+      }
+   </style>
 </head>
 
 <body>
@@ -74,7 +107,7 @@
                   </div>
                   <div class="contact-info">
                      <p class="contact-title">Email</p>
-                     <a href="mailto:`" class="contact-link">contactsahnivarun@gmail.com</a>
+                     <a href="mailto:sahnicoder@gmail.com" class="contact-link">sahnicoder@gmail.com</a>
                   </div>
                </li>
                <li class="contact-item">
@@ -407,14 +440,20 @@
                      <span>Software Engineer | 1 July 2024 - Present</span>
                      <p class="timeline-text">
                      <ul class="white-dot">
-                        <li>Created Code Review Assistant extension for Code Collaborator using RAG & multilevel query
-                           to analyze code changes & provide actionable feedback.</li>
-                        <li>Gained deep expertise in NTN and LTE architecture, resolving critical hotline issues within
-                           24 hours, prioritizing same day resolution for customer issues. </li>
-                        <li>Developed an AI-driven Hotline Resolution system utilizing NLP (Natural Language processing)
-                           tools like NLTK and Spacy for preprocessing, Semantic Similarity
-                           Example Selector for few-shot prompting, Chroma as Vector Database, and Sentence-Bert (SBERT)
-                           for response evaluation.</li>
+                        <h5 class="h5">Code Review Assistant Extension</h5>
+                        <li>Developed a Chrome extension for version control systems (Code Collab, SWARM/Perforce) that delivers LLM-based feedback on code syntax, logic, memory usage, and design compliance.</li>
+                        <li>Onboarded 50+ teams with 80% positive feedback, saving over 1,000 work hours across platforms.</li>
+                        <li>Implemented an automated review pipeline for SWARM and Gerrit that posts LLM-generated feedback as comments when new or modified code reviews are submitted.</li>
+                        <li>Integrated Tree-sitter to generate dependency graphs and leveraged a Retrieval-Augmented Generation (RAG) pipeline for design document analysis, enabling chain-of-thought review planning.</li>
+                        <li>Streamlined performance by streaming LLM outputs through Redis, reducing first response times by 75%.</li>
+                        <li>Deployed highly available server endpoints on Kubernetes, ensuring 99.9% uptime and seamless scalability.</li>
+                        <li>Utilized MongoDB for log storage and developed a web portal for advanced filtering by user ID, transaction ID, review ID, and timestamp.</li>
+                        <h5 class="h5">AI-driven Customer Issue Resolution System</h5>
+                        <li>Developed an AI-driven system using NLP libraries (NLTK, SpaCy) to preprocess email threads and accurately classify customer issues.</li>
+                        <li>Integrated a Chroma vector database for efficient log storage and applied few-shot prompting with semantic example selection, achieving 80% issue identification accuracy.</li>
+                        <h5 class="h5">NAS Layer Feature Additions & UT Framework Management</h5>
+                        <li>Added new features to mobility and session management modules in the NAS layer for LTE and NTN architectures, reducing critical issue resolution times to under 24 hours.</li>
+                        <li>Managed and enhanced the unit test framework by creating targeted test cases, analyzing crashes, and resolving issues, limiting system downtime to less than 24 hours over a 6-month period.</li>
                      </ul>
                      </p>
                   </li>
@@ -1021,7 +1060,7 @@
             </header>
             <section class="blog-posts">
                <ul class="blog-posts-list">
-                  <!-- <li class="blog-post-item">
+                  <li class="blog-post-item">
                      <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
                         <figure class="blog-banner-box">
                            <img src="./assets/certificates/Qualcomm-Fulltime.png" alt="Qualcomm Full Time"
@@ -1035,7 +1074,7 @@
                            </div>
                         </div>
                      </a>
-                  </li> -->
+                  </li>
                   <li class="blog-post-item">
                      <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
                         <figure class="blog-banner-box">
@@ -1507,7 +1546,7 @@
                <h2 class="h2 article-title">Let's Connect</h2>
                <div class="container">
                   <div class="column">
-                     <a href="mailto:contactsahnivarun@gmail.com">
+                     <a href="mailto:sahnicoder@gmail.com">
                         <div class="icon-box-mail">
                            <i class="ion ion-email"></i> &nbsp;&nbsp;Mail
                         </div>
