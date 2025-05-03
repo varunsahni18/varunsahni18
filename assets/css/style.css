@@ -4,28 +4,28 @@
 :root {
    /** Colors */
    /* Gradient */
-   --bg-gradient-onyx: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
-   --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
-   --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(45, 100%, 71%) 0%, hsla(36, 100%, 69%, 0) 50%);
-   --bg-gradient-yellow-2: linear-gradient(135deg, hsla(45, 100%, 71%, 0.251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
-   --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%);
-   --text-gradient-yellow: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+   --bg-gradient-onyx: linear-gradient(to bottom right, hsl(220, 15%, 20%) 3%, hsl(220, 15%, 15%) 97%);
+   --bg-gradient-jet: linear-gradient(to bottom right, hsla(220, 15%, 15%, 0.25) 0%, hsla(220, 15%, 10%, 0) 100%), hsl(220, 15%, 12%);
+   --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(45, 90%, 60%) 0%, hsla(45, 90%, 55%, 0) 50%);
+   --bg-gradient-yellow-2: linear-gradient(135deg, hsla(45, 90%, 60%, 0.25) 0%, hsla(45, 90%, 55%, 0) 60%), hsl(220, 15%, 12%);
+   --border-gradient-onyx: linear-gradient(to bottom right, hsl(220, 15%, 25%) 0%, hsla(220, 15%, 25%, 0) 50%);
+   --text-gradient-yellow: linear-gradient(to right, hsl(45, 90%, 60%), hsl(45, 90%, 55%));
  
    /* Solid */
-   --jet: hsl(0, 0%, 22%);
-   --onyx: hsl(240, 1%, 17%);
-   --eerie-black-1: hsl(240, 2%, 13%);
-   --eerie-black-2: hsl(240, 2%, 12%);
-   --smoky-black: hsl(0, 0%, 7%);
-   --white-1: hsl(0, 0%, 100%);
-   --white-2: hsl(0, 0%, 98%);
-   --orange-yellow-crayola: hsl(45, 100%, 72%);
-   --vegas-gold: hsl(45, 54%, 58%);
-   --light-gray: hsl(0, 0%, 84%);
-   --light-gray-70: hsla(0, 0%, 84%, 0.7);
-   --bittersweet-shimmer: hsl(0, 43%, 51%);
-   --list-item-color: hsl(0, 0%, 100%); /* Default white for dark mode */
-  --icon-box-color: hsl(45, 100%, 72%); /* Bright yellow */
+   --jet: hsl(220, 15%, 25%);
+   --onyx: hsl(220, 15%, 18%);
+   --eerie-black-1: hsl(220, 15%, 12%);
+   --eerie-black-2: hsl(220, 15%, 10%);
+   --smoky-black: hsl(220, 15%, 8%);
+   --white-1: hsl(0, 0%, 98%);
+   --white-2: hsl(0, 0%, 95%);
+   --orange-yellow-crayola: hsl(45, 90%, 60%);
+   --vegas-gold: hsl(45, 70%, 50%);
+   --light-gray: hsl(0, 0%, 85%);
+   --light-gray-70: hsla(0, 0%, 85%, 0.7);
+   --bittersweet-shimmer: hsl(0, 50%, 50%);
+   --list-item-color: hsl(0, 0%, 95%); /* Default white for dark mode */
+  --icon-box-color: hsl(45, 90%, 60%); /* Bright yellow */
   --icon-box-bg: var(--border-gradient-onyx); /* Dark gradient background */
   --card-bg: var(--eerie-black-2); /* Subtle dark background */
   --card-border: var(--jet); /* Dark border */
@@ -34,7 +34,7 @@
   --skill-fill: var(--orange-yellow-crayola); /* Skill fill color */
 
     /* Navbar variables for dark mode */
-    --navbar-bg: hsla(240, 1%, 17%, 0.75); /* Dark translucent background */
+    --navbar-bg: hsla(220, 15%, 18%, 0.85); /* Dark translucent background */
     --navbar-border: var(--jet); /* Dark border */
     --navbar-text: var(--light-gray); /* Subtle light text */
     --navbar-hover-text: var(--light-gray-70); /* Lighter text on hover */
@@ -78,44 +78,43 @@
 
  
  /** Light Mode Variables */
-/** Light Mode Variables */
 :root.light-mode {
    /** Colors */
-   --bg-gradient-onyx: linear-gradient(to bottom right, hsl(210, 36%, 96%) 3%, hsl(210, 36%, 100%) 97%);
-   --bg-gradient-jet: linear-gradient(to bottom right, hsla(210, 36%, 90%, 0.251) 0%, hsla(210, 36%, 95%, 0) 100%), hsl(210, 36%, 100%);
-   --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(45, 100%, 60%) 0%, hsla(45, 100%, 55%, 0) 50%);
-   --bg-gradient-yellow-2: linear-gradient(135deg, hsla(45, 100%, 60%, 0.251) 0%, hsla(45, 100%, 55%, 0) 59.86%), hsl(210, 36%, 100%);
-   --border-gradient-onyx: linear-gradient(to bottom right, hsl(210, 36%, 85%) 0%, hsla(210, 36%, 85%, 0) 50%);
-   --text-gradient-yellow: linear-gradient(to right, hsl(45, 100%, 60%), hsl(45, 100%, 55%));
- 
-   --jet: hsl(210, 36%, 95%);
-   --onyx: hsl(210, 36%, 90%);
+   --bg-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 98%) 3%, hsl(0, 0%, 100%) 97%);
+   --bg-gradient-jet: linear-gradient(to bottom right, hsla(0, 0%, 95%, 0.25) 0%, hsla(0, 0%, 90%, 0) 100%), hsl(0, 0%, 100%);
+   --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(45, 85%, 55%) 0%, hsla(45, 85%, 50%, 0) 50%);
+   --bg-gradient-yellow-2: linear-gradient(135deg, hsla(45, 85%, 55%, 0.25) 0%, hsla(45, 85%, 50%, 0) 60%), hsl(0, 0%, 100%);
+   --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 85%) 0%, hsla(0, 0%, 85%, 0) 50%);
+   --text-gradient-yellow: linear-gradient(to right, hsl(45, 85%, 55%), hsl(45, 85%, 50%));
+
+   --jet: hsl(0, 0%, 90%);
+   --onyx: hsl(0, 0%, 85%);
    --eerie-black-1: hsl(0, 0%, 100%);
-   --eerie-black-2: hsl(206, 53%, 94%);
-   --smoky-black: hsl(210, 36%, 100%);
-   --white-1: hsl(210, 36%, 15%);
-   --white-2: hsl(210, 36%, 20%);
-   --orange-yellow-crayola: hsl(45, 100%, 60%);
-   --vegas-gold: hsl(45, 54%, 48%);
-   --light-gray: hsl(210, 36%, 20%);
-   --light-gray-70: hsla(210, 36%, 20%, 0.7);
-   --bittersweet-shimmer: hsl(0, 43%, 71%);
-   --list-item-color: hsl(210, 36%, 10%);
-   --icon-box-color: hsl(45, 70%, 55%);
+   --eerie-black-2: hsl(0, 0%, 95%);
+   --smoky-black: hsl(0, 0%, 10%);
+   --white-1: hsl(0, 0%, 15%);
+   --white-2: hsl(0, 0%, 20%);
+   --orange-yellow-crayola: hsl(45, 85%, 55%);
+   --vegas-gold: hsl(45, 70%, 50%);
+   --light-gray: hsl(0, 0%, 25%);
+   --light-gray-70: hsla(0, 0%, 25%, 0.7);
+   --bittersweet-shimmer: hsl(0, 50%, 60%);
+   --list-item-color: hsl(0, 0%, 15%);
+   --icon-box-color: hsl(45, 85%, 50%);
    --icon-box-bg: hsl(45, 90%, 95%);
-   --card-bg: hsl(210, 36%, 98%); /* Subtle off-white background */
-   --card-border: hsl(210, 36%, 85%); /* Soft gray border */
+   --card-bg: hsl(0, 0%, 98%); /* Subtle off-white background */
+   --card-border: hsl(0, 0%, 85%); /* Soft gray border */
    --text-color: var(--smoky-black); /* Dark text */
-   --skill-bg: hsl(210, 36%, 90%); /* Lighter skill bar background */
-   --skill-fill: hsl(45, 80%, 60%); /* Warm yellow for the skill bar fill */
-   --skills-list-bg: hsl(210, 36%, 97%); /* Soft light background for skills-list */
-   --navbar-bg: hsl(210, 36%, 100%);
-   --navbar-border: hsl(210, 36%, 85%);
-   --navbar-text: hsl(210, 36%, 20%);
-   --navbar-hover-text: hsl(210, 36%, 40%);
-   --mapbox-bg: hsl(210, 36%, 95%); /* Subtle off-white background for mapbox */
+   --skill-bg: hsl(0, 0%, 85%); /* Lighter skill bar background */
+   --skill-fill: hsl(45, 70%, 50%); /* Warm yellow for the skill bar fill */
+   --skills-list-bg: hsl(0, 0%, 97%); /* Soft light background for skills-list */
+   --navbar-bg: hsl(0, 0%, 100%);
+   --navbar-border: hsl(0, 0%, 85%);
+   --navbar-text: hsl(0, 0%, 20%);
+   --navbar-hover-text: hsl(0, 0%, 40%);
+   --mapbox-bg: hsl(0, 0%, 95%); /* Subtle off-white background for mapbox */
    --mapbox-iframe-filter: invert(0%) hue-rotate(90deg); /* Light mode filter */
- }
+}
 
  
 .switch {
