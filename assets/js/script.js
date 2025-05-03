@@ -18,7 +18,7 @@ const switchIcon = document.querySelector("#SwitchIcon");
 themeToggleInput.addEventListener("change", () => {
   if (themeToggleInput.checked) {
     rootElement.classList.add("light-mode");
-    switchIcon.style.backgroundImage = 'radial-gradient(circle, rgba(255, 223, 0, 1) 60%, rgba(255, 223, 0, 0) 100%)';
+    switchIcon.style.backgroundImage = 'radial-gradient(circle, rgb(255, 255, 255) 60%, rgba(255, 223, 0, 0) 100%)';
   } else {
     rootElement.classList.remove("light-mode");
     switchIcon.style.backgroundImage = 'none';

@@ -19,19 +19,30 @@
    --smoky-black: hsl(220, 15%, 8%);
    --white-1: hsl(0, 0%, 98%);
    --white-2: hsl(0, 0%, 95%);
-   --orange-yellow-crayola: hsl(45, 90%, 60%);
-   --vegas-gold: hsl(45, 70%, 50%);
+   --orange-yellow-crayola: var(--modern-blue);
+   --vegas-gold: var(--modern-blue);
    --light-gray: hsl(0, 0%, 85%);
    --light-gray-70: hsla(0, 0%, 85%, 0.7);
    --bittersweet-shimmer: hsl(0, 50%, 50%);
    --list-item-color: hsl(0, 0%, 95%); /* Default white for dark mode */
-  --icon-box-color: hsl(45, 90%, 60%); /* Bright yellow */
+  --icon-box-color: var(--modern-blue); /* Replace yellow with blue */
   --icon-box-bg: var(--border-gradient-onyx); /* Dark gradient background */
   --card-bg: var(--eerie-black-2); /* Subtle dark background */
   --card-border: var(--jet); /* Dark border */
   --text-color: var(--white-1); /* White text */
   --skill-bg: var(--onyx); /* Skill bar background */
-  --skill-fill: var(--orange-yellow-crayola); /* Skill fill color */
+  --skill-fill: var(--modern-blue); /* Replace skill bar fill color */
+  --modern-blue: hsl(220, 70%, 55%);
+  --modern-blue-light: hsl(220, 70%, 65%);
+  --modern-blue-dark: hsl(220, 70%, 45%);
+  --modern-blue-gradient: linear-gradient(to right, hsl(220, 70%, 55%), hsl(220, 70%, 50%));
+  --text-gradient-yellow: var(--modern-blue-gradient); /* Replace yellow gradient */
+  --navbar-hover-text: var(--modern-blue-light); /* Replace hover text color */
+  --scrollbar-thumb: var(--modern-blue); /* Scrollbar thumb color */
+  --scrollbar-thumb-hover: var(--modern-blue-light); /* Scrollbar thumb hover */
+  --switch-indicator: var(--modern-blue); /* Toggle switch indicator */
+  --switch-bg: var(--modern-blue-70); /* Toggle switch background */
+  --sparkle-color: var(--modern-blue-light); /* For sparkle background */
 
     /* Navbar variables for dark mode */
     --navbar-bg: hsla(220, 15%, 18%, 0.85); /* Dark translucent background */
@@ -94,26 +105,36 @@
    --smoky-black: hsl(0, 0%, 10%);
    --white-1: hsl(0, 0%, 15%);
    --white-2: hsl(0, 0%, 20%);
-   --orange-yellow-crayola: hsl(45, 85%, 55%);
-   --vegas-gold: hsl(45, 70%, 50%);
+   --orange-yellow-crayola: var(--modern-blue);
+   --vegas-gold: var(--modern-blue);
    --light-gray: hsl(0, 0%, 25%);
    --light-gray-70: hsla(0, 0%, 25%, 0.7);
    --bittersweet-shimmer: hsl(0, 50%, 60%);
    --list-item-color: hsl(0, 0%, 15%);
-   --icon-box-color: hsl(45, 85%, 50%);
+   --icon-box-color: var(--modern-blue);
    --icon-box-bg: hsl(45, 90%, 95%);
    --card-bg: hsl(0, 0%, 98%); /* Subtle off-white background */
    --card-border: hsl(0, 0%, 85%); /* Soft gray border */
    --text-color: var(--smoky-black); /* Dark text */
    --skill-bg: hsl(0, 0%, 85%); /* Lighter skill bar background */
-   --skill-fill: hsl(45, 70%, 50%); /* Warm yellow for the skill bar fill */
+   --skill-fill: var(--modern-blue);
    --skills-list-bg: hsl(0, 0%, 97%); /* Soft light background for skills-list */
    --navbar-bg: hsl(0, 0%, 100%);
    --navbar-border: hsl(0, 0%, 85%);
    --navbar-text: hsl(0, 0%, 20%);
-   --navbar-hover-text: hsl(0, 0%, 40%);
+   --navbar-hover-text: var(--modern-blue-light);
    --mapbox-bg: hsl(0, 0%, 95%); /* Subtle off-white background for mapbox */
    --mapbox-iframe-filter: invert(0%) hue-rotate(90deg); /* Light mode filter */
+   --modern-blue: hsl(220, 60%, 50%);
+   --modern-blue-light: hsl(220, 60%, 60%);
+   --modern-blue-dark: hsl(220, 60%, 40%);
+   --modern-blue-gradient: linear-gradient(to right, hsl(220, 60%, 50%), hsl(220, 60%, 45%));
+   --text-gradient-yellow: var(--modern-blue-gradient);
+   --scrollbar-thumb: var(--modern-blue);
+   --scrollbar-thumb-hover: var(--modern-blue-light);
+   --switch-indicator: var(--modern-blue);
+   --switch-bg: var(--modern-blue-70);
+   --sparkle-color: var(--modern-blue-light); /* For sparkle background */
 }
 
  
@@ -137,7 +158,7 @@
    display: inline-block;
    width: 60px;
    height: 30px;
-   background-color: #2B2B2B;
+   background-color: var(--onyx); /* Default background for better visibility */
    border-radius: 9999px;
    cursor: pointer;
    transition: all 0.4s cubic-bezier(.46, .03, .52, .96);
@@ -175,12 +196,14 @@
  }
  
  .switch__input:checked + .switch__label {
-   background-color: var(--card-border);
+   background-color: white; /* Modern blue for toggled state */
+   border: 2px solid var(--modern-blue-dark); /* Darker border for contrast */
  }
  
  .switch__input:checked + .switch__label .switch__indicator {
-   background-color: #ECD21F;
+   background-color: var(--white-1); /* White indicator for better contrast */
    transform: translate(-50%, -50%) translateX(50%);
+   box-shadow: 0 0 10px var(--modern-blue-light); /* Add a subtle glow effect */
  }
  
  
@@ -244,7 +267,7 @@
  } */
  
  .switch__input:checked + .switch__label .switch__indicator {
-   background-color: #ECD21F;
+   background-color: var(--switch-indicator); /* Replace yellow with blue */
    box-shadow: none;
    transform: translate(-50%, -50%) translateX(72%);
  }
@@ -332,11 +355,11 @@ input, textarea {
    font: inherit;
 }
 ::selection {
-   background: var(--orange-yellow-crayola);
-   color: var(--smoky-black);
+   background: var(--modern-blue); /* Replace yellow with blue */
+   color: var(--white-1); /* Ensure contrast */
 }
 :focus {
-   outline-color: var(--orange-yellow-crayola);
+   outline-color: var(--modern-blue); /* Replace yellow with blue */
 }
 html {
    font-family: var(--ff-poppins);
@@ -399,8 +422,7 @@ body {
    justify-content: center;
    align-items: center;
    font-size: 16px;
-   color: var(--vegas-gold);
-   color: var(--vegas-gold);
+   color: var(--modern-blue); /* Replace yellow with blue */
    font-weight: bold;
    text-decoration: none;
    transition: color 0.3s ease;
@@ -467,7 +489,7 @@ article.active {
    left: 0;
    width: 30px;
    height: 3px;
-   background: var(--text-gradient-yellow);
+   background: var(--text-gradient-yellow); /* Replace yellow gradient */
    border-radius: 3px;
 }
 .has-scrollbar::-webkit-scrollbar {
@@ -481,8 +503,11 @@ article.active {
    border-radius: 5px;
 }
 .has-scrollbar::-webkit-scrollbar-thumb {
-   background: var(--orange-yellow-crayola);
+   background: var(--scrollbar-thumb); /* Replace yellow with blue */
    border-radius: 5px;
+}
+.has-scrollbar::-webkit-scrollbar-thumb:hover {
+   background: var(--scrollbar-thumb-hover); /* Replace yellow with lighter blue */
 }
 .has-scrollbar::-webkit-scrollbar-button {
    width: 20px;
@@ -592,10 +617,10 @@ main {
    z-index: -1;
 }
 .info_more-btn:hover, .info_more-btn:focus {
-   background: var(--bg-gradient-yellow-1);
+   background: var(--modern-blue-gradient); /* Replace yellow gradient with blue */
 }
 .info_more-btn:hover::before, .info_more-btn:focus::before {
-   background: var(--bg-gradient-yellow-2);
+   background: var(--modern-blue-gradient); /* Replace yellow gradient with blue */
 }
 .info_more-btn span {
    display: none;
@@ -658,8 +683,6 @@ main {
    position: fixed;
    bottom: 0;
    left: 0;
-   width: 100%;
-   background: var(--navbar-bg); /* Dynamic background */
    backdrop-filter: blur(10px); /* Subtle blur effect */
    border: 1px solid var(--navbar-border); /* Dynamic border */
    border-radius: 12px 12px 0 0;
@@ -981,7 +1004,7 @@ main {
    left: -33px;
    height: 6px;
    width: 6px;
-   background: var(--text-gradient-yellow);
+   background: var(--modern-blue); /* Replace yellow with blue */
    border-radius: 50%;
    box-shadow: 0 0 0 4px var(--jet);
 }
@@ -1018,7 +1041,7 @@ main {
    border-radius: 10px;
 }
 .skill-progress-fill {
-   background: var(--text-gradient-yellow);
+   background: var(--skill-fill); /* Replace yellow with blue */
    height: 100%;
    border-radius: inherit;
 }
@@ -1971,12 +1994,12 @@ a.custom-link:active {
    position: absolute;
    width: 8px; /* Increased size of the sparkle */
    height: 8px;
-   background-color: rgba(218, 165, 32, 0.9); /* Vegas Gold with transparency */
+   background-color: var(--modern-blue-light); /* Updated to modern blue */
    border-radius: 50%; /* Circular shape */
    animation: sparkle 2s infinite ease-in-out;
    box-shadow: 
-     0px 0px 15px rgba(218, 165, 32, 0.7), /* Bright outer glow */
-     0px 0px 25px rgba(218, 165, 32, 0.5); /* Softer wider glow */
+     0px 0px 15px var(--modern-blue-light), /* Bright outer glow */
+     0px 0px 25px var(--modern-blue); /* Softer wider glow */
  }
  
  /* Generate Multiple Sparkles */
@@ -2101,4 +2124,16 @@ a.custom-link:active {
  .image-container {
    display: flex;
    gap: 10px; /* Adjust the gap as needed */
+}
+
+/* Default dark mode (white text) */
+article.resume span {
+   color: var(--modern-blue);
+   transition: color var(--transition-1); /* Smooth transition for color change */
+   font-weight: 500;
+}
+
+/* Light mode (black text) */
+:root.light-mode article.resume span {
+   color: var(--modern-blue);
 }
