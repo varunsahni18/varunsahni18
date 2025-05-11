@@ -616,12 +616,7 @@ main {
    transition: var(--transition-1);
    z-index: -1;
 }
-.info_more-btn:hover, .info_more-btn:focus {
-   background: var(--modern-blue-gradient); /* Replace yellow gradient with blue */
-}
-.info_more-btn:hover::before, .info_more-btn:focus::before {
-   background: var(--modern-blue-gradient); /* Replace yellow gradient with blue */
-}
+
 .info_more-btn span {
    display: none;
 }
@@ -683,27 +678,38 @@ main {
    position: fixed;
    bottom: 0;
    left: 0;
-   backdrop-filter: blur(10px); /* Subtle blur effect */
+   width: 100%; /* Ensure full width on all screen sizes */
+   background-color: var(--navbar-bg); /* Dynamic background */
    border: 1px solid var(--navbar-border); /* Dynamic border */
    border-radius: 12px 12px 0 0;
    box-shadow: var(--shadow-2);
    z-index: 5;
    transition: background-color var(--transition-1), border-color var(--transition-1), color var(--transition-1);
- }
+}
+
+/* Light mode navbar styles */
+:root.light-mode .navbar {
+   background-color: var(--navbar-bg-light); /* Light mode background */
+   border-color: var(--navbar-border-light); /* Light mode border */
+}
 
  .navbar-list {
    display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
+   flex-wrap: nowrap; /* Prevent wrapping on small screens */
+   justify-content: space-around; /* Distribute items evenly */
    align-items: center;
-   padding: 0 10px;
+   padding: 0 5px;
+   width: 100%;
+   overflow-x: auto; /* Allow horizontal scrolling if needed */
  }
  
  .navbar-link {
    color: var(--navbar-text); /* Dynamic text color */
    font-size: var(--fs-8);
-   padding: 20px 7px;
+   padding: 15px 5px; /* Slightly smaller padding for mobile */
    transition: color var(--transition-1);
+   white-space: nowrap; /* Prevent text wrapping */
+   text-align: center; /* Center text */
  }
  
  .navbar-link:hover,
@@ -714,6 +720,19 @@ main {
 .navbar-link.active {
    color: var(--orange-yellow-crayola);
 }
+
+@media (min-width: 768px) {
+   .navbar-link {
+       padding: 20px 7px; /* Restore original padding */
+   }
+}
+
+@media (min-width: 1024px) {
+   .navbar {
+       width: max-content; /* Override full width for desktop */
+   }
+}
+
 /*-----------------------------------*\ #ABOUT \*-----------------------------------*/
 .about .article-title {
    margin-bottom: 15px;
@@ -2136,4 +2155,108 @@ article.resume span {
 /* Light mode (black text) */
 :root.light-mode article.resume span {
    color: var(--modern-blue);
+}
+
+/* Ensure switch theme icon is always visible and accessible on mobile */
+@media (max-width: 768px) {
+  .sidebar-info {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+  }
+  .switch-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    width: auto;
+    height: auto;
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .switch {
+    margin: 0;
+    padding: 0;
+    z-index: 11;
+  }
+}
+
+/* Extra: Prevent sidebar-info from hiding the switch if content overflows */
+@media (max-width: 480px) {
+  .sidebar-info {
+    min-height: 80px;
+    padding-top: 40px;
+  }
+  .switch-container {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+/* Make sidebar-info layout horizontal on mobile, so switch stays right of name/title */
+@media (max-width: 768px) {
+  .sidebar-info {
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  .avatar-box {
+    flex-shrink: 0;
+  }
+  .info-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* allow shrinking and growing */
+  }
+  .switch-container {
+    position: static;
+    margin-left: auto;
+    right: unset;
+    top: unset;
+    z-index: 10;
+    width: auto;
+    height: auto;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Shift switch up to align with center line of name/title */
+    transform: translateY(-10px);
+  }
+  .switch {
+    margin: 0 0 0 10px;
+    padding: 0;
+    z-index: 11;
+  }
+}
+
+/* For very small screens, reduce avatar size and spacing */
+@media (max-width: 480px) {
+  .sidebar-info {
+    min-height: unset;
+    padding-top: 0;
+    gap: 8px;
+  }
+  .avatar-box img {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+  }
+  .info-content .name {
+    font-size: 1.1em;
+  }
+  .switch {
+    margin-left: 4px;
+  }
+  .switch-container {
+    transform: translateY(-6px);
+  }
 }
