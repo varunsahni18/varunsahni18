@@ -1877,24 +1877,7 @@ textarea.form-input::-webkit-resizer {
    }
 
    /** * #RESUME */
-   /* Use the highest specificity with universal enforcement */
-   a.custom-link,
-   a.custom-link:link,
-   a.custom-link:visited,
-   a.custom-link:hover,
-   a.custom-link:focus,
-   a.custom-link:active {
-      color: var(--white-2) !important;
-      text-decoration: none !important;
-   }
 
-
-   /* Mobile-specific styles, if required */
-   @media (max-width: 768px) {
-      a.custom-link {
-         color: var(--white-2) !important;
-      }
-   }
 
 
    .timeline-list {
@@ -1957,6 +1940,25 @@ textarea.form-input::-webkit-resizer {
       font-size: 18px;
    }
 }
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+
+   a.custom-link,
+   a.custom-link:link,
+   a.custom-link:visited,
+   a.custom-link:hover,
+   a.custom-link:focus,
+   a.custom-link:active {
+      color: var(--white-2) !important;
+      text-decoration: none !important;
+   }
+
+   .filter-select-box {
+      display: none;
+   }
+}
+
 
 /** * responsive larger than 768px screen */
 @media (min-width: 768px) {
