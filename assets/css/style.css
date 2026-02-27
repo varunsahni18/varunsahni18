@@ -827,6 +827,15 @@ main {
 
 .service-icon-box {
    margin-bottom: 10px;
+   background: hsla(215, 60%, 55%, 0.1);
+   border: 1px solid hsla(215, 60%, 55%, 0.2);
+   width: 60px;
+   height: 60px;
+   border-radius: 16px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-shrink: 0;
 }
 
 .service-icon-box img {
@@ -1076,7 +1085,7 @@ main {
 
 .timeline-list {
    font-size: var(--fs-6);
-   margin-left: 45px;
+   margin-left: 60px;
 }
 
 .timeline-item {
@@ -1104,7 +1113,7 @@ main {
    content: "";
    position: absolute;
    top: -25px;
-   left: -30px;
+   left: -40px;
    width: 1px;
    height: calc(100% + 50px);
    background: var(--jet);
@@ -1114,11 +1123,10 @@ main {
    content: "";
    position: absolute;
    top: 5px;
-   left: -33px;
+   left: -43px;
    height: 6px;
    width: 6px;
-   background: var(--modern-blue);
-   /* Replace yellow with blue */
+   background: var(--white-2);
    border-radius: 50%;
    box-shadow: 0 0 0 4px var(--jet);
 }
@@ -1876,34 +1884,31 @@ textarea.form-input::-webkit-resizer {
    a.custom-link:hover,
    a.custom-link:focus,
    a.custom-link:active {
-      color: var(--vegas-gold) !important;
-      /* Force vegas-gold */
+      color: var(--white-2) !important;
       text-decoration: none !important;
-      /* Ensure no underline */
    }
 
 
    /* Mobile-specific styles, if required */
    @media (max-width: 768px) {
       a.custom-link {
-         color: var(--vegas-gold) !important;
-         /* Reapply vegas-gold */
+         color: var(--white-2) !important;
       }
    }
 
 
    .timeline-list {
-      margin-left: 65px;
+      margin-left: 80px;
    }
 
    .timeline-item:not(:last-child)::before {
-      left: -40px;
+      left: -50px;
    }
 
    .timeline-item::after {
       height: 8px;
       width: 8px;
-      left: -43px;
+      left: -54px;
    }
 
    .skills-item:not(:last-child) {

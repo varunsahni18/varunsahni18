@@ -38,16 +38,16 @@
          content: "•";
          position: absolute;
          left: 0;
-         color: var(--vegas-gold);
-         /* Use the gold color for better visibility in both modes */
+         color: var(--white-2);
+         /* Use the base text color for visibility in both modes */
          font-size: 12px;
          font-weight: bold;
       }
 
       /* Override any other rules that might change the bullet color in light mode */
       :root.light-mode .white-dot li::before {
-         color: var(--vegas-gold) !important;
-         /* Force gold color in light mode */
+         color: var(--white-2) !important;
+         /* Force base text color in light mode */
       }
 
       /* Increase font size for subheadings in Qualcomm section */
@@ -55,7 +55,7 @@
          font-size: 1.1em;
          margin-top: 15px;
          margin-bottom: 10px;
-         color: var(--vegas-gold);
+         color: var(--white-2);
          font-weight: 600;
       }
    </style>
@@ -434,7 +434,7 @@
                </div>
                <ol class="timeline-list">
                   <li class="timeline-item">
-                     <h3 class="h3 timeline-item-title" style="margin-bottom: 5px;">Qualcomm</h3>
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">Qualcomm</h4>
                      <div
                         style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; width: 100%;">
                         <span style="font-weight: 600; font-size: 16px;">Software Engineer</span>
@@ -480,18 +480,12 @@
                   </div>
                   <h3 class="h3">Internships</h3>
                </div>
-               <!-- Professional Internships -->
-               <div class="title-wrapper">
-                  <div class="icon-box">
-                     <ion-icon name="business" class="experience-icon"></ion-icon>
-                  </div>
-                  <h4 class="h4">Professional Internships</h4>
-               </div>
+               <!-- Removed Redundant Subheading -->
                <ol class="timeline-list">
                   <li class="timeline-item">
                      <div
                         style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
-                        <h3 class="h3 timeline-item-title" style="margin-bottom: 0;">AMD</h3>
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">AMD</h4>
                         <span
                            style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">January
                            2024 – June 2024</span>
@@ -520,7 +514,7 @@
                   <li class="timeline-item">
                      <div
                         style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
-                        <h3 class="h3 timeline-item-title" style="margin-bottom: 0;">Standard Chartered Bank</h3>
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">Standard Chartered Bank</h4>
                         <span
                            style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">May
                            2023 – July 2023</span>
@@ -543,7 +537,7 @@
                   <li class="timeline-item">
                      <div
                         style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
-                        <h3 class="h3 timeline-item-title" style="margin-bottom: 0;">Invoxel Technologies</h3>
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">Invoxel Technologies</h4>
                         <span
                            style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">June
                            2022 – July 2022</span>
@@ -568,7 +562,7 @@
                   <div class="icon-box">
                      <ion-icon name="flask" class="experience-icon"></ion-icon>
                   </div>
-                  <h4 class="h4">Scholarship Projects</h4>
+                  <h3 class="h3">Scholarship Projects</h3>
                </div>
                <ol class="timeline-list">
                   <li class="timeline-item">
@@ -687,10 +681,8 @@
                         <span
                            style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px; margin-top: 2px;">2020-2024</span>
                      </div>
-                     <p class="timeline-text">Bachelors of Engineering - Computer Science | 8.11</p>
-                     <p class="timeline-text">
-                        <br>
-                     <p class="timeline-text">
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Bachelors of
+                        Engineering - Computer Science | 8.11</span>
                      <ul class="white-dot">
                         <li>Acquired expertise in core subjects, including Data Structures and Algorithms, Computer
                            Networks, Operating Systems, Object-Oriented Programming, Database Management Systems,
@@ -722,9 +714,8 @@
                         <span
                            style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px; margin-top: 2px;">2008-2020</span>
                      </div>
-                     <p class="timeline-text">Higher Secondary Education | 91.6%</p>
-                     <br>
-                     <p class="timeline-text">
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Higher
+                        Secondary Education | 91.6%</span>
                      <ul class="white-dot">
                         <li>Recieved Manav Alok Award During Farewell for excellence in the field of Quizzing</li>
                         <li>TECHNOTHLON by IIT Guwahati - City Rank 3, State Rank 23</li>
@@ -750,7 +741,7 @@
 
                </ol>
             </section>
-            <section class="skill">
+            <section class="timeline">
                <div class="title-wrapper">
                   <div class="icon-box">
                      <ion-icon name="school" class="experience-icon"></ion-icon>
@@ -821,20 +812,19 @@
                         <div class="skill-progress-fill" style="width: 70%;"></div>
                      </div>
                   </li>
-                  <h4 class="h4 timeline-item-title">Other Skills </h4>
-
-
                </ul>
+               <br>
+               <h4 class="h4 timeline-item-title">Other Skills </h4>
             </section>
             <br>
-            <section class="skill">
+            <section class="timeline">
                <div class="title-wrapper">
                   <div class="icon-box">
                      <ion-icon name="book" class="experience-icon"></ion-icon>
                   </div>
                   <h3 class="h3 skills-title">Coursework</h3>
                </div>
-               <ul class="skills-list content-card">
+               <div class="content-card" style="padding: 20px;">
                   <ul class="white-dot">
                      <li>Data Structure and Algorithms</li>
                      <li>Design and Analysis of Algorithms</li>
@@ -848,7 +838,7 @@
                      <li>Compiler Construction</li>
                      <li>Blockchain</li>
                   </ul>
-               </ul>
+               </div>
             </section>
          </article>
          <!--
