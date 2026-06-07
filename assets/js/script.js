@@ -199,32 +199,30 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 document.addEventListener('DOMContentLoaded', function () {
   const mediaContainers = document.querySelectorAll('.media-container');
+  const videoModal = document.getElementById('video-modal');
+  const modalVideo = document.getElementById('modal-video');
+
+  // Close modal on background click
+  videoModal.addEventListener('click', function (e) {
+    if (e.target === videoModal) {
+      videoModal.style.display = 'none';
+      modalVideo.pause();
+    }
+  });
 
   mediaContainers.forEach(container => {
     const video = container.querySelector('.project-video');
     const playBtn = container.querySelector('.play-btn-overlay');
 
     if (video && playBtn) {
-      // Play video when clicking the play button overlay
-      playBtn.addEventListener('click', function () {
-        video.play();
-        playBtn.style.opacity = '0'; // Hide button
-        playBtn.style.pointerEvents = 'none'; // Disable hover/clicks while playing
-      });
-
-      // Pause video when clicking the video itself
-      video.addEventListener('click', function () {
-        if (!video.paused) {
-          video.pause();
-          playBtn.style.opacity = '1'; // Show button
-          playBtn.style.pointerEvents = 'auto'; // Re-enable hover/clicks
-        }
-      });
-
-      // Show play button again when video ends
-      video.addEventListener('ended', function () {
-        playBtn.style.opacity = '1';
-        playBtn.style.pointerEvents = 'auto';
+      // Open fullscreen modal when clicking the play button
+      playBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const src = video.querySelector('source') ? video.querySelector('source').src : video.src;
+        modalVideo.src = src;
+        modalVideo.load();
+        modalVideo.play();
+        videoModal.style.display = 'flex';
       });
     }
   });

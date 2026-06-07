@@ -860,12 +860,10 @@
                   <!-- CabinAI -->
                   <li class="project-item active" data-filter-item data-category="ai">
                      <div class="media-container">
-                        <figure class="project-img">
-                           <div class="project-item-icon-box">
-                              <ion-icon name="eye-outline"></ion-icon>
-                           </div>
-                           <img src="./assets/images/CabinAI.png" alt="CabinAI - Hybrid Multi-Agent VLA for Automotive In-Cabin Intelligence" loading="lazy">
-                        </figure>
+                        <video class="project-video" muted poster="./assets/images/CabinAI.png">
+                           <source src="./assets/videos/CabinAI_Demo.mp4" type="video/mp4">
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
                         <a href="https://github.com/varunsahni18/CabinAI" class="external-link-btn"
                            target="_blank"><ion-icon name="logo-github"></ion-icon></a>
                         <h3 class="project-title">CabinAI</h3>
@@ -1769,6 +1767,16 @@
          -->
    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Video Modal -->
+  <div id="video-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center;">
+    <div style="position:relative; width:90vw; max-width:960px;">
+      <video id="modal-video" controls style="width:100%; border-radius:12px; max-height:80vh;"></video>
+      <button onclick="document.getElementById('video-modal').style.display='none'; document.getElementById('modal-video').pause();"
+        style="position:absolute; top:-36px; right:0; background:none; border:none; color:#fff; font-size:28px; cursor:pointer; line-height:1;">&#x2715;</button>
+    </div>
+  </div>
+
 </body>
 
 </html>
