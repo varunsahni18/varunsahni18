@@ -231,21 +231,27 @@
             </header>
             <section class="about-text">
                <p>
-                  I am a Software Engineer with expertise in Generative AI, AR/VR, and complex network systems. With a
-                  B.E. in Computer Science from BITS Pilani, I thrive on building scalable, production-grade
-                  architectures and tackling difficult engineering challenges.
+                  I am a Software Engineer specialising in LLM systems, multi-agent GenAI, and on-device AI. Currently
+                  at <strong>Qualcomm</strong> building production GenAI infrastructure, and incoming M.S. student at
+                  <strong>NYU Courant</strong> (Aug 2026), focusing on Machine Learning and Large Language Models.
                </p>
                <p>
-                  At Qualcomm, I designed and deployed <strong>Code Buddy</strong>, an automated AI code reviewer
-                  supporting 2,500+ repositories, which saves an estimated 100,000 person-hours monthly. I also
-                  contribute to the Non-Access Stratum (NAS) layer for 4G/5G modems, specifically implementing critical
-                  security protocols like identity disclosure detection to protect users from fake base stations.
+                  At Qualcomm I architected <strong>Code Buddy</strong>, a multi-agent code-review platform serving
+                  1,400+ engineers across 2,500+ repositories, saving an estimated 100,000 engineer-hours monthly. I
+                  also built a RAG pipeline cutting inference latency by 75%, and an agentic tool that reasons over
+                  C/C++ modem source to drive 4G/5G NAS protocol tests autonomously.
                </p>
                <p>
-                  Previously, I served as the first President of the Kalipatnapu AR/VR Lab, completed a research
-                  scholarship at TU Braunschweig (Germany) in Mixed Reality sustainability modeling, and interned at AMD
-                  where I optimized massive bus tracing pipelines. From fine-tuning LLMs to debugging low-level network
-                  protocol race conditions, I am passionate about pushing technological boundaries.
+                  Outside of work I built <strong>CabinAI</strong> (7-agent hybrid edge-cloud VLA for automotive driver
+                  monitoring), <strong>MyAI</strong> (privacy-first on-device assistant with zero internet permission),
+                  and <strong>HealthSense</strong> (5.4M-param multimodal Transformer foundation model for wearable
+                  biosignal monitoring) — all presented at the SparQ Qualcomm TechFest 2026, where CabinAI ranked
+                  Top 5.
+               </p>
+               <p>
+                  Earlier I served as Founding President of the Kalipatnapu AR/VR Lab at BITS Pilani, received the
+                  DAAD Scholarship for Mixed Reality research at TU Braunschweig, and interned at AMD and Standard
+                  Chartered. I hold a JEE Advanced All-India Rank of 2358 (top 0.2%).
                </p>
             </section>
 
@@ -853,11 +859,12 @@
                   <!-- CabinAI -->
                   <li class="project-item active" data-filter-item data-category="ai">
                      <div class="media-container">
-                        <video class="project-video" muted>
-                           <source src="./assets/videos/CabinAI_Demo.mp4" type="video/mp4">
-                           Your browser does not support the video tag.
-                        </video>
-                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/CabinAI.png" alt="CabinAI - Hybrid Multi-Agent VLA for Automotive In-Cabin Intelligence" loading="lazy">
+                        </figure>
                         <a href="https://github.com/varunsahni18/CabinAI" class="external-link-btn"
                            target="_blank"><ion-icon name="logo-github"></ion-icon></a>
                         <h3 class="project-title">CabinAI</h3>
