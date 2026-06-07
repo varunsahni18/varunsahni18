@@ -1326,6 +1326,7 @@ main {
    width: 100%;
    height: 100%;
    object-fit: cover;
+   object-position: top center;
    transition: var(--transition-1);
 }
 
@@ -2451,10 +2452,9 @@ textarea.form-input::-webkit-resizer {
 
 .project-video {
    width: 100%;
-   height: 220px;
+   height: 200px;
    border-radius: 16px;
    object-fit: cover;
-   object-position: top center;
    display: block;
 }
 
@@ -2536,21 +2536,6 @@ article.resume span {
 .media-container {
    position: relative;
    width: 100%;
-   height: 220px;
-   border-radius: 16px;
-   overflow: hidden;
-}
-
-.media-container .project-img {
-   height: 220px;
-   margin-bottom: 0;
-}
-
-.media-container .project-img img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   object-position: top center;
 }
 
 .play-btn-overlay {
