@@ -1645,6 +1645,12 @@ textarea.form-input::-webkit-resizer {
    .blog-banner-box {
       height: auto;
    }
+
+   /** * keep fixed height for project cards */
+   .media-container .project-img,
+   .project-video {
+      height: 200px !important;
+   }
 }
 
 /** * responsive larger than 580px screen */
