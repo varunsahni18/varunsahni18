@@ -262,11 +262,14 @@
                            width="40">
                      </div>
                      <div class="service-content-box">
-                        <h4 class="h4 service-item-title">Artificial Intelligence</h4>
+                        <h4 class="h4 service-item-title">Artificial Intelligence &amp; LLM Systems</h4>
                         <p class="service-item-text">
-                           Developed a Code Review Assistant extension for version control systems like Code
-                           Collaborator, Swarm, and GitHub at Qualcomm. The tool leverages the entire code repository as
-                           context to enhance code review efficiency.
+                           At Qualcomm I built Code Buddy, a multi-agent LLM code-review platform serving 1,400+
+                           engineers, and an agentic tool that drives 4G/5G NAS protocol tests by reasoning over live
+                           modem source code. On the side I built three on-device AI systems: CabinAI (7-agent
+                           driver-monitoring VLA for cars), MyAI (privacy-first Android assistant running a quantized
+                           LLM on the Hexagon NPU with zero internet permission), and HealthSense (5.4M-param
+                           multimodal foundation model detecting cardiac and stress conditions from wearable biosignals).
                         </p>
                      </div>
                   </li>
@@ -545,6 +548,44 @@
 
                </ol>
                <!-- Research Internships -->
+               <div class="title-wrapper" style="margin-top: 20px;">
+                  <div class="icon-box">
+                     <ion-icon name="hardware-chip-outline" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">SparQ Qualcomm TechFest 2026</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">CabinAI</h4>
+                     <span style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">Hybrid Multi-Agent VLA for Automotive In-Cabin Intelligence &mdash; <a href="https://github.com/varunsahni18/CabinAI" target="_blank" style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>7-agent hybrid edge-cloud system for real-time driver monitoring: 30 FPS face-mesh DMS and Qwen-7B INT4 on-device, Qwen3-VL-32B on AIC100 cloud.</li>
+                        <li>Built a 15-minute-ahead proactive fatigue forecast at 500 ms by sending a compressed history buffer plus the live cabin frame to a vision model.</li>
+                        <li>Powered local RAG over a 31-document vehicle knowledge base in under 50 ms via BGE-small ONNX with no PyTorch dependency.</li>
+                        <li><strong>Top 5 at SparQ Qualcomm TechFest 2026</strong>, presented to the Qualcomm CTO.</li>
+                     </ul>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">MyAI</h4>
+                     <span style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">Privacy-First Personal On-Device AI Assistant &mdash; <a href="https://github.com/varunsahni18/MyAI" target="_blank" style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>4-tier on-device inference router (trie, cache, tools, INT4 LLM) that resolves most queries without loading the full model.</li>
+                        <li>Runs Qwen2.5-1.5B / Llama-3.2-3B INT4 at ~30 tok/s on Hexagon NPU v79 via the Qualcomm Genie SDK.</li>
+                        <li>Ships with no INTERNET permission (kernel-enforced); a Gradle CI gate breaks any build that tries to add it back.</li>
+                        <li>On-device tool layer (calculator, datetime, calendar, contacts, alarm) invoked via structured JSON tool-calls; 43 passing unit tests.</li>
+                     </ul>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">HealthSense</h4>
+                     <span style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">On-Wearable Multimodal Biosignal Foundation Model &mdash; <a href="https://github.com/varunsahni18/HealthSense" target="_blank" style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>Trained PanLUNA, a 5.4M-param Transformer that fuses EEG, ECG, PPG, EMG and IMU into 4 task heads detecting cardiac arrhythmia, sleep stage, stress and EEG abnormality.</li>
+                        <li>Runs INT8 on Snapdragon Hexagon NPU at ~95 ms / 19 mJ per pass; validated on PhysioNet MIT-BIH AFib data: 96.8% sensitivity, 91.7% specificity.</li>
+                        <li>BioTrain on-device personalisation lifts stress F1 from 0.78 to 0.91 in ~3.6 s under 50 mW; raw biosignals never leave the device.</li>
+                     </ul>
+                  </li>
+               </ol>
+
                <div class="title-wrapper" style="margin-top: 20px;">
                   <div class="icon-box">
                      <ion-icon name="flask" class="experience-icon"></ion-icon>
@@ -860,7 +901,7 @@
                   <!-- CabinAI -->
                   <li class="project-item active" data-filter-item data-category="ai">
                      <div class="media-container">
-                        <video class="project-video" muted poster="./assets/images/CabinAI.png" preload="none">
+                        <video class="project-video" muted poster="./assets/images/poster_cabinai.jpg" preload="none">
                            <source src="./assets/videos/CabinAI_Demo.mp4" type="video/mp4">
                         </video>
                         <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
@@ -889,7 +930,7 @@
                   </li>
 <li class="project-item active" data-filter-item data-category="web development">
                      <div class="media-container">
-                        <video class="project-video" muted preload="none" poster="./assets/images/CliffsideConquest.png">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_cliffside.jpg">
                            <source src="./assets/videos/CliffsideConquest2.mp4" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
@@ -917,7 +958,7 @@
                   
                   <li class="project-item active" data-filter-item data-category="web development">
                      <div class="media-container">
-                        <video class="project-video" muted preload="none" poster="./assets/images/MapMyIndia_logo.png">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_mapmyindia.jpg">
                            <source src="./assets/videos/GeolocationService2.mp4" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
@@ -1030,7 +1071,7 @@
                   </li>
                   <li class="project-item active" data-filter-item data-category="web development">
                      <div class="media-container">
-                        <video class="project-video" poster="./assets/images/art_gallery.png" muted preload="none">
+                        <video class="project-video" poster="./assets/images/poster_artgallery.jpg" muted preload="none">
                            <source src="./assets/videos/artGallery.mp4" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
@@ -1044,7 +1085,7 @@
 
                   <li class="project-item active">
                      <div class="media-container">
-                        <video class="project-video" muted preload="none" poster="./assets/images/Cook.png">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_flora.jpg">
                            <source src="./assets/videos/final_flora_fast.mp4" type="video/mp4">
                            Your browser does not support the video tag.
                         </video>
@@ -1123,7 +1164,7 @@
                   <ul class="custom-project-list">
                      <li class="project-item active" data-filter-item data-category="web development">
                         <div class="media-container">
-                           <video class="project-video" poster="./assets/images/kxr_smithy.png" muted preload="none">
+                           <video class="project-video" poster="./assets/images/poster_smithy.jpg" muted preload="none">
                               <source src="./assets/videos/smithy1.mp4" type="video/mp4">
                               Your browser does not support the video tag.
                            </video>
@@ -1136,7 +1177,7 @@
                      </li>
                      <li class="project-item active" data-filter-item data-category="web development">
                         <div class="media-container">
-                           <video class="project-video" muted preload="none" poster="./assets/images/Object-Tracking.png">
+                           <video class="project-video" muted preload="none" poster="./assets/images/poster_hand.jpg">
                               <source src="./assets/videos/HandTracking.mp4" type="video/mp4">
                               Your browser does not support the video tag.
                            </video>
@@ -1149,7 +1190,7 @@
                      </li>
                      <li class="project-item active" data-filter-item data-category="web development">
                         <div class="media-container">
-                           <video class="project-video" muted preload="none" poster="./assets/images/kxr_1.png">
+                           <video class="project-video" muted preload="none" poster="./assets/images/poster_campus.jpg">
                               <source src="./assets/videos/Campus_Navigation.mp4" type="video/mp4">
                               Your browser does not support the video tag.
                            </video>
@@ -1162,7 +1203,7 @@
                      </li>
                      <li class="project-item active" data-filter-item data-category="web development">
                         <div class="media-container">
-                           <video class="project-video" muted preload="none" poster="./assets/images/kxr_2.png">
+                           <video class="project-video" muted preload="none" poster="./assets/images/poster_measure.jpg">
                               <source src="./assets/videos/MeasureTape.mp4" type="video/mp4">
                               Your browser does not support the video tag.
                            </video>
