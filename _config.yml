@@ -1,0 +1,31 @@
+# Jekyll configuration for varunsahni.in
+title: Varun Sahni
+description: Personal website and blog — LLM Systems, Multi-Agent GenAI, On-Device AI
+baseurl: ""
+url: "https://www.varunsahni.in"
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+highlighter: rouge
+
+# Exclude from build
+exclude:
+  - README.md
+  - .git
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Default front matter
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+  - scope:
+      path: "blog"
+    values:
+      layout: default

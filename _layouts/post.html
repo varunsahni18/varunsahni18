@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Varun Sahni</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="shortcut icon" href="/assets/images/logo3-modified.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.1/dist/css/ionicons.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .post-article {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .post-article h1 {
+      color: var(--white-1);
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .post-article .post-meta {
+      color: var(--light-gray);
+      font-size: 14px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--jet);
+    }
+    .post-article .post-content {
+      color: var(--white-2);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .post-article .post-content h2 {
+      color: var(--white-1);
+      font-size: 22px;
+      margin: 32px 0 12px;
+    }
+    .post-article .post-content h3 {
+      color: var(--white-1);
+      font-size: 18px;
+      margin: 24px 0 10px;
+    }
+    .post-article .post-content p {
+      margin-bottom: 16px;
+    }
+    .post-article .post-content ul, .post-article .post-content ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+    .post-article .post-content li {
+      list-style: disc;
+      margin-bottom: 6px;
+      color: var(--light-gray-70);
+    }
+    .post-article .post-content code {
+      background: var(--onyx);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: var(--modern-blue-light);
+    }
+    .post-article .post-content pre {
+      background: var(--onyx);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    .post-article .post-content pre code {
+      background: none;
+      padding: 0;
+      color: var(--white-2);
+    }
+    .post-article .post-content a {
+      color: var(--modern-blue);
+      text-decoration: none;
+    }
+    .post-article .post-content a:hover {
+      text-decoration: underline;
+    }
+    .post-article .post-content blockquote {
+      border-left: 3px solid var(--modern-blue);
+      padding-left: 16px;
+      margin: 16px 0;
+      color: var(--light-gray);
+      font-style: italic;
+    }
+    .post-article .post-content img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+    .post-article .post-content strong {
+      color: var(--white-1);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--modern-blue);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .back-link:hover {
+      color: var(--modern-blue-light);
+    }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .post-tag {
+      background: var(--onyx);
+      color: var(--modern-blue-light);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--jet);
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkling-background"></div>
+  <main>
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="/assets/images/profile_picture.png" alt="Varun Sahni" width="80" style="border-radius: 20px;">
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Varun Sahni">Varun Sahni</h1>
+          <p class="title">MS CS @ NYU Courant | Software Engineer, Qualcomm</p>
+        </div>
+      </div>
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="home-outline"></ion-icon></div>
+            <div class="contact-info">
+              <a href="/" class="contact-link">← Back to Home</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="document-text-outline"></ion-icon></div>
+            <div class="contact-info">
+              <a href="/blog/" class="contact-link">All Posts</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <div class="main-content">
+      <article class="about active">
+        <a href="/blog/" class="back-link"><ion-icon name="arrow-back-outline"></ion-icon> All Posts</a>
+        <div class="post-article">
+          <h1>{{ page.title }}</h1>
+          <div class="post-meta">
+            <time>{{ page.date | date: "%B %d, %Y" }}</time>
+            {% if page.tags %}
+            <div class="post-tags">
+              {% for tag in page.tags %}
+              <span class="post-tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          <div class="post-content">
+            {{ content }}
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+  <script src="/assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+</body>
+</html>
