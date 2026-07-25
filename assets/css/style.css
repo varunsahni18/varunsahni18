@@ -585,9 +585,12 @@ main {
    background: var(--onyx);
    font-size: var(--fs-8);
    font-weight: var(--fw-300);
-   width: max-content;
    padding: 3px 12px;
    border-radius: 8px;
+   display: inline-block;
+   max-width: 100%;
+   white-space: normal;
+   word-break: break-word;
 }
 
 .info_more-btn {
@@ -2152,6 +2155,10 @@ textarea.form-input::-webkit-resizer {
    }
 
    /** * ABOUT */
+   /* Push content below the absolutely-positioned navbar */
+   article {
+      padding-top: 50px;
+   }
    /* service */
    .service-list {
       grid-template-columns: 1fr 1fr;
@@ -2260,12 +2267,16 @@ textarea.form-input::-webkit-resizer {
    }
 
    .info-content .name {
-      white-space: nowrap;
+      white-space: normal;
       text-align: center;
+      word-break: break-word;
    }
 
    .info-content .title {
       margin: auto;
+      max-width: 100%;
+      white-space: normal;
+      word-break: break-word;
    }
 
    .info_more-btn {
