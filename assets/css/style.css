@@ -2157,7 +2157,10 @@ textarea.form-input::-webkit-resizer {
    /** * ABOUT */
    /* Push content below the absolutely-positioned navbar */
    article {
-      padding-top: 50px;
+      padding-top: 65px;
+   }
+   .about .article-title {
+      margin-top: 5px;
    }
    /* service */
    .service-list {
