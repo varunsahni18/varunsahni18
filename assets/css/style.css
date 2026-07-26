@@ -310,16 +310,14 @@ html {
 }
 
 body {
-   background-image: url('../images/mountain_night.png');
-   background-size: cover;
-   background-position: center;
-   background-attachment: fixed;
-   background-color: var(--smoky-black);
-   /* Fallback */
+   background-color: hsl(230, 30%, 5%);
+   /* Deep navy-black — smooth dark mode background */
+   transition: background-color 0.4s ease;
 }
 
 :root.light-mode body {
-   background-image: url('../images/mountain_sunrise.png');
+   background-color: hsl(210, 20%, 94%);
+   /* Soft blue-gray white — matches card aesthetic, distraction-free switch */
 }
 
 /*-----------------------------------*\ #REUSED STYLE \*-----------------------------------*/
