@@ -310,14 +310,14 @@ html {
 }
 
 body {
-   background-color: hsl(230, 30%, 5%);
-   /* Deep navy-black — smooth dark mode background */
+   background-color: hsl(230, 30%, 2%);
+   /* Near-black with subtle blue undertone — deep dark mode */
    transition: background-color 0.4s ease;
 }
 
 :root.light-mode body {
-   background-color: hsl(210, 20%, 94%);
-   /* Soft blue-gray white — matches card aesthetic, distraction-free switch */
+   background-color: hsl(230, 15%, 10%);
+   /* Dark blue-gray — keeps the dark aesthetic, contrasts with light cards */
 }
 
 /*-----------------------------------*\ #REUSED STYLE \*-----------------------------------*/
