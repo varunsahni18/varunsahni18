@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a90e2"/>
+    </marker>
+    <marker id="arrow-light" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#357abd;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="goBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2b2b2c;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1e1e1f;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="llmBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2744;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0f1a2e;stop-opacity:1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1100" fill="#121212" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#fafafa" font-family="Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="700">OpenCodeReview Architecture: Hybrid Pipeline</text>
+  <text x="450" y="62" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="12">Deterministic Go code (left) + LLM Agent (right)</text>
+
+  <!-- ====== CLI ENTRY ====== -->
+  <rect x="300" y="80" width="300" height="40" rx="8" fill="url(#headerGrad)"/>
+  <text x="450" y="105" text-anchor="middle" fill="#fff" font-family="SF Mono, Menlo, monospace" font-size="14" font-weight="700">ocr review / ocr scan</text>
+
+  <line x1="450" y1="120" x2="450" y2="145" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== BOOTSTRAP ====== -->
+  <rect x="300" y="148" width="300" height="36" rx="6" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="450" y="170" text-anchor="middle" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="12">Bootstrap: LLM config, templates, rules, tools</text>
+
+  <line x1="450" y1="184" x2="450" y2="210" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== DIFF PROVIDER / SCANNER ====== -->
+  <rect x="300" y="213" width="300" height="36" rx="6" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="450" y="235" text-anchor="middle" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="12">Diff Provider / Scanner: git diff, git ls-files</text>
+
+  <line x1="450" y1="249" x2="450" y2="275" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== FILE FILTER (5-gate) ====== -->
+  <rect x="250" y="278" width="400" height="52" rx="6" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="450" y="298" text-anchor="middle" fill="#fafafa" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600">File Filter: 5-Gate Check</text>
+  <text x="450" y="318" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">binary → exclude glob → include glob → extension allowlist → default exclude</text>
+
+  <line x1="450" y1="330" x2="450" y2="355" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== TOKEN GUARD ====== -->
+  <rect x="300" y="358" width="300" height="36" rx="6" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="450" y="380" text-anchor="middle" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="12">Token Guard: skip if &gt;80% of MAX_TOKENS</text>
+
+  <line x1="450" y1="394" x2="450" y2="420" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== PER-FILE DISPATCH ====== -->
+  <rect x="200" y="423" width="500" height="40" rx="8" fill="url(#headerGrad)"/>
+  <text x="450" y="448" text-anchor="middle" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Per-File Dispatch (N=8 concurrent)</text>
+
+  <!-- Branch lines from dispatch to plan -->
+  <line x1="300" y1="463" x2="300" y2="490" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow-light)"/>
+  <line x1="600" y1="463" x2="600" y2="490" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow-light)"/>
+
+  <!-- ====== PLAN_TASK ====== -->
+  <rect x="180" y="493" width="240" height="36" rx="6" fill="url(#llmBox)" stroke="#4a90e2" stroke-width="1" filter="url(#glow)"/>
+  <text x="300" y="515" text-anchor="middle" fill="#4a90e2" font-family="SF Mono, Menlo, monospace" font-size="12" font-weight="600">PLAN_TASK (optional)</text>
+
+  <line x1="300" y1="529" x2="300" y2="555" stroke="#4a90e2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ====== MAIN_TASK LOOP ====== -->
+  <rect x="130" y="558" width="340" height="80" rx="6" fill="url(#llmBox)" stroke="#4a90e2" stroke-width="1.5" filter="url(#glow)"/>
+  <text x="300" y="580" text-anchor="middle" fill="#fafafa" font-family="SF Mono, Menlo, monospace" font-size="13" font-weight="600">MAIN_TASK Tool-Use Loop</text>
+  <text x="300" y="598" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">6 tools: task_done, code_comment, file_read,</text>
+  <text x="300" y="614" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">file_find, file_read_diff, code_search</text>
+  <text x="300" y="630" text-anchor="middle" fill="#4a90e2" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">max 30 rounds (diff) / 60 rounds (scan)</text>
+
+  <!-- Memory compression annotation -->
+  <rect x="480" y="565" width="200" height="66" rx="6" fill="#1a1a1a" stroke="#383838" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="580" y="585" text-anchor="middle" fill="#fafafa" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="600">Memory Compression</text>
+  <text x="580" y="602" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="9">3-zone: frozen | compress | active</text>
+  <text x="580" y="618" text-anchor="middle" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="9">async at 60%, sync at 80%</text>
+
+  <line x1="470" y1="598" x2="480" y2="598" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <line x1="300" y1="638" x2="300" y2="665" stroke="#4a90e2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ====== REVIEW_FILTER_TASK ====== -->
+  <rect x="180" y="668" width="240" height="36" rx="6" fill="url(#llmBox)" stroke="#4a90e2" stroke-width="1"/>
+  <text x="300" y="690" text-anchor="middle" fill="#4a90e2" font-family="SF Mono, Menlo, monospace" font-size="12" font-weight="600">REVIEW_FILTER_TASK</text>
+
+  <line x1="300" y1="704" x2="300" y2="730" stroke="#4a90e2" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ====== LINE RESOLUTION ====== -->
+  <rect x="180" y="733" width="240" height="36" rx="6" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="300" y="755" text-anchor="middle" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="12">Line Resolution + RE_LOCATION</text>
+
+  <!-- Merge lines from both sides -->
+  <line x1="300" y1="769" x2="300" y2="800" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="600" y1="529" x2="600" y2="800" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="300" y1="800" x2="600" y2="800" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="600" y1="800" x2="600" y2="825" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow-light)"/>
+
+  <!-- ====== POST-PROCESSING ====== -->
+  <rect x="200" y="828" width="500" height="52" rx="8" fill="url(#headerGrad)"/>
+  <text x="450" y="850" text-anchor="middle" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Post-Processing</text>
+  <text x="450" y="870" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">DEDUP_TASK (scan) + PROJECT_SUMMARY (scan) + 2nd line resolution + output render</text>
+
+  <line x1="450" y1="880" x2="450" y2="910" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====== OUTPUT ====== -->
+  <rect x="300" y="913" width="300" height="40" rx="8" fill="#1a2744" stroke="#4a90e2" stroke-width="1.5"/>
+  <text x="450" y="938" text-anchor="middle" fill="#4a90e2" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700">Line-Level Review Comments</text>
+
+  <!-- ====== LEGEND ====== -->
+  <rect x="50" y="970" width="800" height="110" rx="8" fill="#1a1a1a" stroke="#383838" stroke-width="1"/>
+  <text x="80" y="995" fill="#fafafa" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600">Legend</text>
+
+  <rect x="80" y="1010" width="16" height="16" rx="3" fill="url(#goBox)" stroke="#383838" stroke-width="1"/>
+  <text x="105" y="1023" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="11">Deterministic Go code (no LLM)</text>
+
+  <rect x="350" y="1010" width="16" height="16" rx="3" fill="url(#llmBox)" stroke="#4a90e2" stroke-width="1"/>
+  <text x="375" y="1023" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="11">LLM Agent stage</text>
+
+  <rect x="560" y="1010" width="16" height="16" rx="3" fill="url(#headerGrad)"/>
+  <text x="585" y="1023" fill="#d6d6d6" font-family="Helvetica Neue, Arial, sans-serif" font-size="11">Orchestration / dispatch</text>
+
+  <text x="80" y="1055" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">Per-file isolation: each file gets its own LLM conversation. No cross-file context sharing. Linear O(n) cost scaling.</text>
+  <text x="80" y="1070" fill="#6b7280" font-family="Helvetica Neue, Arial, sans-serif" font-size="10">MAX_TOKENS: 58,888 | Tool rounds: 30 (diff) / 60 (scan) | Plan skip threshold: &lt;50 changed lines</text>
+</svg>
