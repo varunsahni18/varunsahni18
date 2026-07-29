@@ -8,6 +8,7 @@ url: "https://www.varunsahni.in"
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 highlighter: rouge
+future: true
 
 # Exclude from build
 exclude:
