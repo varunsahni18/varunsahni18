@@ -9,7 +9,10 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+sidebarBtn.addEventListener("click", function () {
+  elementToggleFunc(sidebar);
+  sidebarBtn.setAttribute("aria-expanded", String(sidebar.classList.contains("active")));
+});
 
 const themeToggleInput = document.querySelector(".switch__input");
 const rootElement = document.documentElement;
@@ -27,75 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggleInput.checked = true;
   }
 });
-
-const opacitySlider = document.getElementById("opacitySlider");
-if (opacitySlider) {
-  opacitySlider.addEventListener("input", (e) => {
-    document.documentElement.style.setProperty('--glass-opacity', e.target.value);
-  });
-  // Initialize with default value
-  document.documentElement.style.setProperty('--glass-opacity', opacitySlider.value);
-}
-
-const sparkleContainer = document.querySelector('.sparkling-background');
-
-// Generate Sparkles
-if (sparkleContainer) {
-  for (let i = 0; i < 50; i++) {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-
-    // Randomly position sparkles
-    sparkle.style.top = `${Math.random() * 100}%`;
-    sparkle.style.left = `${Math.random() * 100}%`;
-
-    // Randomize animation duration and delay
-    sparkle.style.animationDuration = `${2 + Math.random() * 3}s`;
-    sparkle.style.animationDelay = `${Math.random() * 2}s`;
-
-    sparkleContainer.appendChild(sparkle);
-  }
-}
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
 
 // custom select variables
 const select = document.querySelector("[data-select]");
@@ -188,7 +122,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "instant" });
       } else {
         pages[i].classList.remove("active");
         navigationLinks[i].classList.remove("active");

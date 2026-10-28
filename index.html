@@ -22,12 +22,13 @@
          - custom css link
          -->
    <link rel="stylesheet" href="./assets/css/style.css">
+   <link rel="stylesheet" href="./assets/css/layout.css">
    <!--
          - google font link
          -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
    <style>
       /* Make bullet points visible in both light and dark mode */
       .white-dot li {
@@ -63,8 +64,7 @@
    </style>
 </head>
 
-<body>
-   <div class="sparkling-background"></div>
+<body class="portfolio-page">
 
    <!--
          - #MAIN
@@ -86,14 +86,14 @@
                <p class="title">MS CS @ NYU Courant | Software Engineer, Qualcomm</p>
             </div>
          </div>
-         <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Settings</span>
+         <button class="info_more-btn" data-sidebar-btn aria-expanded="false" aria-controls="profile-details">
+            <span>Contact &amp; settings</span>
             <ion-icon name="cog-outline"></ion-icon>
          </button>
          <!-- Sidebar Info More -->
 
 
-         <div class="sidebar-info_more">
+         <div class="sidebar-info_more" id="profile-details">
             <div class="separator"></div>
             <ul class="contacts-list">
                <li class="contact-item">
@@ -110,8 +110,8 @@
                      <ion-icon name="logo-linkedin"></ion-icon>
                   </div>
                   <div class="contact-info">
-                     <a href="https://www.linkedin.com/in/varun-sahni-profile/" class="contact-title">LinkedIn</p>
-                        <a href="https://www.linkedin.com/in/varun-sahni-profile/" class="contact-link">View</a>
+                     <p class="contact-title">LinkedIn</p>
+                     <a href="https://www.linkedin.com/in/varun-sahni-profile/" class="contact-link">View</a>
                   </div>
                </li>
                <li class="contact-item">
@@ -130,7 +130,7 @@
                   </div>
                   <div class="contact-info">
                      <p class="contact-title">Location</p>
-                     <address>New York, NY / Hyderabad, India</address>
+                     <address>New York</address>
                   </div>
                </li>
                <li class="contact-item">
@@ -138,7 +138,7 @@
                      <ion-icon name="logo-github"></ion-icon>
                   </div>
                   <div class="contact-info">
-                     <a href="https://github.com/varunsahni18" class="contact-title">Github</p>
+                     <p class="contact-title">Github</p>
                         <a href="https://github.com/varunsahni18" class="contact-link">Collaborate</a>
                   </div>
                </li>
@@ -147,7 +147,7 @@
                      <ion-icon name="code"></ion-icon>
                   </div>
                   <div class="contact-info">
-                     <a href="https://leetcode.com/u/sahnicoder/" class="contact-title">Leetcode</p>
+                     <p class="contact-title">Leetcode</p>
                         <a href="https://leetcode.com/u/sahnicoder/" class="contact-link">Check it out</a>
                   </div>
                </li>
@@ -156,8 +156,7 @@
                      <ion-icon name="ribbon"></ion-icon>
                   </div>
                   <div class="contact-info">
-                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing"
-                        class="contact-title">Certificate</p>
+                     <p class="contact-title">Certificate</p>
                         <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing"
                            class="contact-link">Take a look</a>
                   </div>
@@ -180,17 +179,7 @@
                   </div>
                </div>
 
-               <div class="opacity-control"
-                  style="display: flex; flex-direction: column; gap: 10px; background: var(--onyx); padding: 12px 14px; border-radius: 14px; border: 1px solid var(--jet); width: 100%; box-shadow: var(--shadow-1);">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                     <label for="opacitySlider" style="color: var(--white-1); font-size: 13px; font-weight: 500;">Glass
-                        Opacity</label>
-                     <ion-icon name="color-filter-outline"
-                        style="color: var(--modern-blue); font-size: 16px;"></ion-icon>
-                  </div>
-                  <input type="range" id="opacitySlider" min="0.1" max="0.95" step="0.05" value="0.9"
-                     style="width: 100%; accent-color: var(--modern-blue); cursor: pointer; height: 4px; border-radius: 5px; outline: none; background: rgba(255,255,255,0.1);">
-               </div>
+
             </div>
 
          </div>
@@ -232,7 +221,8 @@
                -->
          <article class="about  active" data-page="about">
             <header>
-               <h2 class="h2 article-title">About me</h2>
+               <p class="page-kicker">About me</p>
+               <h2 class="h2 article-title">Software engineer.<br>AI systems builder.</h2>
             </header>
             <section class="about-text">
                <p>
@@ -240,6 +230,14 @@
                   GenAI. This fall I'm heading to <strong>NYU Courant</strong> for my M.S. in Computer Science,
                   excited to go deeper into machine learning and AI systems.
                </p>
+               <dl class="impact-stats" aria-label="Code Buddy at Qualcomm">
+                  <div><dt>12,000+</dt><dd>Engineers served</dd></div>
+                  <div><dt>2M+</dt><dd>Automated reviews</dd></div>
+                  <div><dt>4,000+</dt><dd>Repositories</dd></div>
+               </dl>
+               <details class="about-story">
+                  <summary>More about my work</summary>
+                  <div class="about-story-content">
                <p>
                   The thing I'm proudest of at Qualcomm is <strong>Code Buddy</strong>, a multi-agent code-review
                   platform I architected that's now used by <strong>12,000+ engineers</strong> across
@@ -262,8 +260,74 @@
                   Before Qualcomm I interned at AMD and Standard Chartered, founded the AR/VR Lab at BITS Pilani,
                   and spent a semester doing mixed reality research at TU Braunschweig on a DAAD Scholarship.
                </p>
+
+                  </div>
+               </details>
             </section>
 
+            <section class="testimonials" aria-labelledby="recommendations-heading">
+               <h3 class="h3 testimonials-title" id="recommendations-heading">Recommendations</h3>
+               <p class="section-description">From the people I’ve built with.</p>
+               <ul class="testimonials-list">
+                  <li class="testimonials-item">
+                     <div class="content-card recommendation-card">
+                        <div class="testimonials-header">
+                           <img src="./assets/images/kiran-janga.jpg" alt="Kiran Janga" width="60" height="60" loading="lazy">
+                           <div class="testimonials-info">
+                              <h4 class="h4 testimonials-item-title"><a href="https://www.linkedin.com/in/bhanukiran/" target="_blank" rel="noopener noreferrer">Kiran Janga</a></h4>
+                              <p class="testimonials-job-title">Director, Engineering · Qualcomm</p>
+                           </div>
+                        </div>
+                        <p class="testimonials-meta"><time datetime="2026-10-24">October 24, 2026</time> · Direct manager</p>
+                        <p class="recommendation-preview">“Varun is an exceptionally talented engineer with a clear vision for the future of AI, and I wish him nothing but the best in his future endeavors.”</p>
+                        <details class="recommendation-details">
+                           <summary>Read full recommendation</summary>
+                           <blockquote class="recommendation-quote">
+                              <p>I had the pleasure of working with Varun Sahni on developing GenAI tooling for software
+                              engineering. Varun demonstrated remarkable foresight in identifying how design patterns
+                              can be used to write scalable app. We took a GenAI-powered code review assistant from a
+                              pilot phase to mass adoption, purposefully designing it with a future-proof architecture
+                              that ensured scalability as usage grew.</p>
+                              <p>Beyond his core contributions, Varun’s relentless drive for innovation was evident in his
+                              development of an AI-powered presentation builder and a sophisticated on-device assistant
+                              prototype. His ability to turn ambitious concepts into functional, high-impact products,
+                              often under the pressure of hackathons and competitive demo selections, truly sets him
+                              apart. Varun is an exceptionally talented engineer with a clear vision for the future of
+                              AI, and I wish him nothing but the best in his future endeavors.</p>
+                           </blockquote>
+                           <a class="recommendation-source" href="https://www.linkedin.com/in/bhanukiran/" target="_blank" rel="noopener noreferrer">View LinkedIn profile ↗</a>
+                        </details>
+                     </div>
+                  </li>
+                  <li class="testimonials-item">
+                     <div class="content-card recommendation-card">
+                        <div class="testimonials-header">
+                           <img src="./assets/images/subhashKunnoth_amd.jpeg" alt="Subhash Kunnoth" width="60" height="60" loading="lazy">
+                           <div class="testimonials-info">
+                              <h4 class="h4 testimonials-item-title"><a href="https://www.linkedin.com/in/subhashkunnoth/" target="_blank" rel="noopener noreferrer">Subhash Kunnoth</a></h4>
+                              <p class="testimonials-job-title">Senior Manager · AMD</p>
+                           </div>
+                        </div>
+                        <p class="testimonials-meta">LinkedIn recommendation</p>
+                        <p class="recommendation-preview">“Varun consistently showcased excellent programming skills and a good knack for problem-solving.”</p>
+                        <details class="recommendation-details">
+                           <summary>Read full recommendation</summary>
+                           <blockquote class="recommendation-quote">
+                              <p>During Varun's internship at AMD, I had the pleasure of working with him closely.
+                              Throughout his 6 months time here, Varun consistently showcased excellent programming
+                              skills and a good knack for problem-solving. He automated intricate workflows, bringing in
+                              efficiency improvements in processes. He employed multithreaded scripting and effective
+                              load balancing to solve some the challenges. Varun's innovative solutions underscored his
+                              robust technical proficiency and capacity to deliver superior outcomes. Varun is a
+                              dedicated and skilled professional, and I confidently endorse him for roles demanding
+                              advanced programming expertise and creative problem-solving abilities.</p>
+                           </blockquote>
+                           <a class="recommendation-source" href="https://www.linkedin.com/in/subhashkunnoth/" target="_blank" rel="noopener noreferrer">View LinkedIn profile ↗</a>
+                        </details>
+                     </div>
+                  </li>
+               </ul>
+            </section>
             <section class="service">
                <h3 class="h3 service-title">My Interests</h3>
                <ul class="service-list">
@@ -359,39 +423,6 @@
             <!--
                   - testimonials
                   -->
-            <section class="testimonials">
-               <h3 class="h3 testimonials-title">Recommendations</h3>
-               <ul class="testimonials-list has-scrollbar">
-                  <li class="testimonials-item">
-                     <div class="content-card" data-testimonials-item="">
-                        <div class="testimonials-header">
-                           <img src="./assets/images/subhashKunnoth_amd.jpeg" alt="Subhash Kunnoth" width="70"
-                              data-testimonials-avatar="">
-                           <div class="testimonials-info">
-                              <h4 class="h4 testimonials-item-title" data-testimonials-title="">Subhash Kunnoth</h4>
-                              <p class="testimonials-job-title">Senior Manager, AMD</p>
-                           </div>
-                        </div>
-                        <div class="testimonials-text" data-testimonials-text="">
-                           <p>
-                              During Varun's internship at AMD, I had the pleasure of working with him closely.
-                              Throughout his 6 months time here, Varun consistently showcased excellent programming
-                              skills and a good knack for problem-solving. He automated intricate workflows, bringing in
-                              efficiency improvements in processes. He employed multithreaded scripting and effective
-                              load balancing to solve some the challenges. Varun's innovative solutions underscored his
-                              robust technical proficiency and capacity to deliver superior outcomes. Varun is a
-                              dedicated and skilled professional, and I confidently endorse him for roles demanding
-                              advanced programming expertise and creative problem-solving abilities.
-                           </p>
-                           <br>
-                           <a href="https://www.linkedin.com/in/subhashkunnoth/" class="custom-link"
-                              style="color: var(--modern-blue); text-decoration: none;">View their profile</a>
-                        </div>
-                     </div>
-                  </li>
-               </ul>
-            </section>
-            <!-- Moved testimonials modal to the end of main content for fixed positioning -->
             <!--
                   - clients
                   -->
@@ -1721,7 +1752,7 @@
                   <div class="gmap_canvas">
                      <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="yes" marginheight="0"
                         marginwidth="0"
-                        src="https://maps.google.com/maps?width=1128&amp;height=424&amp;hl=en&amp;q=Hyderabad&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        src="https://maps.google.com/maps?width=1128&amp;height=424&amp;hl=en&amp;q=New%20York&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
 
                   </div>
                   <style>
@@ -1811,31 +1842,6 @@
       </div>
 
    </main>
-   <!--
-         - testimonials modal
-         -->
-   <div class="modal-container" data-modal-container style="z-index: 100;">
-      <div class="overlay" data-overlay></div>
-      <section class="testimonials-modal">
-         <button class="modal-close-btn" data-modal-close-btn>
-            <ion-icon name="close-outline"></ion-icon>
-         </button>
-         <div class="modal-img-wrapper">
-            <figure class="modal-avatar-box">
-               <img src="./assets/images/logo3-modified.png" alt="Varun Sahni" width="80" data-modal-img>
-            </figure>
-            <img src="./assets/images/icon-quote.svg" alt="quote icon">
-         </div>
-         <div class="modal-content">
-            <h4 class="h3 modal-title" data-modal-title>Varun Sahni</h4>
-            <div data-modal-text>
-               <p>
-                  Varun is a great guy to work with.
-               </p>
-            </div>
-         </div>
-      </section>
-   </div>
    <!--
          - custom js link
          -->
