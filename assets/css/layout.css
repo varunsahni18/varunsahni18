@@ -118,7 +118,8 @@ body.portfolio-page {
 .portfolio-page .about-text p { margin-bottom: 18px; }
 .portfolio-page .about-text strong { color: var(--white-1); font-weight: 600; }
 .portfolio-page .about .article-title { text-transform: none; }
-.portfolio-page .impact-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 28px 0 22px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.portfolio-page .impact-context { color: var(--light-gray-70); font-size: 11px; margin: 26px 0 12px; }
+.portfolio-page .impact-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 0 22px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .portfolio-page .impact-stats dt { color: var(--white-1); font-size: clamp(22px, 2.3vw, 30px); font-weight: 600; line-height: 1.4; letter-spacing: -.04em; }
 .portfolio-page .impact-stats dd { color: var(--light-gray-70); font-size: 11px; margin-top: 5px; line-height: 1.6; }
 .portfolio-page .about-story summary { width: fit-content; color: var(--modern-blue); cursor: pointer; font-size: 12px; }
