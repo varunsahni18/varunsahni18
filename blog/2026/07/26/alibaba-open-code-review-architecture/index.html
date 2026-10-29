@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>How Alibaba's OpenCodeReview Achieves 9x Token Savings: A Deep Dive into the Hybrid Architecture | Varun Sahni</title><meta content='When Alibaba open-sourced their internal code review tool last month, the numbers caught my attention. 12,000+ stars in weeks. Claims of "higher precision and F1 than gen' name="description"/><meta content="#080d11" name="theme-color"/><link href="/design/dark-mark.svg" rel="icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="/design/shared.css?v=20261029" rel="stylesheet"/><link href="/design/art.css?v=20261029" rel="stylesheet"/><link href="/design/dark.css?v=20261029" rel="stylesheet"/><script defer="" src="/design/studio.js?v=20261029"></script><script defer="" src="/design/concepts.js?v=20261029"></script><link href="https://www.varunsahni.in/blog/2026/07/26/alibaba-open-code-review-architecture/" rel="canonical"/><meta content="How Alibaba's OpenCodeReview Achieves 9x Token Savings: A Deep Dive into the Hybrid Architecture | Varun Sahni" property="og:title"/><meta content='When Alibaba open-sourced their internal code review tool last month, the numbers caught my attention. 12,000+ stars in weeks. Claims of "higher precision and F1 than gen' property="og:description"/><meta content="article" property="og:type"/><meta content="https://www.varunsahni.in/blog/2026/07/26/alibaba-open-code-review-architecture/" property="og:url"/><meta content="https://www.varunsahni.in/assets/images/varun-linkedin.png" property="og:image"/><meta content="Varun Sahni" property="og:image:alt"/><meta content="Varun Sahni" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="2026-10-29.1" name="site-release"/></head><body data-concept="dark" data-search-index="/design/search.json"><a class="skip" href="#main">Skip to content</a><header class="mobile-bar"><a class="concept-logo" href="/"><svg aria-hidden="true" class="vs-mark" viewbox="0 0 48 40"><path d="M3 7 14 33 25 7M43 9H33a6 6 0 0 0 0 12h3a6 6 0 0 1 0 12H24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3"></path></svg><span class="brand-name">Varun Sahni</span></a><button aria-controls="rail" aria-expanded="false" class="menu-button">Menu <svg aria-hidden="true" class="icon"><use href="/design/icons.svg#menu"></use></svg></button></header><header class="rail" id="rail"><div class="rail-brand"><a class="concept-logo" href="/"><svg aria-hidden="true" class="vs-mark" viewbox="0 0 48 40"><path d="M3 7 14 33 25 7M43 9H33a6 6 0 0 0 0 12h3a6 6 0 0 1 0 12H24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3"></path></svg><span class="brand-name">Varun Sahni</span></a></div><nav aria-label="Main navigation"><a class="nav-item" href="/">Home</a><a class="nav-item" href="/work/">Work</a><a class="nav-item" href="/journey/">Journey</a><a aria-current="page" class="nav-item is-current" href="/writing/">Writing</a><a class="nav-item" href="/beyond/">Beyond</a><a class="nav-item" href="/credentials/">Credentials</a><a class="nav-item" href="/contact/">Contact</a></nav><div class="header-tools"><button aria-label="Search the website" class="search-open"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#search"></use></svg></button><a class="resume-link" href="/assets/documents/Varun_Sahni_resume.pdf" rel="noopener noreferrer" target="_blank">Résumé <svg aria-hidden="true" class="icon"><use href="/design/icons.svg#arrow-up"></use></svg></a></div></header><div class="site-canvas"><main id="main"><header class="article-head page-pad"><a class="back-link" href="/writing/">← ALL WRITING</a><p class="overline">2026-07-26 / 9 MIN READ</p><h1>How Alibaba's OpenCodeReview Achieves 9x Token Savings: A Deep Dive into the Hybrid Architecture</h1><div class="article-byline"><img alt="Varun Sahni" decoding="async" loading="lazy" src="/assets/images/varun-linkedin.png"/><p>VARUN SAHNI<br/><span>NYU Courant · Previously Qualcomm</span></p></div></header><section class="article-body page-pad"><aside class="article-toc"><p class="overline">ON THIS PAGE</p><a class="" href="#the-problem-why-general-purpose-agents-fail-at-code-review">The Problem: Why General-Purpose Agents Fail at Code Review</a><a class="" href="#the-core-insight-per-file-isolation">The Core Insight: Per-File Isolation</a><a class="" href="#the-three-zone-memory-compressor">The Three-Zone Memory Compressor</a><a class="" href="#the-six-layer-false-positive-defense">The Six-Layer False Positive Defense</a><a class="" href="#where-the-llm-wins-and-where-it-does-not">Where the LLM Wins and Where It Does Not</a><a class="" href="#the-12-cost-optimizations-ranked-by-impact">The 12 Cost Optimizations, Ranked by Impact</a><a class="" href="#what-is-missing-no-fix-verification">What Is Missing: No Fix Verification</a><a class="" href="#should-you-use-it">Should You Use It?</a></aside><article class="prose"><p>When Alibaba open-sourced their internal code review tool last month, the numbers caught my attention. 12,000+ stars in weeks. Claims of "higher precision and F1 than general-purpose agents" at "~1/9 the token cost." Battle-tested across tens of thousands of developers.</p>
+<p>Most open source releases with claims like these fall apart when you read the source code. The architecture turns out to be a thin wrapper around an LLM API with some regex sprinkled on top. So I cloned the repo and spent a weekend tracing through ~182 Go files to understand what they actually built.</p>
+<p>The short answer: they built something genuinely interesting. The long answer is the rest of this post.</p>
+<h2 id="the-problem-why-general-purpose-agents-fail-at-code-review">The Problem: Why General-Purpose Agents Fail at Code Review</h2>
+<p>If you point Claude Code or Codex at a pull request and ask it to review the code, three things go wrong.</p>
+<p>First, <strong>token costs explode with file count</strong>. A PR touching 20 files needs context from all 20 files for the agent to reason about them. That is O(n²) context growth. A 20-file PR at 2,000 tokens per file is 40,000 tokens just for the code, before any tool calls or conversation history. At Anthropic's pricing, that adds up fast.</p>
+<p>Second, <strong>agents hallucinate line numbers</strong>. LLMs are bad at counting. Ask one to point to "line 47 of auth.go" and it will confidently tell you the bug is on line 47 when the actual code is on line 52. The diff format makes this worse: the line numbers in a unified diff are the old file's line numbers, not the new file's. Even humans get confused by this.</p>
+<p>Third, <strong>false positives erode trust</strong>. A general-purpose agent flags 20 issues. 15 are real, 5 are noise. After the third false positive, the developer stops reading. The tool becomes background noise.</p>
+<p>Alibaba's team faced all three problems at scale. Their solution was a hybrid architecture: deterministic Go code for everything an LLM gets wrong, and an LLM agent for everything deterministic code cannot do.</p>
+<h2 id="the-core-insight-per-file-isolation">The Core Insight: Per-File Isolation</h2>
+<p>The single most important architectural decision in OpenCodeReview is that <strong>each file gets its own LLM conversation with zero shared state</strong>.</p>
+<pre><code>PR with 20 changed files
+  → 20 independent LLM conversations
+  → Each conversation sees: system prompt + that file's diff + list of other changed files
+  → No cross-file context sharing
+</code></pre>
+<p>This is the decision that makes the ~1/9 token cost possible. Linear cost scaling instead of quadratic. The tradeoff is real: the agent cannot catch bugs that span multiple files. A function call in <code>auth.go</code> that passes arguments in the wrong order to a function defined in <code>db.go</code> will slip through. The agent reviewing <code>auth.go</code> sees the call site but has no visibility into the function signature.</p>
+<p>The architecture document is honest about this: "No cross-file reasoning. Every file is reviewed in its own LLM conversation."</p>
+<p>For Alibaba's scale, the tradeoff was worth it. Most bugs in large codebases are local to individual files. The 9x cost reduction from isolation outweighs the missed cross-file issues. But it is a real limitation, and one you should understand before adopting the tool.</p>
+<h2 id="the-three-zone-memory-compressor">The Three-Zone Memory Compressor</h2>
+<p>Per-file isolation solves the cross-file cost problem. But what about long conversations within a single file? A complex file might need 15 rounds of tool calls. Each round adds a user message, an assistant message, and tool results. The context window fills up.</p>
+<p>OpenCodeReview's answer is a three-zone memory compression system in <code>internal/llmloop/compression.go</code>:</p>
+<pre><code>messages = [frozen(2)] + [compress zone] + [active zone (K most recent rounds)]
+</code></pre>
+<p><strong>Frozen zone</strong>: The first 2 messages. These are the system prompt (instructions, rules, tool definitions) and the initial user message (the diff being reviewed). These never get compressed. They contain the core context the agent needs to do its job.</p>
+<p><strong>Compress zone</strong>: Older conversation rounds. When triggered, the LLM summarizes these into <code>&lt;previous_review_summary&gt;</code> tags that get appended to the user message. The original messages are dropped. The agent still knows what it found earlier, just not the exact back-and-forth.</p>
+<p><strong>Active zone</strong>: The K most recent complete rounds that fit within <code>(0.80 × MAX_TOKENS) - reservedTokens</code>. A "round" is one assistant message plus its tool result messages. These stay in full.</p>
+<p>The compression has two triggers:</p>
+<ul>
+<li><strong>60% of MAX_TOKENS (58,888)</strong>: Kicks off async background compression. The main loop keeps running. The compression result gets swapped in when ready.</li>
+<li><strong>80%</strong>: Runs compression synchronously. The loop pauses until it finishes. This is the emergency brake.</li>
+</ul>
+<p>The practical effect: a single file review can theoretically run forever, bounded only by the LLM's ability to summarize its own work. In practice, the tool-call budget (30 rounds for diff mode, 60 for scan mode) provides a hard cap.</p>
+<h2 id="the-six-layer-false-positive-defense">The Six-Layer False Positive Defense</h2>
+<p>This is where the "higher precision than general-purpose agents" claim lives. OpenCodeReview has six distinct layers that filter out bad findings before they reach the developer.</p>
+<h3 id="layer-1-review_filter_task">Layer 1: REVIEW_FILTER_TASK</h3>
+<p>After the main review loop finishes for a file, all collected comments are sent back to the LLM with the original diff. The prompt asks: "Which of these comments are provably incorrect based solely on the diff?" The LLM returns a JSON array of comment IDs to remove.</p>
+<p>This is an LLM critiquing its own work. It catches things like: the agent flagged a "missing null check" on a variable that was already null-checked three lines above (visible in the diff context), or suggested a fix that would break the build because it misunderstood the type system.</p>
+<p>The filter is best-effort. Errors are logged and silently ignored. If the filter crashes, all comments pass through unfiltered rather than losing real findings.</p>
+<h3 id="layer-2-line-number-resolution-two-pass">Layer 2: Line Number Resolution (Two-Pass)</h3>
+<p>The LLM calls <code>code_comment</code> with <code>existing_code</code>, a string snippet of the problematic code. The deterministic resolver in <code>internal/diff/resolver.go</code> does a sliding-window consecutive match of normalized lines against the diff hunks.</p>
+<p>It tries the new side first (context + added lines with absolute line numbers), then the old side (context + deleted lines), then falls back to scanning the full new file content. Normalization strips leading <code>+</code>/<code>-</code>, trims whitespace, and skips blank lines.</p>
+<p>A second pass runs over all comments after the agent loop finishes, catching any comments that were missed or re-located.</p>
+<h3 id="layer-3-re_location_task">Layer 3: RE_LOCATION_TASK</h3>
+<p>When text-based matching fails, the system asks the LLM to regenerate a more precise <code>existing_code</code> snippet from the diff. It retries the line resolution with the new snippet. If it still fails, <code>start_line</code> stays 0, marking the comment as unanchored.</p>
+<h3 id="layer-4-path-override">Layer 4: Path Override</h3>
+<p>The model sometimes hallucinates a file path. The tool execution layer in <code>internal/llmloop/loop.go</code> always overrides the path with the current file being reviewed. The agent cannot accidentally comment on the wrong file.</p>
+<h3 id="layer-5-dedup_task-scan-mode">Layer 5: DEDUP_TASK (Scan Mode)</h3>
+<p>In scan mode, where the same pattern might appear across multiple files, a dedup pass groups near-duplicate comments. The implementation has safety guarantees: every input ID must appear exactly once in the output groups. Unknown IDs, duplicate assignments, or missing IDs cause the entire dedup result to be rejected and the originals kept.</p>
+<h3 id="layer-6-tool-call-discipline">Layer 6: Tool-Call Discipline</h3>
+<p>The system prompt instructs the model to limit context-gathering to 2-3 tool calls per finding, batch multiple comments in a single <code>code_comment</code> call, and call <code>task_done</code> immediately when finished. This is not a technical filter, but it reduces the noise that comes from an agent over-investigating and generating speculative findings.</p>
+<h2 id="where-the-llm-wins-and-where-it-does-not">Where the LLM Wins and Where It Does Not</h2>
+<p>The "hybrid" in "hybrid architecture" is not marketing. There is a clean split between what runs in Go and what runs through the LLM.</p>
+<p><strong>Deterministic (Go code, no LLM):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>File</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diff parsing</td>
+<td><code>internal/diff/parser.go</code></td>
+<td>Regex-based unified diff to structured objects</td>
+</tr>
+<tr>
+<td>File filtering</td>
+<td><code>internal/agent/preview.go</code></td>
+<td>5-gate check: binary, exclude, include, extension, default path</td>
+</tr>
+<tr>
+<td>Rule resolution</td>
+<td><code>internal/config/rules/system_rules.go</code></td>
+<td>4-layer priority: custom, project, global, system</td>
+</tr>
+<tr>
+<td>Line number matching</td>
+<td><code>internal/diff/resolver.go</code></td>
+<td>Sliding-window match against diff hunks</td>
+</tr>
+<tr>
+<td>Token counting</td>
+<td><code>internal/llm/client.go</code></td>
+<td>Embedded tiktoken BPE data, no network calls</td>
+</tr>
+<tr>
+<td>Path override</td>
+<td><code>internal/llmloop/loop.go</code></td>
+<td>Prevents hallucinated file paths</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LLM-driven:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>When</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PLAN_TASK</td>
+<td>Per file, skipped if &lt; 50 changed lines</td>
+<td>None (read-only tool list as text)</td>
+</tr>
+<tr>
+<td>MAIN_TASK</td>
+<td>Per file, tool-use loop</td>
+<td>6 tools: task_done, code_comment, file_read, file_find, file_read_diff, code_search</td>
+</tr>
+<tr>
+<td>REVIEW_FILTER_TASK</td>
+<td>After main loop per file</td>
+<td>None</td>
+</tr>
+<tr>
+<td>RE_LOCATION_TASK</td>
+<td>When line resolution fails</td>
+<td>None</td>
+</tr>
+<tr>
+<td>DEDUP_TASK</td>
+<td>Per batch after all files (scan only)</td>
+<td>None</td>
+</tr>
+<tr>
+<td>PROJECT_SUMMARY_TASK</td>
+<td>After all batches (scan only)</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is consistent: anything involving counting, matching, filtering, or path resolution runs in Go. Anything involving semantic understanding runs through the LLM. The Go code handles what LLMs are bad at. The LLM handles what Go code cannot do.</p>
+<p><img alt="OpenCodeReview Architecture: Hybrid Pipeline" src="/assets/images/blog/open-code-review-architecture.svg"/></p>
+<h2 id="the-12-cost-optimizations-ranked-by-impact">The 12 Cost Optimizations, Ranked by Impact</h2>
+<p>The ~1/9 token cost claim is not from one technique. It is the compound effect of twelve optimizations. Here they are, roughly in order of impact:</p>
+<ol>
+<li>
+<p><strong>Per-file isolation</strong>: Linear O(n) cost scaling instead of O(n²). This is the biggest single factor.</p>
+</li>
+<li>
+<p><strong>Three-zone memory compression</strong>: Older conversation rounds summarized instead of sent in full. Keeps per-file conversations bounded.</p>
+</li>
+<li>
+<p><strong>Anthropic prompt caching</strong>: System prompt and tool definitions cached server-side via <code>CacheControl</code> ephemeral parameters. These are the largest static parts of every request.</p>
+</li>
+<li>
+<p><strong>OpenAI Responses API prompt caching</strong>: Per-file UUID session IDs enable cache bucket sharing across turns within one file's agent loop.</p>
+</li>
+<li>
+<p><strong>Plan phase skip</strong>: Files with fewer than 50 changed lines skip PLAN_TASK entirely. One fewer LLM call per small file.</p>
+</li>
+<li>
+<p><strong>Pre-flight token guards</strong>: Files exceeding 80% of MAX_TOKENS are skipped before any LLM call. No wasted API requests on files that would overflow the context window anyway.</p>
+</li>
+<li>
+<p><strong>Batch strategy (scan mode)</strong>: <code>by-language</code> grouping keeps same-language files adjacent in time, improving prompt-cache hit rates.</p>
+</li>
+<li>
+<p><strong>Pre-run cost estimation</strong>: <code>internal/scan/estimate.go</code> projects token usage before scan starts. Warns if estimate exceeds budget.</p>
+</li>
+<li>
+<p><strong>Embedded BPE tokenizer</strong>: tiktoken BPE data embedded in the binary. No network calls for token counting.</p>
+</li>
+<li>
+<p><strong>Tool-call budget</strong>: Hard cap at 30 rounds (diff) or 60 rounds (scan) per file. <code>code_search</code> capped at 100 results with 10-second timeout.</p>
+</li>
+<li>
+<p><strong>Dedup reduces downstream cost</strong>: DEDUP_TASK reduces comment count, which reduces PROJECT_SUMMARY_TASK input size.</p>
+</li>
+<li>
+<p><strong>Compact comment rendering</strong>: Summary comments truncated to ~280 characters.</p>
+</li>
+</ol>
+<h2 id="what-is-missing-no-fix-verification">What Is Missing: No Fix Verification</h2>
+<p>This is the most honest part of the architecture. OpenCodeReview does not run tests, static analysis, or compilation to verify proposed fixes. The only verification is the LLM self-critique via REVIEW_FILTER_TASK.</p>
+<p>The architecture document states: "Sub-agent failures are isolated, not retried. Retries belong in the wrapping CI pipeline, not the agent."</p>
+<p>This means the tool can suggest a fix that does not compile. It can suggest a fix that passes the type checker but breaks the test suite. It can suggest a fix that looks correct in isolation but introduces a regression in another module.</p>
+<p>Whether this matters depends on your workflow. If you use OpenCodeReview as a first-pass filter before human review, the lack of fix verification is acceptable. The human reviewer catches bad suggestions. If you want fully automated review with verified fixes, this tool is not there yet.</p>
+<h2 id="should-you-use-it">Should You Use It?</h2>
+<p>OpenCodeReview is not a general-purpose agent. It is a specialized tool that makes specific tradeoffs:</p>
+<ul>
+<li><strong>Per-file isolation</strong> means 9x cheaper reviews but no cross-file bug detection</li>
+<li><strong>LLM self-critique</strong> means fewer false positives but no execution-based fix verification</li>
+<li><strong>Extension-based language support</strong> means 71+ file types work out of the box but there are no language-specific AST analyzers</li>
+<li><strong>Go CLI with VS Code extension</strong> means it fits into existing workflows but requires some setup</li>
+</ul>
+<p>If your PRs are large, your team is cost-sensitive, and you are okay with a tool that catches local bugs and leaves cross-file reasoning to humans, OpenCodeReview is worth trying. The architecture is well thought out, the code is clean, and the tradeoffs are documented honestly.</p>
+<p>If you need cross-file analysis, verified fixes, or deep language-specific checks, you will need something else. Or you will need to run OpenCodeReview alongside a traditional static analysis tool and treat it as one layer in a defense-in-depth strategy.</p></article></section></main><footer class="signal-footer"><p>CONTACT</p><h2><a class="" href="/contact/">Say hello.<svg aria-hidden="true" class="icon"><use href="/design/icons.svg#arrow-up"></use></svg></a></h2><div><a class="" href="mailto:sahnicoder@gmail.com">sahnicoder@gmail.com</a><a class="" href="https://github.com/varunsahni18" rel="noopener noreferrer" target="_blank">GitHub ↗</a><a class="" href="https://www.linkedin.com/in/varun-sahni-profile/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a><span>NEW YORK · © 2026</span></div></footer></div><dialog aria-labelledby="search-title" class="search-dialog"><div class="dialog-top"><h2 id="search-title">Find something</h2><button aria-label="Close search" class="search-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button></div><input aria-label="Search projects and pages" autocomplete="off" id="site-search" placeholder="Projects, articles, experience…" type="search"/><div aria-live="polite" class="search-results"></div><p class="search-help">TAB TO EXPLORE · ENTER TO OPEN · ESC TO CLOSE</p></dialog><dialog aria-label="Image viewer" class="media-dialog"><button aria-label="Close image" class="media-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button><div class="media-content"></div></dialog><dialog aria-labelledby="demo-title" class="demo-dialog"><div class="dialog-top"><h2 id="demo-title">Project demo</h2><button aria-label="Close demo" class="demo-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button></div><p aria-live="polite" class="demo-status" role="status"></p><video controls="" playsinline="" preload="none"></video><div class="demo-links"><a class="demo-project-link" href="/work/">Open project</a><a class="demo-file-link" href="/work/" rel="noopener" target="_blank">Open video</a></div></dialog></body></html>

@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Varun Sahni</title>
+   <meta name="description" content="Varun Sahni — M.S. Computer Science student at NYU Courant. Former Software Engineer at Qualcomm. LLM Systems, Multi-Agent GenAI, On-Device AI.">
+   <!-- DNS prefetch for faster third-party resolution -->
+   <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+   <link rel="dns-prefetch" href="//fonts.gstatic.com">
+   <link rel="dns-prefetch" href="//unpkg.com">
+   <!--
+         - favicon
+         -->
+   <link rel="shortcut icon" href="./assets/images/logo3-modified.png" type="image/x-icon">
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.5.1/dist/css/ionicons.min.css">
+   <!--
+         - custom css link
+         -->
+   <link rel="stylesheet" href="./assets/css/style.css">
+   <link rel="stylesheet" href="./assets/css/layout.css">
+   <!--
+         - google font link
+         -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <style>
+      /* Make bullet points visible in both light and dark mode */
+      .white-dot li {
+         position: relative;
+         padding-left: 20px;
+         margin-bottom: 8px;
+      }
+
+      .white-dot li::before {
+         content: "•";
+         position: absolute;
+         left: 0;
+         color: var(--white-2);
+         /* Use the base text color for visibility in both modes */
+         font-size: 12px;
+         font-weight: bold;
+      }
+
+      /* Override any other rules that might change the bullet color in light mode */
+      :root.light-mode .white-dot li::before {
+         color: var(--white-2) !important;
+         /* Force base text color in light mode */
+      }
+
+      /* Increase font size for subheadings in Qualcomm section */
+      .timeline-item h5.h5 {
+         font-size: 1.1em;
+         margin-top: 15px;
+         margin-bottom: 10px;
+         color: var(--white-2);
+         font-weight: 600;
+      }
+   </style>
+</head>
+
+<body class="portfolio-page">
+
+   <!--
+         - #MAIN
+         -->
+   <main>
+
+      <!--
+            - #SIDEBAR
+            -->
+      <aside class="sidebar" data-sidebar>
+         <div class="sidebar-info">
+            <figure class="avatar-box">
+               <img src="./assets/images/profile_picture.png" alt="Varun Sahni" width="80" style="
+                  border-radius: 20px;
+              ">
+            </figure>
+            <div class="info-content">
+               <h1 class="name" title="Varun Sahni">Varun Sahni</h1>
+               <p class="title">MS CS @ NYU Courant | Former Software Engineer, Qualcomm</p>
+            </div>
+         </div>
+         <button class="info_more-btn" data-sidebar-btn aria-expanded="false" aria-controls="profile-details">
+            <span>Contact &amp; settings</span>
+            <ion-icon name="cog-outline"></ion-icon>
+         </button>
+         <!-- Sidebar Info More -->
+
+
+         <div class="sidebar-info_more" id="profile-details">
+            <div class="separator"></div>
+            <ul class="contacts-list">
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="mail-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Email</p>
+                     <a href="mailto:sahnicoder@gmail.com" class="contact-link">sahnicoder@gmail.com</a>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="logo-linkedin"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">LinkedIn</p>
+                     <a href="https://www.linkedin.com/in/varun-sahni-profile/" class="contact-link">View</a>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="document-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Resume</p>
+                     <a href="./assets/documents/Varun_Sahni_resume.pdf?v=2026-v3" class="contact-link" target="_blank">View /
+                        Download</a>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="location-outline"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Location</p>
+                     <address>New York</address>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="logo-github"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Github</p>
+                        <a href="https://github.com/varunsahni18" class="contact-link">Collaborate</a>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="code"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Leetcode</p>
+                        <a href="https://leetcode.com/u/sahnicoder/" class="contact-link">Check it out</a>
+                  </div>
+               </li>
+               <li class="contact-item">
+                  <div class="icon-box">
+                     <ion-icon name="ribbon"></ion-icon>
+                  </div>
+                  <div class="contact-info">
+                     <p class="contact-title">Certificate</p>
+                        <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing"
+                           class="contact-link">Take a look</a>
+                  </div>
+               </li>
+            </ul>
+            <div class="separator"></div>
+
+            <div class="switch-container"
+               style="display: flex; flex-direction: column; gap: 15px; width: 100%; margin-top: 20px;">
+               <div class="theme-control"
+                  style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: var(--onyx); padding: 10px 14px; border-radius: 14px; border: 1px solid var(--jet); box-shadow: var(--shadow-1);">
+                  <label style="color: var(--white-1); font-size: 13px; font-weight: 500;">Theme Mode</label>
+                  <div class="switch" style="margin: 0;">
+                     <input type="checkbox" class="switch__input" id="Switch">
+                     <label class="switch__label" for="Switch" style="margin: 0;">
+                        <ion-icon name="moon" class="icon-moon"></ion-icon>
+                        <ion-icon name="sunny" class="icon-sun"></ion-icon>
+                        <span class="switch__indicator"></span>
+                     </label>
+                  </div>
+               </div>
+
+
+            </div>
+
+         </div>
+      </aside>
+      <!--
+            - #main-content
+            -->
+      <div class="main-content">
+         <!--
+               - #NAVBAR
+               -->
+         <nav class="navbar">
+            <ul class="navbar-list">
+               <li class="navbar-item">
+                  <button class="navbar-link  active" data-nav-link>About</button>
+               </li>
+               <li class="navbar-item">
+                  <button class="navbar-link" data-nav-link>Resume</button>
+               </li>
+               <li class="navbar-item">
+                  <button class="navbar-link" data-nav-link>Projects</button>
+               </li>
+               <li class="navbar-item">
+                  <button class="navbar-link" data-nav-link>Certifications</button>
+               </li>
+               <li class="navbar-item">
+                  <button class="navbar-link" data-nav-link>Extra</button>
+               </li>
+               <li class="navbar-item">
+                  <button class="navbar-link" data-nav-link>Contact</button>
+               </li>
+               <li class="navbar-item">
+                  <a class="navbar-link" href="/blog/" style="text-decoration: none;">Blog</a>
+               </li>
+            </ul>
+         </nav>
+         <!--
+               - #ABOUT
+               -->
+         <article class="about  active" data-page="about">
+            <header>
+               <p class="page-kicker">About me</p>
+               <h2 class="h2 article-title">MS CS at NYU Courant.<br>AI systems builder.</h2>
+            </header>
+            <section class="about-text">
+               <p>
+                  I'm pursuing my <strong>M.S. in Computer Science at NYU Courant</strong>, with a focus on
+                  machine learning and AI systems. Previously, I was a software engineer at
+                  <strong>Qualcomm</strong>, where I built LLM systems and multi-agent GenAI tools.
+               </p>
+               <p class="impact-context">From my work on Code Buddy at Qualcomm</p>
+               <dl class="impact-stats" aria-label="Impact from my previous work at Qualcomm">
+                  <div><dt>12,000+</dt><dd>Engineers served</dd></div>
+                  <div><dt>2M+</dt><dd>Automated reviews</dd></div>
+                  <div><dt>4,000+</dt><dd>Repositories</dd></div>
+               </dl>
+               <details class="about-story">
+                  <summary>More about my work</summary>
+                  <div class="about-story-content">
+               <p>
+                  One of my key projects at Qualcomm was <strong>Code Buddy</strong>, a multi-agent code-review
+                  platform I architected that's now used by <strong>12,000+ engineers</strong> across
+                  <strong>4,000+ repositories</strong>. It runs detect-then-fix agents under a tool-calling
+                  orchestrator and has delivered over <strong>2 million automated reviews</strong>, saving the
+                  company something like <strong>114,000 engineer-hours a month</strong>. I also built an
+                  autonomous agent that triages modem hotline escalations end-to-end (13 tools, 4-model consensus
+                  review, shelves a 3GPP-cited fix), and another that reads live C/C++ modem source to drive
+                  4G/5G NAS protocol tests.
+               </p>
+               <p>
+                  Outside of work I've been obsessed with on-device AI. I built <strong>CabinAI</strong>, a
+                  7-agent driver monitoring system that runs locally in the car; <strong>MyAI</strong>, an Android
+                  assistant that runs a quantized LLM entirely on the phone with no internet permission; and
+                  <strong>HealthSense</strong>, a tiny foundation model that fuses five biosignals on a wearable
+                  to catch cardiac and stress conditions in real time. All three made it to SparQ Qualcomm
+                  TechFest 2026, and CabinAI won the Jury Award, competing solo against 166 teams.
+               </p>
+               <p>
+                  Before Qualcomm I interned at AMD and Standard Chartered, founded the AR/VR Lab at BITS Pilani,
+                  and spent a semester doing mixed reality research at TU Braunschweig on a DAAD Scholarship.
+               </p>
+
+                  </div>
+               </details>
+            </section>
+
+            <section class="testimonials" aria-labelledby="recommendations-heading">
+               <h3 class="h3 testimonials-title" id="recommendations-heading">Recommendations</h3>
+               <p class="section-description">From the people I’ve built with.</p>
+               <ul class="testimonials-list">
+                  <li class="testimonials-item">
+                     <div class="content-card recommendation-card">
+                        <div class="testimonials-header">
+                           <img src="./assets/images/kiran-janga.jpg" alt="Kiran Janga" width="60" height="60" loading="lazy">
+                           <div class="testimonials-info">
+                              <h4 class="h4 testimonials-item-title"><a href="https://www.linkedin.com/in/bhanukiran/" target="_blank" rel="noopener noreferrer">Kiran Janga</a></h4>
+                              <p class="testimonials-job-title">Director, Engineering · Qualcomm</p>
+                           </div>
+                        </div>
+                        <p class="testimonials-meta"><time datetime="2026-10-24">October 24, 2026</time> · Direct manager</p>
+                        <p class="recommendation-preview">“Varun is an exceptionally talented engineer with a clear vision for the future of AI, and I wish him nothing but the best in his future endeavors.”</p>
+                        <details class="recommendation-details">
+                           <summary>Read full recommendation</summary>
+                           <blockquote class="recommendation-quote">
+                              <p>I had the pleasure of working with Varun Sahni on developing GenAI tooling for software
+                              engineering. Varun demonstrated remarkable foresight in identifying how design patterns
+                              can be used to write scalable app. We took a GenAI-powered code review assistant from a
+                              pilot phase to mass adoption, purposefully designing it with a future-proof architecture
+                              that ensured scalability as usage grew.</p>
+                              <p>Beyond his core contributions, Varun’s relentless drive for innovation was evident in his
+                              development of an AI-powered presentation builder and a sophisticated on-device assistant
+                              prototype. His ability to turn ambitious concepts into functional, high-impact products,
+                              often under the pressure of hackathons and competitive demo selections, truly sets him
+                              apart. Varun is an exceptionally talented engineer with a clear vision for the future of
+                              AI, and I wish him nothing but the best in his future endeavors.</p>
+                           </blockquote>
+                           <a class="recommendation-source" href="https://www.linkedin.com/in/bhanukiran/" target="_blank" rel="noopener noreferrer">View LinkedIn profile ↗</a>
+                        </details>
+                     </div>
+                  </li>
+                  <li class="testimonials-item">
+                     <div class="content-card recommendation-card">
+                        <div class="testimonials-header">
+                           <img src="./assets/images/subhashKunnoth_amd.jpeg" alt="Subhash Kunnoth" width="60" height="60" loading="lazy">
+                           <div class="testimonials-info">
+                              <h4 class="h4 testimonials-item-title"><a href="https://www.linkedin.com/in/subhashkunnoth/" target="_blank" rel="noopener noreferrer">Subhash Kunnoth</a></h4>
+                              <p class="testimonials-job-title">Senior Manager · AMD</p>
+                           </div>
+                        </div>
+                        <p class="testimonials-meta">LinkedIn recommendation</p>
+                        <p class="recommendation-preview">“Varun consistently showcased excellent programming skills and a good knack for problem-solving.”</p>
+                        <details class="recommendation-details">
+                           <summary>Read full recommendation</summary>
+                           <blockquote class="recommendation-quote">
+                              <p>During Varun's internship at AMD, I had the pleasure of working with him closely.
+                              Throughout his 6 months time here, Varun consistently showcased excellent programming
+                              skills and a good knack for problem-solving. He automated intricate workflows, bringing in
+                              efficiency improvements in processes. He employed multithreaded scripting and effective
+                              load balancing to solve some the challenges. Varun's innovative solutions underscored his
+                              robust technical proficiency and capacity to deliver superior outcomes. Varun is a
+                              dedicated and skilled professional, and I confidently endorse him for roles demanding
+                              advanced programming expertise and creative problem-solving abilities.</p>
+                           </blockquote>
+                           <a class="recommendation-source" href="https://www.linkedin.com/in/subhashkunnoth/" target="_blank" rel="noopener noreferrer">View LinkedIn profile ↗</a>
+                        </details>
+                     </div>
+                  </li>
+               </ul>
+            </section>
+            <section class="service">
+               <h3 class="h3 service-title">My Interests</h3>
+               <ul class="service-list">
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_artificial_intelligence_1772215521363.png" alt="camera icon"
+                           width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">Artificial Intelligence &amp; LLM Systems</h4>
+                        <p class="service-item-text">
+                           At Qualcomm I built Code Buddy, a multi-agent LLM code-review platform serving 12,000+
+                           engineers, and an agentic tool that drives 4G/5G NAS protocol tests by reasoning over live
+                           modem source code. On the side I built three on-device AI systems: CabinAI (7-agent
+                           driver-monitoring VLA for cars), MyAI (privacy-first Android assistant running a quantized
+                           LLM on the Hexagon NPU with zero internet permission), and HealthSense (5.4M-param
+                           multimodal foundation model detecting cardiac and stress conditions from wearable
+                           biosignals).
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_augmented_reality_1772215427355.png" alt="Augmented Reality"
+                           width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">Augmented Reality</h4>
+                        <p class="service-item-text">
+                           Recipient of the prestigious DAAD Scholarship, developed a Mixed Reality application on
+                           HoloLens to visualize complex LCA data. As the founding President of Kalipatnapu AR/VR Lab,
+                           BITS Pilani, led a team of 40 students on various AR/VR projects and hosted a VR Experience
+                           Zone during Oasis, generating profits exceeding ₹40,000.
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_app_development_1772215456063.png" alt="mobile app icon"
+                           width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">App Development</h4>
+                        <p class="service-item-text">
+                           Designed and developed several mobile applications using Flutter during internships,
+                           including: FloraFast: A plant delivery app, Adoption App: For connecting users with adoptable
+                           dogs, Live Train Tracker: For real-time train status updates, iWorksLab: A food delivery app,
+                           Notes and Weather App
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_cellular_networks_1772215485206.png" alt="design icon"
+                           width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">Cellular Networks</h4>
+                        <p class="service-item-text">
+                           At Qualcomm, contributed to the NAS (Non-Access Stratum) layer for NTN (Non-Terrestrial
+                           Network) and LTE (4G) architecture by implementing critical features and resolving
+                           high-priority customer issues.
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_devops_1772215542254.png" alt="camera icon" width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">DevOps</h4>
+                        <p class="service-item-text">
+                           Received the CCIB SCPAY Award for leading the migration of continuous integration systems
+                           from Jenkins to Azure DevOps. This transition improved scalability, reliability, and reduced
+                           deployment times.
+                        </p>
+                     </div>
+                  </li>
+                  <li class="service-item">
+                     <div class="service-icon-box">
+                        <img src="./assets/images/icon_game_development_1772215567329.png" alt="camera icon" width="40">
+                     </div>
+                     <div class="service-content-box">
+                        <h4 class="h4 service-item-title">Game Development</h4>
+                        <p class="service-item-text">
+                           Created a water conservation game for NCERT and developed other games like UNO and 3D
+                           survival games as part of academic projects.
+                        </p>
+                     </div>
+                  </li>
+               </ul>
+            </section>
+            <!--
+                  - testimonials
+                  -->
+            <!--
+                  - clients
+                  -->
+            <section class="clients">
+               <h3 class="h3 clients-title">Experiences</h3>
+               <ul class="clients-list has-scrollbar">
+                  <li class="clients-item">
+                     <a href="https://www.qualcomm.com/">
+                        <img src="./assets/images/Qualcomm-Logo.svg" alt="Qualcomm">
+                     </a>
+                  </li>
+                  <li class="clients-item">
+                     <a href="https://www.amd.com/">
+                        <img src="./assets/images/AMD_Logo.svg" alt="AMD">
+                     </a>
+                  </li>
+                  <li class="clients-item">
+                     <a href="https://www.sc.com/">
+                        <img src="./assets/images/Standard_Chartered_(2021).svg" alt="Standard Chartered Bank">
+                     </a>
+                  </li>
+                  <li class="clients-item">
+                     <a href="https://www.invoxel.com/">
+                        <img src="./assets/images/invoxel-logo.png" alt="Invoxel Technologies">
+                     </a>
+                  </li>
+                  <li class="clients-item">
+                     <a href="https://www.mapmyindia.com/">
+                        <img src="./assets/images/MapMyIndia_logo.png" alt="Map My India" width="200">
+                     </a>
+                  </li>
+               </ul>
+            </section>
+
+         </article>
+         <!--
+               - #RESUME
+               -->
+         <article class="resume" data-page="resume">
+            <br>
+            <header>
+               <h2 class="h2 article-title">Resume</h2>
+            </header>
+            <section class="timeline">
+               <!-- Full-Time Experience Section -->
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="briefcase" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">Full-Time Experience</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">Qualcomm</h4>
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; width: 100%;">
+                        <span style="font-weight: 600; font-size: 16px;">Software Engineer, GenAI / LLM Systems</span>
+                        <span style="font-size: 14px; color: var(--light-gray); white-space: nowrap;">July 2024 – August 2026</span>
+                     </div>
+                     <div class="timeline-text">
+                        <span class="subheading"
+                           style="display: inline-block; position: relative; left: 20px; font-weight: 600; margin-bottom: 5px; color: var(--white-2);">Code
+                           Buddy (GenAI Review Assistant) & SlideGen</span>
+                        <ul class="white-dot" style="margin-bottom: 15px;">
+                           <li>Architected a multi-agent GenAI code-review platform deployed across <strong>4,000+ repos</strong>
+                              for <strong>12,000+ engineers</strong>, running detect-then-fix agents under a tool-calling orchestrator
+                              that generate self-validating fixes and clear a static-analysis guardrail before posting.</li>
+                           <li>Scaled the platform to <strong>2M+ automated code reviews</strong> (180,000+ monthly), saving
+                              an estimated <strong>114,000+ engineer-hours per month</strong>.</li>
+                           <li>Cut review-retrieval latency via a Tree-sitter symbolic-retrieval layer over a ccls/ctags
+                              dependency graph with TTL symbol caching.</li>
+                           <li>Built <strong>SlideGen</strong>, an LLM tool that turns raw technical data into
+                              corporate-compliant decks using structured-output validation and template-aware layout.
+                           </li>
+                        </ul>
+
+                        <span class="subheading"
+                           style="display: inline-block; position: relative; left: 20px; font-weight: 600; margin-bottom: 5px; color: var(--white-2);">Agentic
+                           Test Automation (Brex) & Hotline Triage</span>
+                        <ul class="white-dot">
+                           <li>Built an agentic tool that reads live C/C++ modem source and drives interactive 4G/5G NAS
+                              protocol tests through a 14-tool calling loop, no hardcoded answer mappings.</li>
+                           <li>Built an autonomous LLM agent that triages NAS modem hotline escalations end-to-end via a
+                              13-tool calling loop: parses issue emails, searches Perforce source and CR/JIRA databases,
+                              and shelves a 3GPP-cited candidate fix after a 4-model consensus review.</li>
+                        </ul>
+                        <br>
+                        <figure class="project-img">
+                           <img src="./assets/images/sparqHackathon.png" alt="Qualcomm Sparq Hackathon" loading="lazy">
+                        </figure>
+                     </div>
+                  </li>
+
+               </ol>
+               <!-- Internship Section -->
+               <div class="title-wrapper" style="margin-top: 20px;">
+                  <div class="icon-box">
+                     <ion-icon name="briefcase" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">Internships</h3>
+               </div>
+               <!-- Removed Redundant Subheading -->
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">AMD</h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">January
+                           2024 – June 2024</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Software
+                        Development Engineer Intern</span>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Crafted multi-threaded script utilizing LSF to analyze <strong>250GB+</strong> bus tracing
+                           data, cutting
+                           runtime from a <strong>week to 45 mins</strong>, addressing volume & IO overhead.</li>
+                        <li>Utilized JIRA Rest API for automating CRUD operations, summarizing <strong>1000+
+                              issues</strong>, &
+                           establishing hierarchical linkage to optimize project management.</li>
+                        <li>Conducted competitive analysis of benchmarks (Sysbench and SPEC 2017) on several server
+                           machines, providing insights into system performance.</li>
+                        <li>Created new benchmarks & developed automation scripts to streamline benchmarking processes,
+                           elevating the efficiency of performance analysis pipeline.</li>
+                     </ul>
+                     <br>
+                     <figure class="project-img">
+                        <img src="./assets/images/AMD_linkedin.png" alt="Kalipatnapu AR/VR Lab Workshop" loading="lazy">
+                     </figure>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">Standard Chartered Bank</h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">May
+                           2023 – July 2023</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Software
+                        Development Engineer Intern</span>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Improved code reliability for SC Pay by implementing <strong>100+ test cases</strong> using
+                           JUnit and
+                           Mockito, achieving outstanding <strong>98.61% test coverage</strong>.</li>
+                        <li>Managed the setup and deployment of <strong>over 10 repositories</strong> using Azure
+                           DevOps, ensuring
+                           continuous integration and rapid software releases.</li>
+                        <li>Facilitated efficient collaboration with Bitbucket for version control & code reviews,
+                           streamlining development processes & improving team productivity.</li>
+                     </ul>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">Invoxel Technologies</h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px;">June
+                           2022 – July 2022</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Software
+                        Development Engineer</span>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Created AR application for an art gallery, leveraging image recognition to scan paintings,
+                           retrieve relevant information, showcasing it on a virtual canvas.</li>
+                        <li>Implemented robust AR Object positioning by using private Wayspot Anchors, ensuring stable
+                           alignment of virtual elements with real-world objects.</li>
+                        <li>Developed a multi-touch application using “TouchScript” for a museum, enabling concurrent
+                           usage by multiple users on touch-enabled devices.</li>
+                     </ul>
+                     </p>
+                  </li>
+
+               </ol>
+               <!-- Research Internships -->
+               <div class="title-wrapper" style="margin-top: 20px;">
+                  <div class="icon-box">
+                     <ion-icon name="hardware-chip-outline" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">SparQ Qualcomm TechFest 2026</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">CabinAI</h4>
+                     <span
+                        style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">Hybrid
+                        Multi-Agent VLA for Automotive In-Cabin Intelligence &mdash; <a
+                           href="https://github.com/varunsahni18/CabinAI" target="_blank"
+                           style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>Built a predictive 7-agent AI system forecasting driver fatigue 15 minutes before visible manifestation, processing entirely locally without sending biometric data to the cloud.</li>
+                        <li>Designed a core drowsiness detection pipeline utilizing a 3-engine vote consensus (rule-based, ML, and LLM) to drastically reduce false positives.</li>
+                        <li>Developed ZeroClaw, a state orchestration bus tying all agents with a location-aware voice assistant into a shared, proactive intelligence layer.</li>
+                        <li>Demonstrated the system end-to-end via a full driving simulation through Gachibowli, Hyderabad.</li>
+                        <li><strong>Jury Award Winner at SparQ Qualcomm TechFest 2026</strong>, competing solo against 166 teams.</li>
+                     </ul>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">MyAI</h4>
+                     <span
+                        style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">Privacy-First
+                        Personal On-Device AI Assistant &mdash; <a href="https://github.com/varunsahni18/MyAI"
+                           target="_blank" style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>4-tier on-device inference router (trie, cache, tools, INT4 LLM) that resolves most queries
+                           without loading the full model.</li>
+                        <li>Runs Qwen2.5-1.5B / Llama-3.2-3B INT4 at ~30 tok/s on Hexagon NPU v79 via the Qualcomm Genie
+                           SDK.</li>
+                        <li>Ships with no INTERNET permission (kernel-enforced); a Gradle CI gate breaks any build that
+                           tries to add it back.</li>
+                        <li>On-device tool layer (calculator, datetime, calendar, contacts, alarm) invoked via
+                           structured JSON tool-calls; 43 passing unit tests.</li>
+                     </ul>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title" style="margin-bottom: 5px;">HealthSense</h4>
+                     <span
+                        style="font-weight: 600; font-size: 15px; margin-bottom: 10px; display: block; color: var(--light-gray);">On-Wearable
+                        Multimodal Biosignal Foundation Model &mdash; <a
+                           href="https://github.com/varunsahni18/HealthSense" target="_blank"
+                           style="color: inherit;">GitHub</a></span>
+                     <ul class="white-dot">
+                        <li>Trained PanLUNA, a 5.4M-param Transformer that fuses EEG, ECG, PPG, EMG and IMU into 4 task
+                           heads detecting cardiac arrhythmia, sleep stage, stress and EEG abnormality.</li>
+                        <li>Runs INT8 on Snapdragon Hexagon NPU at ~95 ms / 19 mJ per pass; validated on PhysioNet
+                           MIT-BIH AFib data: 96.8% sensitivity, 91.7% specificity.</li>
+                        <li>BioTrain on-device personalisation lifts stress F1 from 0.78 to 0.91 in ~3.6 s under 50 mW;
+                           raw biosignals never leave the device.</li>
+                     </ul>
+                  </li>
+               </ol>
+
+               <div class="title-wrapper" style="margin-top: 20px;">
+                  <div class="icon-box">
+                     <ion-icon name="flask" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">Scholarship Projects</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px;">
+                           <h4 class="h4 timeline-item-title" style="margin: 0; flex: 1; word-wrap: break-word;">
+                              Indo-German Sustainability Challenge
+                           </h4>
+                        </div>
+                        <div
+                           style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: var(--white-2);">
+                           <a href="https://www.tu-braunschweig.de/en/" target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">TU Braunschweig
+                              University
+                              Germany</a>
+                           <span>|</span>
+                           <a href="https://drive.google.com/file/d/1Ut35iMjyIkFGGBjO8UfIdqFBVr2J2bl8/view?usp=drive_link"
+                              target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">Project
+                              Review</a>
+                           <span>|</span>
+                           <a href="https://drive.google.com/file/d/1cyLRmAqL78mFRpalvavZq00RN8QQ26RH/view?usp=drive_link"
+                              target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">Certificate</a>
+                        </div>
+                     </div>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Developed user-friendly Mixed Reality application for visualizing complex Life Cycle
+                           Assessment (LCA) data, facilitating decision-making processes.</li>
+                        <li>Demonstrated the application's features, enabling intuitive navigation, scenario selection &
+                           CO2 emissions visualization over the product's lifetime.</li>
+                        <li>Presented the AR application on the “HoloLens” to a scientific jury, receiving accolades for
+                           its innovative approach & potential impact on LCA analysis.</li>
+                        <li>Collaborated seamlessly with international teams, fostering effective cross-cultural
+                           communication and teamwork at TU Braunschweig and BITS Pilani.</li>
+                     </ul>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px;">
+                           <h4 class="h4 timeline-item-title" style="margin: 0; flex: 1; word-wrap: break-word;">
+                              Geospatial Mapping and Location Services | C# Language
+                           </h4>
+                        </div>
+                        <div
+                           style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: var(--white-2);">
+                           <a href="https://www.mapmyindia.com/" target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">MapMyIndia
+                              Company</a>
+                           <span>|</span>
+                           <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                              target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">Project
+                              video</a>
+                        </div>
+                     </div>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Created MapMyIndia SDK's Navigate to and from feature with intuitive zooming animations,
+                           facilitating effortless travel between map locations.</li>
+                        <li>Built a versatile Map Layer Inspector Panel, automating marker and model management on the
+                           map, resulting in significantly reduced development time.</li>
+                        <li>Implemented smooth zoomable and rotation functionality, ensuring a fluid and distortion-free
+                           experience, resulting in enhanced map interactions.</li>
+                     </ul>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px;">
+                           <h4 class="h4 timeline-item-title" style="margin: 0; flex: 1; word-wrap: break-word;">
+                              Wisewaterman - Water Conservation Game
+                           </h4>
+                        </div>
+                        <div
+                           style="display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: var(--white-2);">
+                           <a href="https://ncert.nic.in/" target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">National Council
+                              of
+                              Educational Research and Training (NCERT)</a>
+                           <span>|</span>
+                           <a href="https://github.com/varunsahni18/WiseWaterMan" target="_blank" class="custom-link"
+                              style="color: var(--white-2); text-decoration: none; flex-wrap: wrap;">Github
+                              Repository</a>
+                        </div>
+                     </div>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Developed an engaging, web-based educational game funded by NCERT (overseen by Prof. Neetu
+                           Yadav) to teach young children about water conservation.</li>
+                        <li>Contributed to audio production, animation, script writing, and game design to create an
+                           interactive and thought-provoking learning experience.</li>
+                     </ul>
+                     </p>
+                  </li>
+               </ol>
+            </section>
+            <section class="timeline">
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="book-outline"></ion-icon>
+                  </div>
+                  <h3 class="h3">Education</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">
+                           <a href="https://cs.nyu.edu/home/index.html"
+                              style="color: inherit; text-decoration: none;"><b>New York University, Courant Institute
+                                 of Mathematical Sciences</b></a>
+                        </h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px; margin-top: 2px;">Aug
+                           2026 - May 2028 (expected)</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">M.S.,
+                        Computer Science — Machine Learning, Large Language Models, AI Systems</span>
+                     <ul class="white-dot">
+                        <li>Currently pursuing my M.S. in Computer Science at NYU Courant.</li>
+                     </ul>
+                  </li>
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">
+                           <a href="https://www.bits-pilani.ac.in/"
+                              style="color: inherit; text-decoration: none;"><b>Birla Institute of Technology and
+                                 Science, Pilani (BITS-Pilani, Main Campus)</b></a>
+                        </h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px; margin-top: 2px;">2020-2024</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Bachelors of
+                        Engineering - Computer Science | 8.11</span>
+                     <ul class="white-dot">
+                        <li>Acquired expertise in core subjects, including Data Structures and Algorithms, Computer
+                           Networks, Operating Systems, Object-Oriented Programming, Database Management Systems,
+                           Computer Architecture, and Compiler Construction.</li>
+                        <li>Ranked among the top coders in the institute.</li>
+                        <li>Selected as one of the top 10 students to receive the DAAD Scholarship for research on mixed
+                           reality applications as a guest researcher at TU Braunschweig, Germany.</li>
+                        <li>Spearheaded the establishment of multiple labs at BITS Pilani, including the Kalipatnapu
+                           AR/VR Lab, Tinkering Lab, and Postman Lab.</li>
+                        <li>Served as the inaugural president of the Kalipatnapu AR/VR Lab, fostering industry
+                           partnerships and leading a 40-member team to develop AR/VR solutions, immersive experiences,
+                           and interactive simulations. Organized a VR Experience Zone at Oasis, generating ₹40,000+ in
+                           profits.</li>
+                        <li>Founded the Blockchain Department in the Coding Club, defining its vision, managing initial
+                           recruitments, and hosting the ICP Hackathon.</li>
+                        <li>Actively participated in hackathons and coding competitions.</li>
+                        <li>Secured top performance in the Publicis Sapient Jumpstart Hackathon, earning exclusive
+                           access to the prestigious Jumpstart Program.</li>
+                     </ul>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; width: 100%;">
+                        <h4 class="h4 timeline-item-title" style="margin-bottom: 0;">
+                           <a href="https://manavsthalischool.com/"
+                              style="color: inherit; text-decoration: none;"><b>Manav Sthali School</b></a>
+                        </h4>
+                        <span
+                           style="font-size: 14px; color: var(--light-gray); white-space: nowrap; margin-left: 15px; margin-top: 2px;">2008-2020</span>
+                     </div>
+                     <span style="font-weight: 600; font-size: 16px; margin-bottom: 15px; display: block;">Higher
+                        Secondary Education | 91.6%</span>
+                     <ul class="white-dot">
+                        <li>Recieved Manav Alok Award During Farewell for excellence in the field of Quizzing</li>
+                        <li>TECHNOTHLON by IIT Guwahati - City Rank 3, State Rank 23</li>
+                        <li>Brainwave Interschool Quiz, Manav Sthali School - First in 2019, Second in 2017</li>
+                        <li>Australian National Chemistry Quiz (ANCQ) - Certificate of High Distinction 2018,
+                           Certificate of Distinction 2016</li>
+                        <li>Chem-Marathon in Pulse 2019, Bal Bharti School - Third Rank</li>
+                        <li>Geek-A-Hertz Capture the Flag - Presented Business Plan & Qualified Level 1</li>
+                        <li>FIITJEE Talents Reward Examination (FTRE) 2014 - State Rank 3, Delhi (Central Zone)</li>
+                        <li>Maths Genius Award 2012 - State Rank 3, All India Rank 15</li>
+                        <li>XXXII Manav Sthali Maths Talent Test 2016 - Silver Medal</li>
+                        <li>International Olympiad of Science (IOS) 2015 - Level 1 State Rank 15, Level 2 State Rank 47
+                        </li>
+                        <li>National Creativity Olympiad 2015 - Certificate of Excellence</li>
+                        <li>National Genius Search Examination (MAINS) 2015 - Qualified</li>
+                        <li>National French Spellbee Competition 2015 - First & Second Round of Intermediate Level</li>
+                        <li>4th Max Life Insurance i-genius Scholarship - Certificate of Merit</li>
+                        <li>ASEAN Quiz 2018 - Certificate of Appreciation</li>
+                        <li>Second Position in Interschool Open Skating Championship</li>
+                     </ul>
+                     </p>
+                  </li>
+
+               </ol>
+            </section>
+            <section class="timeline">
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="school" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3 skills-title">My skills</h3>
+               </div>
+               <ul class="skills-list content-card">
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">Augmented Reality</h5>
+                        <data value="90">90%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 90%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">App Development</h5>
+                        <data value="80">80%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 80%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">Artificial Intelligence</h5>
+                        <data value="80">80%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 80%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">C/C++</h5>
+                        <data value="50">90%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 90%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">Java</h5>
+                        <data value="50">80%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 90%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">Python</h5>
+                        <data value="50">80%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 90%;"></div>
+                     </div>
+                  </li>
+                  <li class="skills-item">
+                     <div class="title-wrapper">
+                        <h5 class="h5">DevOps</h5>
+                        <data value="70">70%</data>
+                     </div>
+                     <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" style="width: 70%;"></div>
+                     </div>
+                  </li>
+               </ul>
+               <br>
+               <h4 class="h4 timeline-item-title">Other Skills </h4>
+            </section>
+            <br>
+            <section class="timeline">
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="book" class="experience-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3 skills-title">Coursework</h3>
+               </div>
+               <div class="content-card" style="padding: 20px;">
+                  <ul class="white-dot">
+                     <li>Data Structure and Algorithms</li>
+                     <li>Design and Analysis of Algorithms</li>
+                     <li>Computer Networks</li>
+                     <li>Operating Systems</li>
+                     <li>Object Oriented Programming</li>
+                     <li>Database Management System</li>
+                     <li>Computer Architecture</li>
+                     <li>Discrete Structure in Computer Science</li>
+                     <li>Computer Graphics</li>
+                     <li>Compiler Construction</li>
+                     <li>Blockchain</li>
+                  </ul>
+               </div>
+            </section>
+         </article>
+         <!--
+               - #PORTFOLIO
+               -->
+         <article class="portfolio" data-page="projects">
+            <header>
+               <h2 class="h2 article-title">Projects</h2>
+            </header>
+            <section>
+               <div class="filter-select-box">
+                  <button class="filter-select" data-select>
+                     <div class="select-value" data-select-value>Options for future</div>
+                     <div class="select-icon">
+                        <ion-icon name="chevron-down"></ion-icon>
+                     </div>
+                  </button>
+               </div>
+               <ul class="project-list">
+                  <li class="project-item active" data-filter-item data-category="ai">
+                     <div class="media-container">
+                        <video class="project-video" muted poster="./assets/images/poster_cabinai.jpg" preload="none">
+                           <source src="./assets/videos/CabinAI_Demo.mp4" type="video/mp4">
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://github.com/varunsahni18/CabinAI" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">CabinAI</h3>
+                        <p class="project-category">Multi-Agent VLA, On-Device AI, LLM</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="ai">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/HealthSense.png"
+                              alt="HealthSense - Multimodal Biosignal Foundation Model" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/HealthSense" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">HealthSense</h3>
+                        <p class="project-category">Foundation Model, Wearable AI, PyTorch</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_cliffside.jpg">
+                           <source src="./assets/videos/CliffsideConquest2.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/u/1/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">Cliffside Conquest</h3>
+                        <p class="project-category">Game Development, Unity</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="ai">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/MyAI.png" alt="MyAI - Privacy-First On-Device AI" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/MyAI" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">MyAI</h3>
+                        <p class="project-category">On-Device LLM, Android, Hexagon NPU</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none"
+                           poster="./assets/images/poster_mapmyindia.jpg">
+                           <source src="./assets/videos/GeolocationService2.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://github.com/varunsahni18/Digital-Map-Twin/tree/main" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Digital Twin - MapMyIndia</h3>
+                        <p class="project-category">Mapbox SDK, Geolocation, Unity</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/Compiler_Construction.png" alt="Compiler Construction"
+                              loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/Compiler-Project" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Compiler Construction</h3>
+                        <p class="project-category">C Language</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/LiveTrainStatus.png" alt="Live Train Status" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/LiveTrainStatus" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Live Train Status</h3>
+                        <p class="project-category">Database Management System, Flutter</p>
+                     </div>
+                  </li>
+                  <li class="project-item active">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_flora.jpg">
+                           <source src="./assets/videos/final_flora_fast.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">FloraFast - Plant Delivery App</h3>
+                        <p class="project-category">Flutter, App Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/iworksLab-food-delivery.png" alt="finance" loading="lazy">
+                        </figure>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">iworkslab - Food Delivery App</h3>
+                        <p class="project-category">Flutter, App Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/WiseWaterman.png" alt="Wise Water Man" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/WiseWaterMan" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">WiseWaterman - Water Conservation Game for NCERT</h3>
+                        <p class="project-category">Game Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/Uno.png" alt="UNO" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/oopsProjectUno" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">UNO Game</h3>
+                        <p class="project-category">Java Project, Game Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/IGCSM-LCA.png" alt="Emailer" loading="lazy">
+                        </figure>
+                        <a href="./assets/documents/IGCSM_LCA.pdf" class="external-link-btn" target="_blank"><ion-icon
+                              name="document-outline"></ion-icon></a>
+                        <h3 class="project-title">IGCSM Life Cycle Anaysis</h3>
+                        <p class="project-category">Mixed Reality, HoloLens</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/Decentralized-Academic-Certificate-System-Using-Blockchain.png"
+                              alt="food" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/Decentralized-Academic-Certificate-System-Using-Blockchain"
+                           class="external-link-btn" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Decentralized Academic Certificate System</h3>
+                        <p class="project-category">Blockchain</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="app development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/NumbericalAnalysis.png" alt="application" loading="lazy">
+                        </figure>
+                        <a href="./assets/documents/NumericalAnalysis.pdf" class="external-link-btn"
+                           target="_blank"><ion-icon name="document-outline"></ion-icon></a>
+                        <h3 class="project-title">Simulation of Delhi's Air pollution</h3>
+                        <p class="project-category">Numberical Analysis</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" poster="./assets/images/poster_artgallery.jpg" muted
+                           preload="none">
+                           <source src="./assets/videos/artGallery.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1iue-Kuxd_PUmR1nfXu2zB_u9UQfiLiT3?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">Art Gallery</h3>
+                        <p class="project-category">Augmented Reality, Image Recognition</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/AdoptionApp.png" alt="finance" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/adoption" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Adoption App</h3>
+                        <p class="project-category">Flutter, App Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/Notes_App.png" alt="finance" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18/apps/tree/main/note_m2" class="external-link-btn"
+                           target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Notes App</h3>
+                        <p class="project-category">Flutter, App Development</p>
+                     </div>
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/varun_sahni_github.png" alt="finance" loading="lazy">
+                        </figure>
+                        <a href="https://github.com/varunsahni18" class="external-link-btn" target="_blank"><ion-icon
+                              name="logo-github"></ion-icon></a>
+                        <h3 class="project-title">Other projects on Github</h3>
+                        <p class="project-category">Various Other Skills</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" poster="./assets/images/poster_smithy.jpg" muted preload="none">
+                           <source src="./assets/videos/smithy1.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">KXR Smithy Simulation</h3>
+                        <p class="project-category">Augmented/Virtual Reality</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_hand.jpg">
+                           <source src="./assets/videos/HandTracking.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">Hand Tracking</h3>
+                        <p class="project-category">Open CV</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_campus.jpg">
+                           <source src="./assets/videos/Campus_Navigation.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">Campus Navigation</h3>
+                        <p class="project-category">Augmented/Virtual Reality</p>
+                     </div>
+                  </li>
+                  <li class="project-item active" data-filter-item data-category="web development">
+                     <div class="media-container">
+                        <video class="project-video" muted preload="none" poster="./assets/images/poster_measure.jpg">
+                           <source src="./assets/videos/MeasureTape.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                        <button class="play-btn-overlay"><ion-icon name="play"></ion-icon></button>
+                        <a href="https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing"
+                           class="external-link-btn" target="_blank"><ion-icon name="link-outline"></ion-icon></a>
+                        <h3 class="project-title">Measure Tape</h3>
+                        <p class="project-category">Augmented/Virtual Reality</p>
+                     </div>
+                  </li>
+               </ul>
+            </section>
+         </article>
+         <!--
+               - #BLOG
+               -->
+         <article class="blog" data-page="certifications">
+            <header>
+               <h2 class="h2 article-title">Work</h2>
+            </header>
+            <section class="blog-posts">
+               <ul class="blog-posts-list">
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Qualcomm-Fulltime.png" alt="Qualcomm Full Time"
+                              loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Qualcomm FTE (past role)</p>
+                              <span class="dot"></span>
+                              <time datetime="2024-07">July 2024 – August 2026</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/AMD-Internship.png" alt="AMD Internship" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">AMD Internship</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">Jan 2024 - June 2024</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Standard-Chartered.png"
+                              alt="Standard Chartered Bank  Internship" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Standard Chartered Bank Internship</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">May 2023 - July 2023</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/DAAD-Scholarship.png" alt="IGCSM DAAD Scholarship"
+                              loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">IGCSM DAAD Scholarship</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">Sept 2022 - Jan 2023</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Invoxel-technologies.png"
+                              alt="Invoxel Technologies Internship" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Invoxel Technologies</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">June 2022 - Aug 2022</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/iworkslab.png" alt="iWorksLab Internship" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">iWorksLab</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">June 2022 - July 2022</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+
+               </ul>
+            </section>
+            <header>
+               <h2 class="h2 article-title">Other Certifications</h2>
+            </header>
+            <section class="blog-posts">
+               <ul class="blog-posts-list">
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Jee-Advance-2358-AIR.png" alt="Jee Advance Rank 2358"
+                              loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Jee Advance Rank 2358</p>
+                              <!-- <span class="dot"></span>
+                              <time datetime="2022-02-23">June 2022 - July 2022</time> -->
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Bitsat-386-score.png" alt="Bitsat Score 386" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Bitsat Score 386</p>
+                              <!-- <span class="dot"></span>
+                              <time datetime="2022-02-23">June 2022 - July 2022</time> -->
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Jumpstart.png" alt="Publicis Sapient - Jumpstart"
+                              loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Publicis Sapient - Jumpstart</p>
+                              <!-- <span class="dot"></span>
+                              <time datetime="2022-02-23">June 2022 - July 2022</time> -->
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+
+               </ul>
+            </section>
+            <header>
+               <h2 class="h2 article-title">Course Certifications</h2>
+            </header>
+            <section class="blog-posts">
+               <ul class="blog-posts-list">
+                  <li class="blog-post-item">
+                     <a href="https://drive.google.com/drive/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k?usp=sharing">
+                        <figure class="blog-banner-box">
+                           <img src="./assets/certificates/Blockchain-distributed-Systems.png"
+                              alt="Blockchain Distributed Systems" loading="lazy">
+                        </figure>
+                        <div class="blog-content">
+                           <div class="blog-meta">
+                              <p class="blog-category">Blockchain Distributed Systems</p>
+                              <span class="dot"></span>
+                              <time datetime="2022-02-23">Feb 2022</time>
+                           </div>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+            </section>
+         </article>
+         <!--
+               - #Extra Cirrciulars
+               -->
+         <article class="resume" data-page="extra">
+            <header>
+               <h2 class="h2 ">Extra</h2>
+               <h2 class="h2 article-title">Curricular</h2>
+            </header>
+            <section class="timeline">
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="heart" class="volunteering-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">Volunteering</h3>
+               </div>
+               <ol class="timeline-list">
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/kalipatnapu-arvr-lab/" target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           Kalipatnapu AR/VR Lab BITS Pilani (President) | May 2023 - Jun 2024
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Strengthened industry partnerships to identify opportunities and develop innovative AR/VR
+                           solutions, immersive experiences, and interactive simulations. </li>
+                        <li>Led a team of 40 students working on diverse AR/VR projects and organized a VR Experience
+                           Zone during Oasis, generating over ₹40,000 in profits.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <div class="image-container">
+                        <a href="https://www.linkedin.com/company/kalipatnapu-arvr-lab/">
+                           <figure class="project-img">
+                              <img src="./assets/images/kxr_1.png" alt="Foundation of Kalipatnapu AR/VR Lab"
+                                 loading="lazy">
+                           </figure>
+                        </a>
+                        <a href="https://www.linkedin.com/company/kalipatnapu-arvr-lab/">
+                           <figure class="project-img">
+                              <img src="./assets/images/kxr_2.png" alt="Kalipatnapu AR/VR Lab Workshop" loading="lazy">
+                           </figure>
+                        </a>
+                     </div>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/coding-club-bits-pilani/?originalSubdomain=in"
+                           target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           Coding Club - Blockchain Dept (Coordinator) | July 2022 - May 2023
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Established the Blockchain Department under the Coding Club, outlining its objectives,
+                           executing initial recruitments, and leading the organization of the ICP Hackathon.</li>
+                     </ul>
+                     </p>
+                  </li>
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/tinkerer-s-lab-bits-pilani/" target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           Tinkering Lab - BITS Pilani
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Pioneered the establishment of the Tinkering Lab at BITS Pilani, ensuring students had 24/7
+                           access to tools and machines needed to prototype ideas.</li>
+                        <li>Managed inventory for consumable goods, acquired new tools, and fostered a culture of
+                           innovation.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <a
+                        href="https://www.linkedin.com/posts/tinkerers-lab-iit-gandhinagar_iitgandhinagar-learning-community-activity-6947962445600559105-n5ug?utm_source=share&utm_medium=member_desktop">
+                        <figure class="project-img">
+                           <img src="./assets/images/TinkeringLab.png" alt="Tinkering Lab Bits Pilani" loading="lazy">
+                        </figure>
+                     </a>
+                  </li>
+                  <!-- Tennis Mixed Doubles Tournament -->
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://drive.google.com/drive/u/1/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k"
+                           target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           Tennis Mixed Doubles Tournament
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Won a silver medal in the mixed doubles category at the BITS Premier League (BPL) tennis
+                           tournament.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <a href="https://drive.google.com/drive/u/1/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k">
+                        <figure class="project-img">
+                           <img src="./assets/certificates/BPL-Tennis-mix-doubles.png"
+                              alt="Tennis Mixed Doubles Tournament" loading="lazy">
+                        </figure>
+                     </a>
+                  </li>
+
+                  <!-- BITS Pilani Hockey Team (Member) -->
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://drive.google.com/drive/u/1/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k"
+                           target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           BITS Pilani Hockey Team (Member)
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Represented BITS Pilani as a member of its hockey team, demonstrating teamwork and athletic
+                           commitment.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <a href="https://drive.google.com/drive/u/1/folders/1ky_I7KIyYBAr-Ouu7qTVsZ8Ue1IQ_e5k">
+                        <figure class="project-img">
+                           <img src="./assets/images/HockeyTeam.png" alt="BITS Pilani Hockey Team" loading="lazy">
+                        </figure>
+                     </a>
+                  </li>
+
+                  <!-- YuvaSpark NGO (External Relations and Development Team) -->
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/yuvaspark/?originalSubdomain=in" target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           YuvaSpark NGO (External Relations and Development Team)
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Contributed to YuvaSpark, a youth-led nonprofit focused on child welfare and educational
+                           causes, as a member of the External Relations team.</li>
+                        <li>Connected with stakeholders to promote the organization’s initiatives and developed a
+                           website to enhance its outreach and operational efficiency.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <a href="https://www.linkedin.com/company/yuvaspark/?originalSubdomain=in">
+                        <figure class="project-img">
+                           <img src="./assets/images/YuvaSpark.png" alt="YuvaSpark NGO" loading="lazy">
+                        </figure>
+                     </a>
+                  </li>
+
+                  <!-- Postman Lab (Co-Founder) -->
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/bits-pilani-postman-lab/" target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           Postman Lab
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Contributed to establishing the Postman Lab at BITS Pilani to promote API literacy and
+                           API-first principles among students.</li>
+                     </ul>
+                     </p>
+                     <br>
+                     <a
+                        href="https://www.linkedin.com/posts/bits-pilani-postman-api-lab_postman-activity-7047492011792187393-NdhS/?utm_source=share&utm_medium=member_desktop">
+                        <figure class="project-img">
+                           <img src="./assets/images/Postman.png" alt="Postman Lab" loading="lazy">
+                        </figure>
+                     </a>
+                  </li>
+
+                  <!-- ACM Club Member -->
+                  <li class="timeline-item">
+                     <h4 class="h4 timeline-item-title">
+                        <a href="https://www.linkedin.com/company/bits-acm/posts/?feedView=all" target="_blank"
+                           style="text-decoration: none; color: inherit; display: inline-flex; align-items: center;">
+                           ACM Club (App Developer)
+                           <span style="margin-left: 5px; font-size: 1.2em;">&#8599;</span>
+                        </a>
+                     </h4>
+                     <p class="timeline-text">
+                     <ul class="white-dot">
+                        <li>Developed several mobile applications, including a notes app, an adoption app, and a weather
+                           app, as part of the ACM Club.</li>
+                        <li>Participated in the ACM Summer Explore Program under the mentorship of Pranav Saxena, Staff
+                           Software Engineer at Meta.</li>
+                     </ul>
+                     </p>
+                     <br>
+                  </li>
+               </ol>
+            </section>
+            <section class="timeline">
+               <div class="title-wrapper">
+                  <div class="icon-box">
+                     <ion-icon name="game-controller" class="volunteering-icon"></ion-icon>
+                  </div>
+                  <h3 class="h3">Hobbies</h3>
+               </div>
+               <ul class="project-list hobbies">
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Marathon.jpg" alt="Marathon" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Marathon</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/trekking.jpg" alt="Trekking" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Trekking</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Tennis_image.png" alt="Tennis" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Tennis</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Gym.png" alt="gym" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Working Out</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Hockey_image.png" alt="Hockey" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Hockey</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Skating.png" alt="Skating" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Skating</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/TableTennis.png" alt="Table Tennis" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Table Tennis</h3>
+
+                  </li>
+                  <li class="project-item  active" data-filter-item data-category="web development">
+
+                     <figure class="project-img">
+                        <img src="./assets/images/Cook.png" alt="cook" loading="lazy">
+                     </figure>
+                     <h3 class="project-title">Cooking</h3>
+
+                  </li>
+               </ul>
+            </section>
+         </article>
+         <!--
+               - #CONTACT
+               -->
+         <article class="contact" data-page="contact">
+            <header>
+               <h2 class="h2 article-title">Contact</h2>
+            </header>
+            <section class="mapbox" data-mapbox>
+               <div class="mapbox">
+                  <div class="gmap_canvas">
+                     <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="yes" marginheight="0"
+                        marginwidth="0"
+                        src="https://maps.google.com/maps?width=1128&amp;height=424&amp;hl=en&amp;q=New%20York&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+
+                  </div>
+                  <style>
+                     .mapouter {
+                        position: relative;
+                        text-align: right;
+                        width: 100%;
+                        height: 424px;
+                     }
+
+                     .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        width: 100%;
+                        height: 424px;
+                     }
+
+                     .gmap_iframe {
+                        height: 424px !important;
+                     }
+                  </style>
+               </div>
+            </section>
+            <header style="display: flex; justify-content: space-between; align-items: center;">
+               <h2 class="h2 article-title">Let's Connect</h2>
+               <div class="container">
+                  <div class="column">
+                     <a href="mailto:sahnicoder@gmail.com">
+                        <div class="icon-box-mail">
+                           <i class="ion ion-email"></i> &nbsp;&nbsp;Mail
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </header>
+            </section>
+            <header>
+               <h2 class="h2 article-title">Also View</h2>
+            </header>
+            <section>
+               <section class="blog-posts">
+                  <ul class="blog-posts-list">
+                     <li class="blog-post-item">
+                        <a href="https://www.linkedin.com/in/varun-sahni-profile/">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/linkedin_varun_sahni.png" alt="LinkedIn" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">LinkedIn</p>
+                                 <span class="dot"></span>
+                                 <p class="blog-category">varun-sahni-profile</p>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="blog-post-item">
+                        <a href="https://leetcode.com/u/sahnicoder/">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/varunsahni_leetcode.png" alt="LeetCode" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">LeetCode</p>
+                                 <span class="dot"></span>
+                                 <p class="blog-category">sahnicoder</p>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="blog-post-item">
+                        <a href="https://github.com/varunsahni18">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/varun_sahni_github.png" alt="Github" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Github</p>
+                                 <span class="dot"></span>
+                                 <p class="blog-category">varunsahni18</p>
+                              </div>
+                           </div>
+                        </a>
+                     </li>
+               </section>
+         </article>
+      </div>
+
+   </main>
+   <!--
+         - custom js link
+         -->
+   <script src="./assets/js/script.js" defer></script>
+   <!--
+         - ionicon link
+         -->
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
+
+   <!-- Video Modal -->
+   <div id="video-modal"
+      style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center;">
+      <div style="position:relative; width:90vw; max-width:960px;">
+         <video id="modal-video" controls style="width:100%; border-radius:12px; max-height:80vh;"></video>
+         <button
+            onclick="document.getElementById('video-modal').style.display='none'; document.getElementById('modal-video').pause();"
+            style="position:absolute; top:-36px; right:0; background:none; border:none; color:#fff; font-size:28px; cursor:pointer; line-height:1;">&#x2715;</button>
+      </div>
+   </div>
+
+</body>
+
+</html>

@@ -4,3 +4,22 @@ _site/
 .jekyll-metadata
 vendor/
 .DS_Store
+
+# Generated local authoring previews
+dist/
+.github/portfolio/**/__pycache__/
+.github/portfolio/index.html
+.github/portfolio/404.html
+.github/portfolio/dark/
+.github/portfolio/editorial/
+.github/portfolio/minimal/
+.github/portfolio/compare/
+.github/portfolio/work/
+.github/portfolio/blog/
+.github/portfolio/journey/
+.github/portfolio/contact/
+.github/portfolio/credentials/
+.github/portfolio/beyond/
+.github/portfolio/writing/
+.github/portfolio/design/content.json
+.github/portfolio/design/search.json

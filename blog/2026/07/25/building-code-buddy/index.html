@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Building Code Buddy: A Multi-Agent GenAI Code Review Platform at Qualcomm | Varun Sahni</title><meta content="At Qualcomm, I had the opportunity to architect Code Buddy , a multi-agent GenAI code-review platform that's now deployed across 4,000+ repositories and serves 12,000+ en" name="description"/><meta content="#080d11" name="theme-color"/><link href="/design/dark-mark.svg" rel="icon"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="/design/shared.css?v=20261029" rel="stylesheet"/><link href="/design/art.css?v=20261029" rel="stylesheet"/><link href="/design/dark.css?v=20261029" rel="stylesheet"/><script defer="" src="/design/studio.js?v=20261029"></script><script defer="" src="/design/concepts.js?v=20261029"></script><link href="https://www.varunsahni.in/blog/2026/07/25/building-code-buddy/" rel="canonical"/><meta content="Building Code Buddy: A Multi-Agent GenAI Code Review Platform at Qualcomm | Varun Sahni" property="og:title"/><meta content="At Qualcomm, I had the opportunity to architect Code Buddy , a multi-agent GenAI code-review platform that's now deployed across 4,000+ repositories and serves 12,000+ en" property="og:description"/><meta content="article" property="og:type"/><meta content="https://www.varunsahni.in/blog/2026/07/25/building-code-buddy/" property="og:url"/><meta content="https://www.varunsahni.in/assets/images/varun-linkedin.png" property="og:image"/><meta content="Varun Sahni" property="og:image:alt"/><meta content="Varun Sahni" property="og:site_name"/><meta content="summary" name="twitter:card"/><meta content="2026-10-29.1" name="site-release"/></head><body data-concept="dark" data-search-index="/design/search.json"><a class="skip" href="#main">Skip to content</a><header class="mobile-bar"><a class="concept-logo" href="/"><svg aria-hidden="true" class="vs-mark" viewbox="0 0 48 40"><path d="M3 7 14 33 25 7M43 9H33a6 6 0 0 0 0 12h3a6 6 0 0 1 0 12H24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3"></path></svg><span class="brand-name">Varun Sahni</span></a><button aria-controls="rail" aria-expanded="false" class="menu-button">Menu <svg aria-hidden="true" class="icon"><use href="/design/icons.svg#menu"></use></svg></button></header><header class="rail" id="rail"><div class="rail-brand"><a class="concept-logo" href="/"><svg aria-hidden="true" class="vs-mark" viewbox="0 0 48 40"><path d="M3 7 14 33 25 7M43 9H33a6 6 0 0 0 0 12h3a6 6 0 0 1 0 12H24" fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3"></path></svg><span class="brand-name">Varun Sahni</span></a></div><nav aria-label="Main navigation"><a class="nav-item" href="/">Home</a><a class="nav-item" href="/work/">Work</a><a class="nav-item" href="/journey/">Journey</a><a aria-current="page" class="nav-item is-current" href="/writing/">Writing</a><a class="nav-item" href="/beyond/">Beyond</a><a class="nav-item" href="/credentials/">Credentials</a><a class="nav-item" href="/contact/">Contact</a></nav><div class="header-tools"><button aria-label="Search the website" class="search-open"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#search"></use></svg></button><a class="resume-link" href="/assets/documents/Varun_Sahni_resume.pdf" rel="noopener noreferrer" target="_blank">Résumé <svg aria-hidden="true" class="icon"><use href="/design/icons.svg#arrow-up"></use></svg></a></div></header><div class="site-canvas"><main id="main"><header class="article-head page-pad"><a class="back-link" href="/writing/">← ALL WRITING</a><p class="overline">2026-07-25 / 3 MIN READ</p><h1>Building Code Buddy: A Multi-Agent GenAI Code Review Platform at Qualcomm</h1><div class="article-byline"><img alt="Varun Sahni" decoding="async" loading="lazy" src="/assets/images/varun-linkedin.png"/><p>VARUN SAHNI<br/><span>NYU Courant · Previously Qualcomm</span></p></div></header><section class="article-body page-pad"><aside class="article-toc"><p class="overline">ON THIS PAGE</p><a class="" href="#the-problem">The Problem</a><a class="" href="#architecture-detect-then-fix-agents">Architecture: Detect-Then-Fix Agents</a><a class="" href="#the-retrieval-layer">The Retrieval Layer</a><a class="" href="#results">Results</a><a class="" href="#lessons-learned">Lessons Learned</a></aside><article class="prose"><p>At Qualcomm, I had the opportunity to architect <strong>Code Buddy</strong>, a multi-agent GenAI code-review platform that's now deployed across 4,000+ repositories and serves 12,000+ engineers. Here's the story of how we built it, the architecture decisions that mattered, and what we learned along the way.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Qualcomm's codebase is massive, spanning thousands of repositories across modem firmware, AI/ML stacks, Linux kernel drivers, and application layers. Code reviews were a bottleneck. Engineers spent hours waiting for reviews, and senior reviewers were overwhelmed. We needed a system that could:</p>
+<ol>
+<li><strong>Scale</strong> across 4,000+ repos with different languages and conventions</li>
+<li><strong>Be accurate</strong>, false positives erode trust fast</li>
+<li><strong>Be actionable</strong>, not just flag issues, but suggest fixes</li>
+<li><strong>Integrate</strong> with existing Gerrit/Git workflow</li>
+</ol>
+<h2 id="architecture-detect-then-fix-agents">Architecture: Detect-Then-Fix Agents</h2>
+<p>The core insight was separating <strong>detection</strong> from <strong>fixing</strong>. A single monolithic agent trying to do both produced mediocre results. Instead, we built a pipeline of specialized agents:</p>
+<h3 id="1-the-orchestrator">1. The Orchestrator</h3>
+<p>A tool-calling orchestrator agent receives the code diff and decides which specialized agents to invoke. It uses a lightweight classifier to route the review to the right set of agents based on file type, change size, and context.</p>
+<h3 id="2-reviewer-agent">2. Reviewer Agent</h3>
+<p>The reviewer agent performs static-analysis-style checks, but with LLM reasoning. It catches:
+- Logic errors and off-by-one bugs
+- Memory leaks and use-after-free (critical for C/C++ modem code)
+- API misuse and contract violations
+- Concurrency issues (race conditions, deadlocks)</p>
+<h3 id="3-test-author-agent">3. Test-Author Agent</h3>
+<p>For every detected issue, the test-author agent generates a corresponding test case. This ensures fixes are verifiable and prevents regressions.</p>
+<h3 id="4-security-agent">4. Security Agent</h3>
+<p>A dedicated security agent scans for:
+- Buffer overflows and format string vulnerabilities
+- Integer overflow/underflow
+- Unvalidated input paths
+- Privilege escalation vectors</p>
+<h3 id="5-the-guardrail">5. The Guardrail</h3>
+<p>Before any fix is posted, it must pass a <strong>static-analysis guardrail</strong>, a deterministic check that the fix doesn't introduce new warnings. This is the safety net that lets us deploy with confidence.</p>
+<h2 id="the-retrieval-layer">The Retrieval Layer</h2>
+<p>One of the biggest challenges was giving agents enough context without blowing up the prompt window. A typical code review might touch files that reference symbols across dozens of other files.</p>
+<p>We built a <strong>Tree-sitter symbolic retrieval layer</strong> that:</p>
+<ul>
+<li>Parses the changed files with Tree-sitter to extract symbol references</li>
+<li>Walks a ccls/ctags dependency graph to find definitions and callers</li>
+<li>Caches symbol lookups with TTL-based invalidation</li>
+<li>Feeds only the relevant context into the agent's prompt</li>
+</ul>
+<p>This cut review-retrieval latency dramatically and improved precision by giving agents exactly the context they needed, no more, no less.</p>
+<h2 id="results">Results</h2>
+<p>The numbers speak for themselves:</p>
+<ul>
+<li><strong>2M+ automated code reviews</strong> delivered</li>
+<li><strong>180,000+ reviews per month</strong></li>
+<li><strong>114,000+ engineer-hours saved per month</strong></li>
+<li>Deployed across <strong>4,000+ repos</strong> for <strong>12,000+ engineers</strong></li>
+</ul>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<ol>
+<li>
+<p><strong>Specialized agents beat monolithic ones.</strong> Each agent does one thing well. The orchestrator's job is coordination, not review.</p>
+</li>
+<li>
+<p><strong>Guardrails are non-negotiable.</strong> An LLM that posts bad fixes loses trust instantly. The static-analysis guardrail is our safety net.</p>
+</li>
+<li>
+<p><strong>Context retrieval is the secret sauce.</strong> The quality of the agent's output is directly proportional to the quality of the context you feed it. Tree-sitter + ctags was the right call for a C/C++ heavy codebase.</p>
+</li>
+<li>
+<p><strong>Benchmark everything.</strong> We built prompt-evaluation harnesses on golden datasets to measure precision/recall across model upgrades. Without this, you're flying blind.</p>
+</li>
+<li>
+<p><strong>Start small, scale fast.</strong> We launched with 50 repos and iterated for 3 months before scaling to 4,000+. The early feedback loop was invaluable.</p>
+</li>
+</ol>
+<hr/>
+<p><em>This is the first in a series of posts about building AI systems at scale. Next up: how we built an autonomous agent that triages modem hotline escalations end-to-end.</em></p></article></section></main><footer class="signal-footer"><p>CONTACT</p><h2><a class="" href="/contact/">Say hello.<svg aria-hidden="true" class="icon"><use href="/design/icons.svg#arrow-up"></use></svg></a></h2><div><a class="" href="mailto:sahnicoder@gmail.com">sahnicoder@gmail.com</a><a class="" href="https://github.com/varunsahni18" rel="noopener noreferrer" target="_blank">GitHub ↗</a><a class="" href="https://www.linkedin.com/in/varun-sahni-profile/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a><span>NEW YORK · © 2026</span></div></footer></div><dialog aria-labelledby="search-title" class="search-dialog"><div class="dialog-top"><h2 id="search-title">Find something</h2><button aria-label="Close search" class="search-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button></div><input aria-label="Search projects and pages" autocomplete="off" id="site-search" placeholder="Projects, articles, experience…" type="search"/><div aria-live="polite" class="search-results"></div><p class="search-help">TAB TO EXPLORE · ENTER TO OPEN · ESC TO CLOSE</p></dialog><dialog aria-label="Image viewer" class="media-dialog"><button aria-label="Close image" class="media-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button><div class="media-content"></div></dialog><dialog aria-labelledby="demo-title" class="demo-dialog"><div class="dialog-top"><h2 id="demo-title">Project demo</h2><button aria-label="Close demo" class="demo-close"><svg aria-hidden="true" class="icon"><use href="/design/icons.svg#close"></use></svg></button></div><p aria-live="polite" class="demo-status" role="status"></p><video controls="" playsinline="" preload="none"></video><div class="demo-links"><a class="demo-project-link" href="/work/">Open project</a><a class="demo-file-link" href="/work/" rel="noopener" target="_blank">Open video</a></div></dialog></body></html>
