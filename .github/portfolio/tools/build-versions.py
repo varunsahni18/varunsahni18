@@ -68,15 +68,11 @@ def chronology(concept):
   t+=f'<li class="route-stop stop-{i+1}">{link(href,f"<span>{mark}</span>","route-node"+(" current" if name=="NYU Courant" else ""))}<div class="route-copy"><p class="route-date">{date}{" / NOW" if name=="NYU Courant" else ""}</p><h3>{name}</h3><p>{copy}</p></div></li>'
  return t+'</ol></div>'+action('/journey/','Full experience & education')+'</section>'
 def project_globe():
- order=['code-buddy','cabinai','myai','healthsense','digital-twin-mapmyindia','compiler-construction']
- order += [p['slug'] for p in P if p['slug'] not in order]
- labels={'digital-twin-mapmyindia':'Digital Map','compiler-construction':'Compiler','florafast-plant-delivery-app':'FloraFast','iworkslab-food-delivery-app':'iworkslab','wisewaterman-water-conservation-game-for-ncert':'WiseWaterman','igcsm-life-cycle-anaysis':'Life Cycle Analysis','decentralized-academic-certificate-system':'Certificate Registry','simulation-of-delhi-s-air-pollution':'Delhi Air Pollution','other-projects-on-github':'GitHub Archive'}
- t='<div class="orb-stage" role="region" aria-label="Explore all 23 projects"><canvas class="systems-field" aria-hidden="true"></canvas><div class="globe-projects" id="globe-projects">'
- for i,slug in enumerate(order):
+ t='<div class="orb-stage" role="region" aria-label="Selected projects"><canvas class="systems-field" aria-hidden="true"></canvas><div class="globe-projects">'
+ for i,slug in enumerate(['code-buddy','cabinai','myai']):
   p=BY[slug]
-  t+=f'<a class="orb-tag" data-globe-index="{i}" data-globe-slot="{i%6}" href="/work/{slug}/" aria-label="{e(p["title"])}" {"hidden" if i>=6 else ""}><span class="orb-number">{i+1:02}</span><span>{e(labels.get(slug,p["title"]))}</span>{ic("arrow-up")}</a>'
- t+='</div><div class="globe-controls"><span class="globe-count" aria-live="polite" aria-atomic="true">01–06 of 23 projects</span><div><button type="button" data-globe-step="-1" aria-label="Previous projects on the globe" aria-controls="globe-projects" disabled>'+ic('back')+'</button><button type="button" data-globe-step="1" aria-label="Next projects on the globe" aria-controls="globe-projects">'+ic('arrow')+'</button></div></div></div>'
- return t
+  t+=f'<a class="orb-tag" data-globe-index="{i}" href="/work/{slug}/"><span class="orb-number">{i+1:02}</span><span>{e(p["title"])}</span>{ic("arrow-up")}</a>'
+ return t+'</div></div>'
 
 def dark_home():
  t=f'''<section class="dark-hero"><div class="dark-hero-content"><div class="hero-story"><div class="hero-heading"><h1>Varun Sahni</h1></div><p class="hero-degree">M.S. Computer Science · NYU Courant</p><p class="dark-intro">I build AI systems that review code, use tools, and run on personal devices. At Qualcomm, I architected Code Buddy and helped scale it to 12,000+ engineers across 4,000+ repositories.</p><p class="dark-context">Previously at Qualcomm and AMD.</p><div class="hero-actions">{action('#selected-work','Explore my work')}{link(RESUME,'View résumé '+ic('arrow-up'),'quiet-link',True)}</div></div>{project_globe()}</div><div class="hero-scroll">{link('#selected-work','Explore below '+ic('down'))}</div></section>'''
@@ -88,7 +84,7 @@ def dark_home():
   t+=f'<article class="feature-panel dark-reel-panel" role="tabpanel" id="panel-{p["slug"]}" aria-labelledby="tab-{p["slug"]}" {"hidden" if i else ""}><div class="reel-image">{link("/work/"+p["slug"]+"/",art(p),"project-cover")}</div><div class="reel-copy"><p class="overline">{e(p["group"])}</p><h3>{p["title"]}</h3><p>{e(p["summary"])}</p><div class="project-actions">{action("/work/"+p["slug"]+"/","Open project")}{demo(p,"home")}</div><div class="reel-index">0{i+1}<span>/ 03</span></div></div></article>'
  t+='</section>'+dark_awards()
  lead=D['leadership'][0]
- t+=f'<section class="dark-community"><div>{caption("BEYOND THE TERMINAL")}<h2>Labs &amp; leadership.</h2><p>At BITS Pilani, I led a 40-member AR/VR team, helped establish student labs, and organized a VR Experience Zone at Oasis.</p>{action("/beyond/","Labs, leadership & life")}</div><figure>{img(lead["images"][0]["src"],lead["images"][0]["alt"])}<figcaption>VARUN SAHNI / BEYOND WORK</figcaption></figure></section>'
+ t+=f'<section class="dark-community"><div>{caption("BEYOND THE TERMINAL")}<h2>Labs &amp; leadership.</h2><p>At BITS Pilani, I led a 40-member AR/VR team, helped establish student labs, and organized a VR Experience Zone at Oasis.</p>{action("/beyond/","Labs, leadership & life")}</div><figure>{img(lead["images"][0]["src"],lead["images"][0]["alt"])}<figcaption>KALIPATNAPU AR/VR LAB / BITS PILANI</figcaption></figure></section>'
  t+='<section class="dark-recommendations"><div class="section-intro">'+caption('RECOMMENDATIONS')+'<h2>Recommendations.</h2></div><div class="colleagues">'+''.join(quote(c) for c in D['recommendations'])+'</div></section><section class="dark-writing"><div class="section-intro reel-heading"><div>'+caption('WRITING')+'<h2>Writing.</h2></div>'+action('/writing/','All articles')+'</div>'+''.join(journal(p,i) for i,p in enumerate(POSTS[:2]))+'</section>'
  main=BeautifulSoup(t,'html.parser')
  sections={x.get('class',[None])[0]:x for x in main.find_all('section',recursive=False)}

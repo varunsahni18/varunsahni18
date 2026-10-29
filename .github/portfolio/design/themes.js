@@ -6,7 +6,7 @@
  document.documentElement.dataset.theme=theme;
  document.addEventListener('DOMContentLoaded',()=>{
   const preview=params.has('preview');
-  const themeColors={mint:'#080d11',cobalt:'#0b1021',paper:'#f5f1e8','new-york':'#f3f1e9'};
+  const themeColors={mint:'#080d11',cobalt:'#0b1021',paper:'#f5f1e8','new-york':'#10151b'};
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content',themeColors[theme]);
   if(preview)document.documentElement.classList.add('theme-preview');
   function decorateLink(a){
@@ -30,10 +30,18 @@
   const frames=[...document.querySelectorAll('.theme-frame')];
   for(const frame of frames)new ResizeObserver(entries=>{const scale=entries[0].contentRect.width/1280;frame.style.setProperty('--preview-scale',scale);frame.style.height=(800*scale)+'px';}).observe(frame);
   if(theme==='new-york'){
-   const hero=document.querySelector('.hero-story');
-   if(hero){const line=document.createElement('p');line.className='nyc-edition';line.textContent='NEW YORK, NY · NYU COURANT';hero.prepend(line);}
-   const stage=document.querySelector('.orb-stage');
-   if(stage){const city=document.createElement('div');city.className='nyc-skyline';city.setAttribute('aria-hidden','true');stage.prepend(city);}
+   const hero=document.querySelector('.dark-hero'),story=hero?.querySelector('.hero-story');
+   if(hero&&story){
+    const backdrop=document.createElement('div');backdrop.className='nyc-backdrop';backdrop.setAttribute('aria-hidden','true');
+    const photo=document.createElement('img');photo.src='/assets/images/new-york-luca-bravo.jpg';photo.alt='';photo.fetchPriority='high';photo.decoding='async';backdrop.append(photo);hero.prepend(backdrop);
+    const line=document.createElement('p');line.className='nyc-edition';line.textContent='BASED IN NEW YORK / NYU COURANT';story.prepend(line);
+    const heading=story.querySelector('h1');heading.replaceChildren('Varun',document.createElement('br'),'Sahni');
+    const projects=document.createElement('nav');projects.className='nyc-projects';projects.setAttribute('aria-label','Selected projects');
+    for(const link of hero.querySelectorAll('.orb-tag')){const item=link.cloneNode(true);item.className='nyc-project-link';item.removeAttribute('data-globe-index');projects.append(item);}story.append(projects);
+    const foot=document.createElement('div');foot.className='nyc-hero-footer';
+    const place=document.createElement('span');place.textContent='NEW YORK, NY / 40.71° N, 74.01° W';foot.append(place);
+    const credit=document.createElement('a');credit.href='https://unsplash.com/photos/_QdFx92MO2U';credit.target='_blank';credit.rel='noopener noreferrer';credit.textContent='Photo: Luca Bravo / Unsplash';foot.append(credit);hero.append(foot);
+   }
   }
  });
 })();

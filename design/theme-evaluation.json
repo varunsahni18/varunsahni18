@@ -47,16 +47,16 @@
   {
     "id": "new-york",
     "name": "New York",
-    "bg": "#f3f1e9",
-    "ink": "#171917",
-    "muted": "#56594f",
-    "accent": "#234c37",
+    "bg": "#10151b",
+    "ink": "#f3f0e8",
+    "muted": "#b7bec6",
+    "accent": "#e8bd80",
     "tag": "City edition",
-    "copy": "The strongest personal direction. Transit colors, bold type, route markers, and a skyline connect the portfolio to life at NYU and in New York.",
+    "copy": "A full-width Manhattan photograph at dusk, warm city-light accents, and an open layout that gives the skyline room. The city is the background of the page, with selected projects linked below the introduction.",
     "ratios": {
-      "text": 15.63,
-      "secondary": 6.32,
-      "links": 8.6
+      "text": 16.1,
+      "secondary": 9.78,
+      "links": 10.5
     }
   }
 ]
