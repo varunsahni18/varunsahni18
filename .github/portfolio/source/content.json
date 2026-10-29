@@ -201,6 +201,10 @@
       "video": "/assets/videos/final_flora_fast.mp4",
       "links": [
         [
+          "https://github.com/varunsahni18/FloraFast",
+          "GitHub"
+        ],
+        [
           "https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing",
           "View resource"
         ]
@@ -217,6 +221,10 @@
       "image": "/assets/images/iworksLab-food-delivery.png",
       "video": null,
       "links": [
+        [
+          "https://github.com/varunsahni18/iworkslab",
+          "GitHub"
+        ],
         [
           "https://drive.google.com/drive/folders/1zrVDyXeNXVfhQkhaSBr_jBWY85zS5XKx?usp=sharing",
           "View resource"
@@ -519,11 +527,11 @@
     },
     {
       "title": "Standard Chartered Bank",
-      "text": "Standard Chartered Bank May 2023 – July 2023 Software Development Engineer Intern Improved code reliability for SC Pay by implementing 100+ test cases using JUnit and Mockito, achieving outstanding 98.61% test coverage . Managed the setup and deployment of over 10 repositories using Azure DevOps, ensuring continuous integration and rapid software releases. Facilitated efficient collaboration with Bitbucket for version control & code reviews, streamlining development processes & improving team productivity.",
+      "text": "Standard Chartered Bank May 2023 – July 2023 Software Development Engineer Intern Migrated SC Pay deployment pipelines from Jenkins to Azure DevOps, receiving the CCIB SCPay Award for the work. Managed setup and deployment for 10+ repositories in Azure DevOps to support continuous integration and software releases. Used Bitbucket for version control and code reviews across the team’s development workflow.",
       "bullets": [
-        "Improved code reliability for SC Pay by implementing 100+ test cases using JUnit and Mockito, achieving outstanding 98.61% test coverage .",
-        "Managed the setup and deployment of over 10 repositories using Azure DevOps, ensuring continuous integration and rapid software releases.",
-        "Facilitated efficient collaboration with Bitbucket for version control & code reviews, streamlining development processes & improving team productivity."
+        "Migrated SC Pay deployment pipelines from Jenkins to Azure DevOps, receiving the CCIB SCPay Award for the work.",
+        "Managed setup and deployment for 10+ repositories in Azure DevOps to support continuous integration and software releases.",
+        "Used Bitbucket for version control and code reviews across the team’s development workflow."
       ],
       "images": [],
       "links": []

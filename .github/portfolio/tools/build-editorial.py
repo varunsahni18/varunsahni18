@@ -4,7 +4,10 @@ from bs4 import BeautifulSoup
 import markdown,yaml
 R=Path(__file__).resolve().parents[1]
 D=json.loads((R/'source/content.json').read_text())
-P=D['projects']; BY={p['slug']:p for p in P}; RESUME='/assets/documents/Varun_Sahni_resume.pdf'
+import shutil
+ASSETS=R/'assets' if (R/'assets').exists() else R.parents[1]/'assets'
+shutil.copy2(ASSETS/'documents/Varun_Sahni_resume.pdf',R/'resume.pdf')
+P=D['projects']; BY={p['slug']:p for p in P}; RESUME='/resume.pdf'
 def e(x):return html.escape(str(x),quote=True)
 def ic(n):return f'<svg class="icon" aria-hidden="true"><use href="/design/icons.svg#{n}"/></svg>'
 def img(src,alt,early=False):return f'<img src="{e(src)}" alt="{e(alt)}" loading="{"eager" if early else "lazy"}" decoding="async">'
@@ -49,7 +52,7 @@ for i,p in enumerate(featured):
  contexts=[('QUALCOMM / 2024–2026','Code review, at engineering scale.','A code-review platform for 12,000+ engineers and 4,000+ repositories. My work spanned review agents, dependency-aware retrieval, fix generation, and evaluation.'),('SPARQ TECHFEST / 2026','Seven agents. One cabin.','A solo hackathon prototype combining driver monitoring, local safety decisions, voice, retrieval, and selective cloud reasoning. Jury Award winner among 166 teams.'),('ANDROID / ON-DEVICE AI','An assistant with no internet permission.','A local Android assistant with deterministic routing, caching, tools, and Genie-backed inference. A build guard keeps network permission out of the default APK.')][i]
  feature+=f'<article class="feature-panel" id="panel-{p["slug"]}" role="tabpanel" aria-labelledby="tab-{p["slug"]}" {"hidden" if i else ""}><div class="feature-art">{link("/work/"+p["slug"]+"/",artwork(p),"project-cover")}</div><div class="feature-story">{caption(contexts[0])}<h3>{e(p["title"])}</h3><p class="feature-line">{contexts[1]}</p><p>{contexts[2]}</p>{action("/work/"+p["slug"]+"/","Inside the project")}</div></article>'
 feature+='</section>'
-steps=[('2020–24','BITS Pilani','Computer science. Apps, games, and student-led labs.','/journey/','BITS'),('2022','Invoxel','AR galleries, spatial anchors, and museum interactions.','/work/art-gallery/','AR'),('2022–23','TU Braunschweig','DAAD scholarship. Mixed-reality research with HoloLens.','/work/igcsm-life-cycle-anaysis/','TU'),('2023','Standard Chartered','Payment-software testing and CI/CD in Azure DevOps.','/journey/','SC'),('2024','AMD','Parallel C++ trace processing and performance engineering.','/journey/','AMD'),('2024–26','Qualcomm','Code Buddy, AI agents, retrieval, and developer tooling.','/work/code-buddy/','Q'),('2026–28','NYU Courant','M.S. Computer Science. A new chapter in New York.','/journey/','NYU')]
+steps=[('2020–24','BITS Pilani','Computer science. Apps, games, and student-led labs.','/journey/','BITS'),('2022','Invoxel','AR galleries, spatial anchors, and museum interactions.','/work/art-gallery/','AR'),('2022–23','TU Braunschweig','DAAD scholarship. Mixed-reality research with HoloLens.','/work/igcsm-life-cycle-anaysis/','TU'),('2023','Standard Chartered','SC Pay deployment pipelines and Azure DevOps migration.','/journey/','SC'),('2024','AMD','Parallel C++ trace processing and performance engineering.','/journey/','AMD'),('2024–26','Qualcomm','Code Buddy, AI agents, retrieval, and developer tooling.','/work/code-buddy/','Q'),('2026–28','NYU Courant','M.S. Computer Science. A new chapter in New York.','/journey/','NYU')]
 journey='<section class="route-spread page-pad" id="home-journey"><div class="spread-top"><div>'+caption('02 / THE JOURNEY')+'<h2>FROM BITS<br>TO NYU.</h2></div><p>From BITS Pilani to New York.<br>Follow the turns.</p></div><div class="route-map"><svg class="route-line" aria-hidden="true"><path/></svg><ol class="route-stops">'
 for i,(date,name,copy,href,mark) in enumerate(steps):journey+=f'<li class="route-stop stop-{i+1}">{link(href,f"<span>{mark}</span>","route-node"+(" current" if i==6 else ""))}<div class="route-copy"><p class="route-date">{date}{" / NOW" if i==6 else ""}</p><h3>{e(name)}</h3><p>{copy}</p></div></li>'
 journey+='</ol></div>'+action('/journey/','Experience & education')+'</section>'
