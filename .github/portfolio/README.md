@@ -11,7 +11,7 @@ python3 .github/portfolio/tools/package-dark.py --assets ./assets --output ./dis
 python3 .github/portfolio/tools/preview.py --directory ./dist --port 8879
 ```
 
-Review `dist/`, copy its contents to the repository root, then commit and push the release. Keep comparison pages out of production. The root README is the public GitHub profile and must contain personal profile content only.
+Review `dist/`, copy its contents to the repository root, then commit and push the release. Keep the authoring `/compare/` design directions out of production. The public `/themes/` page compares the four color themes; `/new-york/` opens the New York edition. Theme choices travel in the URL so links can be shared and the selection follows internal navigation. The root README is the public GitHub profile and must contain personal profile content only.
 
 ## Résumé URL
 

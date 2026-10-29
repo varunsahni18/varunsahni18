@@ -7,7 +7,7 @@ R=Path(__file__).resolve().parents[1]
 a=argparse.ArgumentParser();a.add_argument('--output',required=True);a.add_argument('--assets',default=str(R/'assets'));args=a.parse_args();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=True)
 shutil.copytree(Path(args.assets),out/'assets',dirs_exist_ok=True)
 shutil.copy2(Path(args.assets)/'documents/Varun_Sahni_resume.pdf',out/'resume.pdf')
-for name in ['shared.css','art.css','dark.css','studio.js','concepts.js','icons.svg','dark-mark.svg']:
+for name in ['shared.css','art.css','dark.css','studio.js','concepts.js','icons.svg','dark-mark.svg','themes.css','themes.js']:
  (out/'design').mkdir(exist_ok=True);shutil.copy2(R/'design'/name,out/'design'/name)
 shutil.copytree(R/'design/media',out/'design/media',dirs_exist_ok=True)
 # The review switcher is omitted; the systems animation remains.
@@ -24,15 +24,17 @@ for f in sorted((R/'dark').rglob('*.html')):
  for anchor in s.select('a[href]'):
   if anchor['href'].split('?')[0]=='/assets/documents/Varun_Sahni_resume.pdf':anchor['href']='/resume.pdf'
  s.body['data-search-index']='/design/search.json'
+ s.head.insert(0,s.new_tag('script',src='/design/themes.js?v=20261029-4'))
+ s.head.append(s.new_tag('link',rel='stylesheet',href='/design/themes.css?v=20261029-4'))
  canonical='https://www.varunsahni.in'+path
  tag=s.new_tag('link',rel='canonical',href=canonical);s.head.append(tag)
  desc=s.select_one('meta[name=description]')['content']
  for prop,value in [('og:title',s.title.get_text()),('og:description',desc),('og:type','article' if '/blog/20' in path else 'website'),('og:url',canonical),('og:image','https://www.varunsahni.in/assets/images/varun-linkedin.png'),('og:image:alt','Varun Sahni'),('og:site_name','Varun Sahni')]:s.head.append(s.new_tag('meta',attrs={'property':prop,'content':value}))
  s.head.append(s.new_tag('meta',attrs={'name':'twitter:card','content':'summary'}))
- s.head.append(s.new_tag('meta',attrs={'name':'site-release','content':'2026-10-29.3'}))
+ s.head.append(s.new_tag('meta',attrs={'name':'site-release','content':'2026-10-29.4'}))
  for asset in s.select('link[rel=stylesheet],script[src]'):
   key='src' if asset.name=='script' else 'href'
-  if asset[key].startswith('/design/'):asset[key]=asset[key].split('?')[0]+'?v=20261029-3'
+  if asset[key].startswith('/design/'):asset[key]=asset[key].split('?')[0]+'?v=20261029-4'
  target=out/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(str(s));paths.append(path)
 index=json.loads((R/'dark/design/search.json').read_text())
 for x in index:x['path']=x['path'][5:]
@@ -41,3 +43,6 @@ for x in index:x['path']=x['path'][5:]
 (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://www.varunsahni.in/sitemap.xml\n')
 (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>https://www.varunsahni.in'+p+'</loc></url>' for p in paths if p!='/404.html')+'</urlset>')
 print(json.dumps({'pages':len(paths),'output':str(out),'domain':'www.varunsahni.in'}))
+
+import subprocess,sys
+subprocess.run([sys.executable,str(R/"tools/build-themes.py"),"--directory",str(out)],check=True)

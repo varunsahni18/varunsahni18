@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mint",
+    "name": "Mint",
+    "bg": "#080d11",
+    "ink": "#f0f6f4",
+    "muted": "#8b9da3",
+    "accent": "#a6f6d7",
+    "tag": "Recommended",
+    "copy": "The most cohesive fit for the current site. The mint accent keeps the globe, project illustrations, and navigation in the same visual language.",
+    "ratios": {
+      "text": 17.84,
+      "secondary": 6.92,
+      "links": 15.6
+    }
+  },
+  {
+    "id": "cobalt",
+    "name": "Cobalt",
+    "bg": "#0b1021",
+    "ink": "#f2f5ff",
+    "muted": "#a5b3d1",
+    "accent": "#a9c5ff",
+    "tag": "Cool / dark",
+    "copy": "A navy background and pale blue accents. A quieter alternative with clear text contrast, though less distinctive than Mint or New York.",
+    "ratios": {
+      "text": 17.36,
+      "secondary": 8.98,
+      "links": 10.91
+    }
+  },
+  {
+    "id": "paper",
+    "name": "Paper",
+    "bg": "#f5f1e8",
+    "ink": "#282a24",
+    "muted": "#606356",
+    "accent": "#8b4028",
+    "tag": "Warm / light",
+    "copy": "Warm paper, charcoal text, and rust accents. Comfortable for reading the longer case studies; the technical illustrations keep their original colors.",
+    "ratios": {
+      "text": 12.88,
+      "secondary": 5.45,
+      "links": 6.51
+    }
+  },
+  {
+    "id": "new-york",
+    "name": "New York",
+    "bg": "#f3f1e9",
+    "ink": "#171917",
+    "muted": "#56594f",
+    "accent": "#234c37",
+    "tag": "City edition",
+    "copy": "The strongest personal direction. Transit colors, bold type, route markers, and a skyline connect the portfolio to life at NYU and in New York.",
+    "ratios": {
+      "text": 15.63,
+      "secondary": 6.32,
+      "links": 8.6
+    }
+  }
+]

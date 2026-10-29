@@ -4,6 +4,7 @@ const canvas=document.querySelector('.systems-field');if(!canvas)return;
 const stage=canvas.parentElement,ctx=canvas.getContext('2d');if(!ctx)return;
 const reduced=matchMedia('(prefers-reduced-motion:reduce)'),mobile=matchMedia('(max-width:650px)');
 const links=[...stage.querySelectorAll('[data-globe-index]')],counter=stage.querySelector('.globe-count'),buttons=[...stage.querySelectorAll('[data-globe-step]')];
+const preview=new URLSearchParams(location.search).has('preview');
 const groupSize=6;let page=0,w=0,h=0,raf=0,last=0,visible=true,px=0,py=0,rx=0,ry=0,targets=[];
 function measure(){const box=stage.getBoundingClientRect();targets=links.map(link=>{if(link.hidden)return null;const b=link.getBoundingClientRect();return {x:(b.left+b.right)/2-box.left,y:(b.top+b.bottom)/2-box.top};});}
 function resize(){const box=stage.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);w=box.width;h=box.height;canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);measure();draw(0);}
@@ -25,8 +26,8 @@ function draw(time){
  });
  ctx.beginPath();ctx.ellipse(cx,cy,r*1.25,r*.25,-.48,0,Math.PI*2);ctx.strokeStyle=`rgba(${rgb},.15)`;ctx.lineWidth=.7;ctx.stroke();
 }
-function frame(now){if(now-last>32){draw(now);last=now;}if(visible&&!document.hidden&&!reduced.matches)raf=requestAnimationFrame(frame);else raf=0;}
-function sync(){cancelAnimationFrame(raf);raf=0;if(visible&&!document.hidden&&!reduced.matches)raf=requestAnimationFrame(frame);else draw(0);}
+function frame(now){if(now-last>32){draw(now);last=now;}if(visible&&!document.hidden&&!reduced.matches&&!preview)raf=requestAnimationFrame(frame);else raf=0;}
+function sync(){cancelAnimationFrame(raf);raf=0;if(visible&&!document.hidden&&!reduced.matches&&!preview)raf=requestAnimationFrame(frame);else draw(0);}
 stage.addEventListener('pointermove',e=>{const b=stage.getBoundingClientRect();px=((e.clientX-b.left)/b.width-.5)*.6;py=((e.clientY-b.top)/b.height-.5)*.35;if(reduced.matches)draw(0);});
 stage.addEventListener('pointerleave',()=>{px=0;py=0;});
 new ResizeObserver(resize).observe(stage);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();}).observe(stage);
