@@ -18,7 +18,7 @@ function draw(time){
  for(let col=0;col<24;col++){ctx.beginPath();for(let row=0;row<=40;row++){const p=project(-Math.PI/2+row*Math.PI/40,col*Math.PI/12);row?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);}ctx.strokeStyle=`rgba(${rgb},.11)`;ctx.lineWidth=.6;ctx.stroke();}
  for(let row=1;row<19;row++)for(let col=0;col<36;col++){const p=project(-Math.PI/2+row*Math.PI/20,col*Math.PI/18);ctx.beginPath();ctx.arc(p.x,p.y,.6+p.depth*.7,0,Math.PI*2);ctx.fillStyle=`rgba(${rgb},${.1+p.depth*.42})`;ctx.fill();}
  // Fibonacci sampling gives every project its own point on the sphere.
- links.forEach((link,i)=>{const lat=Math.asin(1-2*(i+.5)/links.length),lon=i*Math.PI*(3-Math.sqrt(5)),p=project(lat,lon),active=!link.hidden;
+ links.forEach((link,i)=>{const nodeIndex=(i*9)%links.length,lat=Math.asin(1-2*(nodeIndex+.5)/links.length),lon=nodeIndex*Math.PI*(3-Math.sqrt(5)),p=project(lat,lon),active=!link.hidden;
   if(active&&!mobile.matches&&targets[i]){const t=targets[i];ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(t.x,t.y);ctx.strokeStyle=`rgba(${rgb},.3)`;ctx.lineWidth=.8;ctx.stroke();}
   ctx.beginPath();ctx.arc(p.x,p.y,active?3.3:1.8,0,Math.PI*2);ctx.fillStyle=active?accent:`rgba(${rgb},.4)`;if(active){ctx.shadowColor=accent;ctx.shadowBlur=10;}ctx.fill();ctx.shadowBlur=0;
   if(active){ctx.beginPath();ctx.arc(p.x,p.y,7,0,Math.PI*2);ctx.strokeStyle=`rgba(${rgb},.4)`;ctx.stroke();}
