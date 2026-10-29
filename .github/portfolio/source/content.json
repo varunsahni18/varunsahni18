@@ -13,17 +13,13 @@
         ]
       ],
       "bullets": [
-        "Architected a multi-agent GenAI code-review platform deployed across 4,000+ repos for 12,000+ engineers , running detect-then-fix agents under a tool-calling orchestrator that generate self-validating fixes and pass validation guardrails before posting.",
-        "Scaled the platform to 2M+ automated code reviews (180,000+ monthly), with a modeled estimate of 114,000+ engineer-hours saved per month .",
-        "Cut review-retrieval latency via a Tree-sitter symbolic-retrieval layer over a ccls/ctags dependency graph with TTL symbol caching.",
-        "Built SlideGen , an LLM tool that turns raw technical data into corporate-compliant decks using structured-output validation and template-aware layout.",
-        "Built an agentic tool that reads live C/C++ modem source and drives interactive 4G/5G NAS protocol tests through a 14-tool calling loop, no hardcoded answer mappings.",
-        "Built an autonomous LLM agent that triages NAS modem hotline escalations end-to-end via a 13-tool calling loop: parses issue emails, searches Perforce source and CR/JIRA databases, and shelves a 3GPP-cited candidate fix after a 4-model consensus review.",
-        "Built evaluation workflows for code-review agents using golden code changes and precision/recall comparisons. Worked on structural code retrieval so agents could look up symbols and dependencies instead of relying on lexical search alone."
+        "Connected change events to a review pipeline that retrieves code context, detects issues, generates candidate fixes, and validates the result before delivery.",
+        "Built dependency-aware retrieval using Tree-sitter, symbol indexes, and cached lookups so reviewers could inspect definitions and call relationships beyond the changed lines.",
+        "Compared agent findings against labeled code changes using precision and recall, giving prompt and model updates a repeatable evaluation process."
       ],
       "group": "AI systems",
       "headline": "From a pilot to 12,000 engineers.",
-      "summary": "A multi-agent code-review platform I architected at Qualcomm, built to detect issues, generate verifiable fixes, and scale across 4,000+ repositories."
+      "summary": "A code-review platform I architected at Qualcomm, connecting issue detection, candidate fixes, and validation for 12,000+ engineers across 4,000+ repositories."
     },
     {
       "title": "CabinAI",
@@ -42,17 +38,13 @@
         ]
       ],
       "bullets": [
-        "Architected a 7-agent hybrid edge-cloud vision-language-action system: safety and voice run on-device, while complex reasoning can escalate to Qwen3-VL-32B / gpt-oss-20b on Qualcomm AIC100.",
-        "Designed a core drowsiness detection pipeline utilizing a 3-engine vote consensus (rule-based, ML, and LLM) to drastically reduce false positives.",
-        "Developed ZeroClaw, a state orchestration bus tying all agents with a location-aware voice assistant into a shared, proactive intelligence layer.",
-        "Demonstrated the system end-to-end via a full driving simulation through Gachibowli, Hyderabad.",
-        "Jury Award Winner at SparQ Qualcomm TechFest 2026 , competing solo against 166 teams.",
-        "Implemented a deterministic edge/cloud router with multi-tier fallbacks. Routing 80%+ of queries locally was the design target; the distribution depends on the workload.",
-        "Implemented local retrieval over a 31-document corpus with BGE-small ONNX embeddings and a keyword fallback, without a PyTorch runtime dependency."
+        "Processed MediaPipe face and hand landmarks in the browser to estimate eye closure, blink activity, head movement, and recognized gestures.",
+        "Connected browser events to a Flask backend and streamed updates through server-sent events, with local command handling before model routing.",
+        "Added BGE-small ONNX retrieval over a 31-document corpus, keyword fallback, and separate local and cloud response paths. Fatigue forecasting remained experimental."
       ],
       "group": "AI systems",
       "headline": "Driver intelligence, one step ahead.",
-      "summary": "A hybrid edge-cloud system that brings seven agents together to anticipate driver fatigue and keep safety decisions close to the device."
+      "summary": "A driving-assistant prototype combining camera-based driver monitoring, voice, gestures, and local retrieval through seven coordinated components."
     },
     {
       "title": "HealthSense",
@@ -71,13 +63,13 @@
         ]
       ],
       "bullets": [
-        "Built a prototype dashboard and agent pipeline for ECG, EEG, PPG, EMG, and IMU signals. Implemented signal-processing heuristics and a small PyTorch 1D ECG CNN with ONNX export.",
-        "Explored a PanLUNA-inspired multimodal foundation-model design. The 5.4M-parameter architecture and 95 ms / 19 mJ NPU figures were concept targets, rather than measurements of a deployed model.",
-        "Demonstrated the BioTrain adaptation workflow through simulated training curves; on-device backpropagation remained future work. ECG experiments were exploratory and were not subject-held-out clinical validation."
+        "Connected five signal types to preprocessing, task-specific outputs, and a common dashboard for inspecting the analysis.",
+        "Built a compact 1D ECG CNN in PyTorch with training and ONNX export scripts, plus runtime provider selection with a CPU fallback.",
+        "Tested ECG classification on a small, four-record PhysioNet sample. The experiment used window-level splits; it does not establish performance on unseen patients. BioTrain adaptation is simulated."
       ],
       "group": "AI systems",
       "headline": "Exploring intelligence for wearable signals.",
-      "summary": "A biosignal-system prototype combining a small ECG CNN, signal-processing heuristics, and an agent dashboard. Inspired by multimodal wearable foundation models."
+      "summary": "An experimental biosignal dashboard combining ECG classification, signal-processing heuristics, and explanations across five sensor streams."
     },
     {
       "title": "Cliffside Conquest",
@@ -91,10 +83,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Combined a player character and a cliffside environment in a Unity gameplay prototype.",
+        "Used the scene layout and visual feedback to make the movement path readable.",
+        "Recorded a gameplay walkthrough showing the implemented level and player interaction."
+      ],
       "group": "Games",
       "headline": "A world built for exploration.",
-      "summary": "A Unity game project, with a playable world and a recorded gameplay walkthrough."
+      "summary": "A Unity game prototype centered on character movement through a cliffside environment, documented in a gameplay walkthrough."
     },
     {
       "title": "MyAI",
@@ -113,14 +109,13 @@
         ]
       ],
       "bullets": [
-        "Built an Android assistant with a four-tier routing design: deterministic keyword matching, response caching, local tools, and Genie-backed model inference. In the public implementation, the two model tiers share a runtime callback.",
-        "Tested a quantized Qwen2.5-VL-7B bundle on Snapdragon 8 Elite through Qualcomm Genie. The public source requires external Genie runtime artifacts for the NPU path.",
-        "Shipped the default APK without INTERNET permission and added a Gradle build guard against accidentally introducing it.",
-        "Implemented local calculator, datetime, calendar, contacts, and alarm tools with structured JSON calls."
+        "Implemented routing between keyword matches, cached responses, device tools, and a shared Genie model callback, avoiding model work for requests handled by earlier paths.",
+        "Used structured JSON tool calls to connect generated requests to calculator, date and time, calendar, contacts, and alarm operations.",
+        "Added a feedback-based response cache and a build-time network-permission guard. The public source needs external Genie runtime artifacts to reproduce the NPU path."
       ],
       "group": "AI systems",
       "headline": "Your assistant. Your device.",
-      "summary": "An Android assistant that routes between tools, cache, and quantized language models—with no internet permission."
+      "summary": "An offline Android assistant that checks keywords, cached answers, and local tools before invoking a quantized language model through Qualcomm Genie."
     },
     {
       "title": "Digital Twin - MapMyIndia",
@@ -143,14 +138,13 @@
         ]
       ],
       "bullets": [
-        "Initialized a Unity map from a location provider and implemented mouse-look, movement, and zoom controls.",
-        "Built a navigation coroutine that zooms out, interpolates between coordinates, then restores zoom so distant map transitions retain spatial context.",
-        "The recorded demo and original project title use MapMyIndia terminology; the public repository uses the Mapbox SDK. This is an interactive geographic viewer, rather than a synchronized live physical twin.",
-        "The original project notes also describe map-layer inspector tooling for marker and model management, alongside zoom and rotation controls."
+        "Initialized the map from the first location update and connected latitude and longitude input to the map center.",
+        "Implemented a coroutine for zooming out, moving between coordinates, and zooming back in at the destination.",
+        "Added scene navigation controls around the SDK terrain and building layers, including movement, mouse-look, rotation, and scroll-wheel zoom."
       ],
       "group": "Spatial & AR",
       "headline": "Navigate a map in three dimensions.",
-      "summary": "A Unity geospatial viewer with location initialization, tiled maps, and smooth coordinate-to-coordinate navigation. The public implementation uses Mapbox and C#."
+      "summary": "A Unity map viewer with location initialization, coordinate-based navigation, and animated transitions between distant places."
     },
     {
       "title": "Compiler Construction",
@@ -165,13 +159,13 @@
         ]
       ],
       "bullets": [
-        "Built a compiler front end as a team project in C, with a DFA twin-buffer lexer and a table-driven LL(1) parser using FIRST/FOLLOW sets.",
-        "Constructed an AST and symbol tables, with scope/type checks, partial semantic analysis, and panic-mode error recovery. Executable code generation was not completed.",
-        "Compared parse-tree and AST node storage: one sample showed roughly 70% lower estimated node-structure memory, calculated from node counts and structure sizes."
+        "Implemented a DFA-based lexer and a stack-driven predictive parser with generated parsing tables and panic-mode recovery.",
+        "Constructed the AST and scoped symbol tables for functions, variables, arrays, type information, and storage offsets.",
+        "Added partial semantic checks and a driver for inspecting each front-end stage. The project was built by a five-person course team."
       ],
       "group": "Systems & research",
       "headline": "Inside a compiler front end.",
-      "summary": "A team-built compiler front end in C: twin-buffer lexing, LL(1) parsing, AST construction, symbol tables, and semantic analysis."
+      "summary": "A team-built compiler front end in C covering lexical analysis, LL(1) parsing, AST construction, scoped symbol tables, and partial semantic analysis."
     },
     {
       "title": "Live Train Status",
@@ -186,12 +180,13 @@
         ]
       ],
       "bullets": [
-        "Modeled trains, stations, ordered schedules, routes, and delays in SQL. Used relational queries and views to find possible journeys and derive arrival estimates.",
-        "Built Flutter lookup, status, and admin delay screens consuming JSON endpoints. This is a coursework prototype; the original hosted backend is not presented as a currently operating service."
+        "Modeled stations and ordered train stops in SQL and used relational queries to find journeys between a source and destination.",
+        "Connected Flutter train, station, and schedule models to JSON endpoints for lookup and status screens.",
+        "Built an administrative delay-update interface and queries for estimated arrival information as part of the coursework prototype."
       ],
       "group": "Apps & web",
       "headline": "From a relational schema to a train journey.",
-      "summary": "A Flutter and SQL coursework prototype connecting train discovery, schedules, route queries, and delay-management screens."
+      "summary": "A Flutter railway prototype backed by relational queries for trains, ordered stops, schedules, routes, and delay updates."
     },
     {
       "title": "FloraFast - Plant Delivery App",
@@ -209,10 +204,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Connected Firebase Authentication to sign-up, sign-in, and password-reset screens.",
+        "Built catalog, product-detail, favorites, profile, and cart views using shared plant data and local selection state.",
+        "Created a scan interaction mockup to explore the interface. The implemented app uses a sample catalog and in-memory shopping state."
+      ],
       "group": "Apps & web",
       "headline": "A little more green, delivered.",
-      "summary": "A mobile plant-delivery application, with a recorded product demonstration."
+      "summary": "A Flutter plant-shopping prototype with Firebase email authentication, product browsing, favorites, and cart interactions."
     },
     {
       "title": "iworkslab - Food Delivery App",
@@ -230,10 +229,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Separated product, cart, and order data into observable models so updates could reach multiple Flutter screens.",
+        "Implemented favorite selection, item quantities, cart totals, and a local order-history flow.",
+        "Built reusable responsive interface components around a sample catalog and in-memory data."
+      ],
       "group": "Apps & web",
       "headline": "A mobile ordering experience.",
-      "summary": "A food-delivery application created during my early app-development work."
+      "summary": "A Flutter food-store prototype with shared product, cart, and order state built using Provider and ChangeNotifier."
     },
     {
       "title": "WiseWaterman - Water Conservation Game for NCERT",
@@ -256,12 +259,13 @@
         ]
       ],
       "bullets": [
-        "Developed an engaging, web-based educational game funded by NCERT (overseen by Prof. Neetu Yadav) to teach young children about water conservation.",
-        "Contributed to audio production, animation, script writing, and game design to create an interactive and thought-provoking learning experience."
+        "Connected conservation questions to the resource mechanic so answering correctly affects how long the player can continue.",
+        "Contributed animation, audio, writing, and game-design work to the learning experience.",
+        "Published a Unity WebGL build that can be played in a browser without installing the game."
       ],
       "group": "Games",
       "headline": "A playful way to protect water.",
-      "summary": "An NCERT-funded educational game that teaches young children about water conservation through interactive play."
+      "summary": "A browser-playable Unity learning game that connects a water-powered jetpack to questions about water conservation."
     },
     {
       "title": "UNO Game",
@@ -275,10 +279,14 @@
           "View source"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Modeled a 108-card deck, player hands, active color and value, turn order, and direction in Java.",
+        "Connected skip, reverse, draw, and wild-card effects to the game state and Swing controls.",
+        "Added invalid-move handling to coordinate user actions with permitted plays in a team-built desktop game."
+      ],
       "group": "Games",
       "headline": "A familiar game, built from scratch.",
-      "summary": "An object-oriented implementation of UNO, with its source available on GitHub."
+      "summary": "A Java Swing UNO game built as a team course project, with deck management, turn tracking, and action-card rules."
     },
     {
       "title": "IGCSM Life Cycle Analysis",
@@ -305,14 +313,13 @@
         ]
       ],
       "bullets": [
-        "Developed user-friendly Mixed Reality application for visualizing complex Life Cycle Assessment (LCA) data, facilitating decision-making processes.",
-        "Demonstrated the application's features, enabling intuitive navigation, scenario selection & CO2 emissions visualization over the product's lifetime.",
-        "Presented the AR application on the “HoloLens” to a scientific jury, receiving accolades for its innovative approach & potential impact on LCA analysis.",
-        "Collaborated seamlessly with international teams, fostering effective cross-cultural communication and teamwork at TU Braunschweig and BITS Pilani."
+        "Built HoloLens interactions for navigating the product model and selecting life-cycle assessment scenarios.",
+        "Connected scenario choices to views of carbon emissions over the product lifetime.",
+        "Collaborated across TU Braunschweig and BITS Pilani and presented the application to a scientific jury."
       ],
       "group": "Spatial & AR",
       "headline": "Sustainability you can see.",
-      "summary": "Mixed reality on HoloLens makes complex life-cycle assessment data and carbon-emission scenarios easier to explore."
+      "summary": "A HoloLens research application for inspecting an e-bicycle and comparing life-cycle assessment scenarios in mixed reality."
     },
     {
       "title": "Decentralized Academic Certificate System",
@@ -326,10 +333,14 @@
           "View source"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Connected IPFS uploads to an append-only Solidity mapping with file metadata, uploader information, and upload events.",
+        "Built React upload and listing flows using Web3 and local Truffle deployment tooling.",
+        "Added contract tests for deployment, successful uploads, stored entries, and rejected empty fields."
+      ],
       "group": "Apps & web",
       "headline": "Credentials with a verifiable foundation.",
-      "summary": "A blockchain-based academic certificate system exploring decentralized verification."
+      "summary": "A React and Solidity document-registry prototype that stores files on IPFS and records their content hashes on Ethereum."
     },
     {
       "title": "Simulation of Delhi's Air pollution",
@@ -343,10 +354,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Set up an advection-diffusion model for vehicular carbon monoxide in COMSOL Multiphysics.",
+        "Compared concentration contours over time under different wind and obstacle conditions.",
+        "Documented the model setup, assumptions, and simulated results for a 50 × 50 km Delhi case study."
+      ],
       "group": "Systems & research",
       "headline": "Understanding a city through simulation.",
-      "summary": "A numerical-analysis project exploring air pollution in Delhi, with the full project report available."
+      "summary": "A COMSOL numerical study of vehicular carbon-monoxide dispersion across a 50 × 50 km Delhi region."
     },
     {
       "title": "Art Gallery",
@@ -360,10 +375,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Connected artwork recognition to the display of related digital content in an AR scene.",
+        "Worked on the interaction between a physical image target and its spatial presentation during my Invoxel internship.",
+        "Recorded the recognition and content-display workflow in the project demonstration."
+      ],
       "group": "Spatial & AR",
       "headline": "Art, with another layer.",
-      "summary": "An augmented-reality gallery experience using image recognition and spatial content."
+      "summary": "An augmented-reality gallery prototype that recognizes physical artwork and presents related digital content in the surrounding space."
     },
     {
       "title": "Adoption App",
@@ -377,10 +396,14 @@
           "View source"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Built reusable pet-card widgets and horizontal browsing lists in Flutter.",
+        "Composed search, nearby, and wishlist sections around sample pet content.",
+        "Used placeholder interactions to develop the interface without a backend service."
+      ],
       "group": "Apps & web",
       "headline": "Helping people find their companion.",
-      "summary": "A mobile adoption application created as part of my app-development work."
+      "summary": "An early Flutter interface prototype for browsing pets, with reusable cards, horizontal lists, and nearby and wishlist sections."
     },
     {
       "title": "Notes App",
@@ -394,10 +417,14 @@
           "View source"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Connected Firebase Authentication and Google sign-in to the application navigation.",
+        "Used a Firestore snapshot stream to update the note grid as documents changed.",
+        "Built note creation, editing, and deletion screens around Firestore document operations."
+      ],
       "group": "Apps & web",
       "headline": "A small tool for everyday thoughts.",
-      "summary": "A mobile notes application built during the ACM Summer Explore program."
+      "summary": "A Flutter notes app connecting Google sign-in to Cloud Firestore and live create, edit, and delete workflows."
     },
     {
       "title": "Other projects on Github",
@@ -411,10 +438,14 @@
           "View source"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Browse source code and README files for smaller application and systems experiments.",
+        "Find early Flutter interface work and coursework alongside the larger projects featured on this site.",
+        "Use individual repository histories and documentation to understand the scope of each project."
+      ],
       "group": "Apps & web",
       "headline": "The rest of the workshop.",
-      "summary": "More experiments, applications, and source code on my GitHub profile."
+      "summary": "A source archive of smaller mobile apps, programming coursework, utilities, and experiments alongside the featured projects."
     },
     {
       "title": "KXR Smithy Simulation",
@@ -428,10 +459,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Presented the smithy workshop and its process within an explorable virtual scene.",
+        "Connected the scene to an interactive sequence developed through the student AR/VR lab.",
+        "Documented the environment and interaction flow in the recorded demonstration."
+      ],
       "group": "Spatial & AR",
       "headline": "Learning through simulation.",
-      "summary": "An immersive smithy simulation, with a video demonstration of the experience."
+      "summary": "A virtual workshop prototype developed through the Kalipatnapu AR/VR Lab to present a smithy process as an interactive scene."
     },
     {
       "title": "Hand Tracking",
@@ -445,10 +480,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Connected tracked hand movement to an interactive virtual scene.",
+        "Explored direct spatial input and the visual feedback needed to show the scene response.",
+        "Recorded the interaction to demonstrate the prototype behavior."
+      ],
       "group": "Spatial & AR",
       "headline": "A more natural way to interact.",
-      "summary": "A spatial-computing prototype exploring hand-based interaction."
+      "summary": "A spatial-interaction prototype that maps tracked hand movement to responses in a virtual scene."
     },
     {
       "title": "Campus Navigation",
@@ -462,10 +501,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Built a prototype interface for presenting campus-navigation guidance in AR.",
+        "Explored the relationship between route instructions and their position in a spatial view.",
+        "Recorded the navigation flow to show the guidance as implemented."
+      ],
       "group": "Spatial & AR",
       "headline": "Finding your way, spatially.",
-      "summary": "An augmented-reality campus navigation project, with a recorded walkthrough."
+      "summary": "An AR wayfinding prototype exploring how campus route guidance can appear within a spatial interface."
     },
     {
       "title": "Measure Tape",
@@ -479,10 +522,14 @@
           "View resource"
         ]
       ],
-      "bullets": [],
+      "bullets": [
+        "Created an AR interaction for selecting measurement points within a scene.",
+        "Displayed the resulting distance alongside the selected spatial positions.",
+        "Recorded the point-selection and measurement flow in the project walkthrough."
+      ],
       "group": "Spatial & AR",
       "headline": "Measuring in mixed reality.",
-      "summary": "A spatial measurement prototype that brings a familiar physical tool into AR."
+      "summary": "An AR measurement prototype for selecting points in a scene and displaying the distance between them."
     }
   ],
   "career": [
@@ -737,8 +784,8 @@
       ],
       "images": [
         {
-          "src": "/assets/images/kxr_1.png",
-          "alt": "Foundation of Kalipatnapu AR/VR Lab"
+          "src": "/assets/images/VarunSahniImage.jpg",
+          "alt": "Varun Sahni outdoors overlooking a city"
         },
         {
           "src": "/assets/images/kxr_2.png",

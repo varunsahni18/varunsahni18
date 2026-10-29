@@ -1,94 +1,94 @@
 {
   "code-buddy": {
-    "summary": "A multi-agent code-review platform I architected at Qualcomm, used by 12,000+ engineers across 4,000+ repositories.",
-    "overview": "Code Buddy turns a code change into an actionable review through separate detection, repair, and validation agents. A tool-calling orchestrator retrieves symbols and dependencies, generates candidate fixes, and checks them against guardrails before posting. I architected the platform at Qualcomm and helped scale it to more than two million automated reviews."
+    "summary": "A code-review platform I architected at Qualcomm, connecting issue detection, candidate fixes, and validation for 12,000+ engineers across 4,000+ repositories.",
+    "overview": "Code Buddy reviews code changes inside the engineering workflow, where a useful finding needs enough context to explain the problem and propose a fix. I architected the platform at Qualcomm around separate detection, repair, and validation steps coordinated through tool calls. Structural retrieval supplies relevant symbols and dependencies, and candidate changes pass validation guardrails before a review is posted. The platform grew from a pilot to more than two million automated reviews. My work also included an evaluation harness for comparing review quality as prompts and models changed."
   },
   "cabinai": {
-    "summary": "A seven-agent driving assistant combining driver monitoring, voice, gestures, and local retrieval. Jury Award winner at Qualcomm SparQ 2026.",
-    "overview": "CabinAI connects driver-state perception, location, voice, and hand gestures through a shared orchestration layer. Safety rules and retrieval run locally; a deterministic router can escalate complex requests to cloud models. I built and demonstrated the system solo using a driving simulator, winning the SparQ 2026 Jury Award among 166 teams. The prototype also explores experimental fatigue forecasting."
+    "summary": "A driving-assistant prototype combining camera-based driver monitoring, voice, gestures, and local retrieval through seven coordinated components.",
+    "overview": "CabinAI brings driver monitoring and cabin interaction into one working demo. Camera frames produce face and hand landmarks, which feed drowsiness heuristics and gesture recognition. A shared event bus connects that state to voice requests, local knowledge retrieval, and a driving simulator. Known cabin commands take a deterministic path; an explicit routing policy sends more complex questions to a language model. I built and presented the prototype as a solo SparQ 2026 entry, winning the Jury Award among 166 teams."
   },
   "healthsense": {
-    "summary": "A biosignal dashboard combining ECG classification, signal processing, and an assistant workflow across five sensor streams.",
-    "overview": "HealthSense brings ECG, EEG, PPG, EMG, and motion signals into one experimental interface. Its pipeline combines a small ECG CNN exported to ONNX with signal-processing heuristics and agents that explain the results. I also explored a larger multimodal model and simulated an adaptation workflow. This is an exploratory prototype, with clinical validation and on-device training outside the completed implementation."
+    "summary": "An experimental biosignal dashboard combining ECG classification, signal-processing heuristics, and explanations across five sensor streams.",
+    "overview": "HealthSense explores how ECG, EEG, PPG, EMG, and motion signals can share one analysis interface. The implemented pipeline combines signal-processing heuristics with a small PyTorch convolutional model for ECG classification, exported for ONNX Runtime inference. Agent components organize the results and provide explanations in the dashboard. I also used simulated adaptation curves to demonstrate how a future personalization workflow could appear. The completed work is a systems prototype and a small ECG experiment, with clinical validation and on-device training still to be done."
   },
   "cliffside-conquest": {
-    "summary": "A Unity game built around navigating an interactive cliffside environment, with a recorded gameplay walkthrough.",
-    "overview": "Cliffside Conquest brings character movement and a cliffside game environment together in Unity. The gameplay recording shows the player moving through the scene and interacting with the level. The project combines game programming with environment design and the visual feedback that makes movement readable."
+    "summary": "A Unity game prototype centered on character movement through a cliffside environment, documented in a gameplay walkthrough.",
+    "overview": "Cliffside Conquest is a Unity prototype built around moving a character through a cliffside level. The scene combines the player, terrain, and visual feedback in a playable environment. The gameplay walkthrough shows the movement and interactions implemented in the level."
   },
   "myai": {
-    "summary": "An offline Android assistant with local tools, response caching, and quantized language-model inference through Qualcomm Genie.",
-    "overview": "MyAI handles simple requests through keyword matching, cached responses, and local tools before invoking a language model. Tools cover calculations, dates, calendar events, contacts, and alarms through structured JSON calls. I tested a quantized Qwen bundle on Snapdragon 8 Elite using Qualcomm Genie. The default APK omits Android’s INTERNET permission, with a build guard to keep it that way."
+    "summary": "An offline Android assistant that checks keywords, cached answers, and local tools before invoking a quantized language model through Qualcomm Genie.",
+    "overview": "MyAI explores how much a personal assistant can do directly on a phone. Simple requests use deterministic matching, previously accepted answers, or tools for calculations, dates, calendar events, contacts, and alarms. Requests that need generation reach a local model through Qualcomm Genie. I tested a quantized Qwen bundle on Snapdragon 8 Elite and connected structured model output to the tool layer. The default Android app omits INTERNET permission, and a Gradle check prevents the permission from being added accidentally."
   },
   "digital-twin-mapmyindia": {
-    "summary": "A Unity geographic viewer with coordinate-based navigation, location initialization, and animated map transitions.",
-    "overview": "Enter a latitude and longitude to fly between locations without losing geographic context. A C# coroutine zooms out, interpolates the map position, and restores the destination zoom. I also worked on location-provider initialization and map controls. The original walkthrough carries the MapMyIndia name; the public implementation uses Mapbox’s Unity SDK."
+    "summary": "A Unity map viewer with location initialization, coordinate-based navigation, and animated transitions between distant places.",
+    "overview": "This project turns geographic coordinates into a navigable Unity scene. A location provider initializes the map, while mouse-look, movement, rotation, and zoom controls let a user explore the area. To move between distant coordinates, a C# coroutine first zooms out, interpolates the map center, and restores the destination zoom. That sequence keeps the transition understandable as the map changes. The original title and recording use MapMyIndia terminology; the public implementation uses Mapbox Unity components and represents a geographic viewer rather than a live synchronized digital twin."
   },
   "compiler-construction": {
-    "summary": "A compiler front end in C: twin-buffer lexing, LL(1) parsing, AST construction, symbol tables, and semantic checks.",
-    "overview": "Our team built the front end from source characters to structured program information. A DFA lexer feeds a table-driven LL(1) parser using FIRST and FOLLOW sets. The parse tree is reduced to an AST and connected to scope and type information through symbol tables. The implementation includes panic-mode error recovery and partial semantic analysis; executable code generation was not completed."
+    "summary": "A team-built compiler front end in C covering lexical analysis, LL(1) parsing, AST construction, scoped symbol tables, and partial semantic analysis.",
+    "overview": "Our team built a compiler front end to understand how source text becomes a structured program representation. A hand-written lexer produces tokens, and a table-driven LL(1) parser reads grammar productions and computes FIRST and FOLLOW sets. A separate pass reduces the parse tree to an abstract syntax tree. Symbol tables then track declarations, types, scopes, and offsets for semantic checks. The implementation includes panic-mode error recovery so parsing can continue after malformed input. Executable code generation was outside the completed implementation."
   },
   "live-train-status": {
-    "summary": "A Flutter railway app backed by SQL queries for trains, routes, schedules, arrival estimates, and delay updates.",
-    "overview": "The database models trains, stations, ordered stops, and delays. SQL views and route queries derive possible journeys and arrival estimates; Flutter screens expose train lookup, status information, and administrative delay updates through JSON endpoints. Built as a database-systems course project, the repository preserves the application and schema rather than a currently maintained live railway feed."
+    "summary": "A Flutter railway prototype backed by relational queries for trains, ordered stops, schedules, routes, and delay updates.",
+    "overview": "Live Train Status connects a database-systems project to a mobile interface. The SQL schema models trains, stations, schedules, routes, and delays, while queries and views derive possible journeys and arrival estimates. Flutter screens fetch JSON data for train lookup and status views, with a separate administrative flow for delay updates. The project let me work through the full path from relational data modeling to asynchronous mobile presentation. The repository preserves the schema and app; the original external backend is not maintained as a live railway service."
   },
   "florafast-plant-delivery-app": {
-    "summary": "A Flutter plant-shopping app with Firebase sign-in, a product catalog, favorites, and cart interactions.",
-    "overview": "FloraFast takes a shopper from browsing plants to viewing products, saving favorites, and building a cart. Firebase Authentication handles email sign-up, sign-in, and password reset. The plant catalog and shopping state use prototype data, while a scan screen explores a future interaction. The walkthrough shows the shopping experience as implemented."
+    "summary": "A Flutter plant-shopping prototype with Firebase email authentication, product browsing, favorites, and cart interactions.",
+    "overview": "FloraFast follows the main steps of a mobile shopping experience: create an account, browse a plant catalog, open a product, save favorites, and add items to a cart. Firebase Authentication handles email sign-up, sign-in, and password resets. Product screens share a static plant model with local favorite and cart state. I used the project to develop reusable Flutter screens and connect account flows to a broader application. The scan screen is a visual prototype; plant recognition, checkout, and persisted shopping data were not implemented."
   },
   "iworkslab-food-delivery-app": {
-    "summary": "A Flutter food-store prototype with shared cart state, product favorites, quantities, and order history.",
-    "overview": "The application connects product browsing, a cart, and order screens through Provider and ChangeNotifier. Adding an item updates quantities and totals across screens, while the orders provider records submitted carts for the order-history view. The implementation uses a local catalog and in-memory state to explore the complete shopping flow."
+    "summary": "A Flutter food-store prototype with shared product, cart, and order state built using Provider and ChangeNotifier.",
+    "overview": "This app connects product browsing to a cart and order history through a shared state model. Users can save products, change quantities, inspect totals, and submit the current cart to the order view. Provider and ChangeNotifier keep these interactions consistent across screens, while reusable widgets support the login, catalog, and product layouts. The project focuses on application state and responsive presentation. Its catalog, authentication screens, and orders use local demo data; backend persistence, payment processing, and fulfillment are outside the implementation."
   },
   "wisewaterman-water-conservation-game-for-ncert": {
-    "summary": "A Unity learning game where a water-powered jetpack and conservation questions turn the lesson into part of play.",
-    "overview": "WiseWaterman challenges players to avoid obstacles while keeping a water-powered jetpack running. Collecting question boxes opens water-conservation challenges; correct answers refill the water meter, while incorrect answers explain the lesson. Built for an NCERT-funded effort overseen by Prof. Neetu Yadav, my contributions covered game design, animation, audio, and writing."
+    "summary": "A browser-playable Unity learning game that connects a water-powered jetpack to questions about water conservation.",
+    "overview": "WiseWaterman makes water conservation part of the game rules. Players navigate obstacles using a jetpack with a limited water supply and collect question boxes along the route. Correct answers replenish the meter, while feedback explains the conservation lesson. The game was developed for an NCERT-funded effort overseen by Prof. Neetu Yadav. My contributions covered game design, animation, audio production, and writing. The published WebGL build and walkthrough show the playable experience; the public repository contains compiled game assets rather than the Unity source project."
   },
   "uno-game": {
-    "summary": "A Java Swing UNO game with an object-oriented deck, turn management, and action-card logic.",
-    "overview": "Our team modeled the deck, players, and game state as Java objects and connected them to a Swing interface. Skip, reverse, draw, and wild cards change turn order or the active hand, with validation for permitted moves. The project applies object-oriented design to a familiar game with interacting rules."
+    "summary": "A Java Swing UNO game built as a team course project, with deck management, turn tracking, and action-card rules.",
+    "overview": "Our team used UNO to work through object-oriented modeling and event-driven desktop programming. Java classes represent cards, the deck, player hands, and the current game state, while a Swing interface presents the hand and available actions. The game coordinator tracks legal color and value, direction, and the active player. Skip, reverse, draw, and wild cards introduce rule changes that have to stay consistent with the interface. The project demonstrates a playable course implementation, with the rules and Swing presentation still closely coupled."
   },
   "igcsm-life-cycle-anaysis": {
-    "summary": "A HoloLens application for exploring life-cycle assessment data, product scenarios, and carbon emissions in mixed reality.",
-    "overview": "During DAAD-supported research at TU Braunschweig, our team explored how mixed reality could make life-cycle assessment easier to interpret. The application lets users inspect an e-bicycle, select product scenarios, and compare emissions across its lifetime. I worked on the HoloLens application and interaction flow, collaborating with teams at TU Braunschweig and BITS Pilani and presenting to a scientific jury."
+    "summary": "A HoloLens research application for inspecting an e-bicycle and comparing life-cycle assessment scenarios in mixed reality.",
+    "overview": "During DAAD-supported research at TU Braunschweig, our team explored how mixed reality could make life-cycle assessment data easier to inspect. The HoloLens application places an e-bicycle and its assessment information in a spatial interface. Users can navigate the model, select product scenarios, and compare carbon emissions across the product lifetime. I worked on the application and interaction flow with collaborators at TU Braunschweig and BITS Pilani, then demonstrated the experience to a scientific jury. The work focused on presenting assessment data and scenario comparisons through spatial interaction."
   },
   "decentralized-academic-certificate-system": {
-    "summary": "A React, Solidity, and IPFS prototype linking certificate documents to an append-only blockchain registry.",
-    "overview": "The application separates a document from its registry entry: IPFS stores the file, while a Solidity contract records its hash, metadata, uploader, and timestamp. A React interface connects the upload and lookup workflow through Truffle. The implementation demonstrates content-based verification; institutional issuer accreditation, revocation, and private document access would require further work."
+    "summary": "A React and Solidity document-registry prototype that stores files on IPFS and records their content hashes on Ethereum.",
+    "overview": "This project separates document storage from the record used to check its contents. A React interface uploads a file to IPFS, then writes its content hash and metadata to a Solidity contract through Web3. The interface can list registry entries and retrieve the corresponding document. Truffle and Ganache support local contract deployment, and tests cover upload and input validation. The implementation demonstrates a tamper-evident file registry. A matching hash establishes document integrity; accredited issuers, certificate revocation, and private access would need additional mechanisms."
   },
   "simulation-of-delhi-s-air-pollution": {
-    "summary": "A COMSOL study of vehicle-emission dispersion over a 50 × 50 km Delhi region using an advection-diffusion model.",
-    "overview": "Our numerical-analysis team modeled how vehicular carbon monoxide disperses under different wind and obstacle conditions. We used COMSOL Multiphysics to solve and visualize the advection-diffusion model, comparing concentration contours over time before applying the setup to a Delhi case study. The report documents the assumptions, numerical setup, and simulation results."
+    "summary": "A COMSOL numerical study of vehicular carbon-monoxide dispersion across a 50 × 50 km Delhi region.",
+    "overview": "Our numerical-analysis team studied how vehicle emissions disperse under different wind and obstacle conditions. We used an advection-diffusion model in COMSOL Multiphysics to represent transport and spreading, then inspected concentration contours as the simulation evolved. After comparing the model behavior under different conditions, we applied the setup to a Delhi case study. The report records the assumptions, numerical setup, and resulting concentration patterns. The project is a simulation study whose results depend on those assumptions, rather than a measured map or a real-time air-quality forecast."
   },
   "art-gallery": {
-    "summary": "An augmented-reality gallery linking recognized artworks to digital content in the surrounding space.",
-    "overview": "Built during my AR development work at Invoxel, the gallery uses image recognition to connect physical artworks with spatial digital content. The walkthrough demonstrates the transition from recognizing an image to presenting its related content. It explores how a gallery visit can become an interactive experience through AR."
+    "summary": "An augmented-reality gallery prototype that recognizes physical artwork and presents related digital content in the surrounding space.",
+    "overview": "Built during my AR development work at Invoxel, Art Gallery uses image recognition to connect physical artworks with digital content. Recognizing an artwork brings its related material into the AR scene, where visitors can view it alongside the physical image. The recorded walkthrough shows the recognition and content-display sequence."
   },
   "adoption-app": {
-    "summary": "A Flutter pet-adoption interface with horizontal pet cards, a search field, and nearby and wishlist sections.",
-    "overview": "An early mobile UI project exploring how to browse pets for adoption. Reusable Flutter widgets compose the greeting, search field, nearby section, and horizontal pet-card lists. The source uses sample pet content and placeholder interactions to develop the layout and component structure, rather than an operating adoption service."
+    "summary": "An early Flutter interface prototype for browsing pets, with reusable cards, horizontal lists, and nearby and wishlist sections.",
+    "overview": "Adoption App was an early exercise in composing a mobile browsing interface from reusable Flutter widgets. The home screen combines a greeting, search field, nearby section, and horizontal pet-card lists. Sample content supplies the images and information needed to develop the layout. The work focused on screen composition, spacing, and repeated card structures, with placeholder interactions used to explore the flow. It does not connect to an adoption service, perform real search, or maintain a persistent wishlist."
   },
   "notes-app": {
-    "summary": "A Flutter notes app with Google sign-in, live Firestore updates, and create, edit, and delete workflows.",
-    "overview": "Built during ACM Summer Explore at BITS Pilani, the app connects Firebase Authentication with a Cloud Firestore notes collection. A live snapshot stream updates the note grid, and dedicated screens create, edit, and delete note documents. The project put asynchronous data, account-based navigation, and mobile UI into practice."
+    "summary": "A Flutter notes app connecting Google sign-in to Cloud Firestore and live create, edit, and delete workflows.",
+    "overview": "Built during ACM Summer Explore at BITS Pilani, Notes App put authentication and asynchronous data into a small mobile application. Google sign-in opens the account flow, and a Cloud Firestore collection supplies the note grid through a live snapshot stream. Separate screens handle creating and editing notes, while deletion updates the collection and the displayed list. The project helped me connect mobile navigation, editable forms, and remote data updates in one application. The interface reflects database changes without requiring a manual refresh."
   },
   "other-projects-on-github": {
-    "summary": "More mobile applications, programming coursework, and experiments from my GitHub archive.",
-    "overview": "My GitHub archive includes smaller Flutter apps, programming exercises, and experiments alongside the projects featured here. These repositories trace my early work with mobile interfaces and application state, followed by larger systems and AI projects. Open the profile to browse their source and documentation."
+    "summary": "A source archive of smaller mobile apps, programming coursework, utilities, and experiments alongside the featured projects.",
+    "overview": "My GitHub archive includes smaller Flutter apps, programming exercises, utilities, and experiments alongside the featured case studies. These repositories trace my work from individual mobile screens and course assignments to larger systems. Open the profile to inspect each project’s source, documentation, and history, including its scope and level of completeness."
   },
   "kxr-smithy-simulation": {
-    "summary": "An immersive workshop simulation built through the Kalipatnapu AR/VR Lab at BITS Pilani.",
-    "overview": "The smithy simulation translates a workshop process into a virtual environment that users can explore spatially. Built through the Kalipatnapu AR/VR Lab, it combines the workshop scene with an interactive sequence. The recording shows the environment and how the process is presented inside the simulation."
+    "summary": "A virtual workshop prototype developed through the Kalipatnapu AR/VR Lab to present a smithy process as an interactive scene.",
+    "overview": "Developed through the Kalipatnapu AR/VR Lab at BITS Pilani, this simulation presents a smithy workshop as a virtual environment. Users explore the scene and follow an interactive presentation of the workshop process. The recording shows how the environment and sequence fit together in the demonstration."
   },
   "hand-tracking": {
-    "summary": "A spatial-computing prototype exploring hand input as an alternative to conventional controls.",
-    "overview": "This prototype uses tracked hands to interact with a virtual scene. The demonstration focuses on the relationship between physical hand movement and the scene’s response, exploring direct interaction without a conventional button-based interface. It is part of my work on AR/VR interaction techniques."
+    "summary": "A spatial-interaction prototype that maps tracked hand movement to responses in a virtual scene.",
+    "overview": "Hand Tracking connects physical hand movement to responses in a virtual scene. The prototype explores direct spatial input and the visual feedback needed to show what the system has recognized. The recorded demonstration follows the interaction from the user’s hand motion to the resulting scene response."
   },
   "campus-navigation": {
-    "summary": "An AR wayfinding prototype that presents campus-navigation guidance in a spatial interface.",
-    "overview": "Campus Navigation explores how route guidance can be presented through an augmented-reality view. The recorded walkthrough demonstrates the navigation flow and how guidance appears in the interface. The project sits at the intersection of location-based applications and spatial interaction."
+    "summary": "An AR wayfinding prototype exploring how campus route guidance can appear within a spatial interface.",
+    "overview": "Campus Navigation explores how route guidance can appear within an augmented-reality view. The prototype presents campus wayfinding through a spatial interface, connecting navigation instructions to the surrounding scene. The walkthrough follows the guidance flow as implemented in the demo; campus-wide positioning and route coverage were not validated."
   },
   "measure-tape": {
-    "summary": "An augmented-reality measurement prototype for choosing points and displaying a distance in the scene.",
-    "overview": "Measure Tape brings the interaction of a tape measure into an AR interface. Users choose points in space and see a measurement presented within the scene, as shown in the recording. The project explores point selection and spatial feedback; it is an interface experiment rather than a calibrated measuring instrument."
+    "summary": "An AR measurement prototype for selecting points in a scene and displaying the distance between them.",
+    "overview": "Measure Tape brings point-to-point measurement into an AR view. Users select positions in space and see the distance displayed within the scene. The recorded walkthrough follows point selection and the resulting measurement. The project focuses on spatial input and visual feedback; it has not been calibrated as a precision measuring instrument."
   }
 }

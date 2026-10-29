@@ -29,10 +29,10 @@ for f in sorted((R/'dark').rglob('*.html')):
  desc=s.select_one('meta[name=description]')['content']
  for prop,value in [('og:title',s.title.get_text()),('og:description',desc),('og:type','article' if '/blog/20' in path else 'website'),('og:url',canonical),('og:image','https://www.varunsahni.in/assets/images/varun-linkedin.png'),('og:image:alt','Varun Sahni'),('og:site_name','Varun Sahni')]:s.head.append(s.new_tag('meta',attrs={'property':prop,'content':value}))
  s.head.append(s.new_tag('meta',attrs={'name':'twitter:card','content':'summary'}))
- s.head.append(s.new_tag('meta',attrs={'name':'site-release','content':'2026-10-29.2'}))
+ s.head.append(s.new_tag('meta',attrs={'name':'site-release','content':'2026-10-29.3'}))
  for asset in s.select('link[rel=stylesheet],script[src]'):
   key='src' if asset.name=='script' else 'href'
-  if asset[key].startswith('/design/'):asset[key]=asset[key].split('?')[0]+'?v=20261029-2'
+  if asset[key].startswith('/design/'):asset[key]=asset[key].split('?')[0]+'?v=20261029-3'
  target=out/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(str(s));paths.append(path)
 index=json.loads((R/'dark/design/search.json').read_text())
 for x in index:x['path']=x['path'][5:]
