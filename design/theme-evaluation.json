@@ -6,8 +6,8 @@
     "ink": "#f0f6f4",
     "muted": "#8b9da3",
     "accent": "#a6f6d7",
-    "tag": "Recommended",
-    "copy": "The most cohesive fit for the current site. The mint accent keeps the globe, project illustrations, and navigation in the same visual language.",
+    "tag": "Original palette",
+    "copy": "The original dark palette, with mint accents across the globe, project illustrations, and navigation.",
     "ratios": {
       "text": 17.84,
       "secondary": 6.92,
@@ -51,7 +51,7 @@
     "ink": "#f3f0e8",
     "muted": "#b7bec6",
     "accent": "#e8bd80",
-    "tag": "City edition",
+    "tag": "Current default",
     "copy": "A full-width Manhattan photograph at dusk, warm city-light accents, and an open layout that gives the skyline room. The city is the background of the page, with selected projects linked below the introduction.",
     "ratios": {
       "text": 16.1,

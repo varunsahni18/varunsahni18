@@ -1,8 +1,9 @@
 (()=>{
  const themes={mint:'Mint',cobalt:'Cobalt',paper:'Paper','new-york':'New York'};
  const params=new URLSearchParams(location.search);
- const requested=params.get('theme')||document.documentElement.dataset.defaultTheme||'mint';
- const theme=Object.hasOwn(themes,requested)?requested:'mint';
+ const defaultTheme=document.documentElement.dataset.defaultTheme||'new-york';
+ const requested=params.get('theme')||defaultTheme;
+ const theme=Object.hasOwn(themes,requested)?requested:defaultTheme;
  document.documentElement.dataset.theme=theme;
  document.addEventListener('DOMContentLoaded',()=>{
   const preview=params.has('preview');
@@ -13,7 +14,8 @@
    const url=new URL(a.getAttribute('href'),location.href);
    if(url.origin!==location.origin||/\.[a-z0-9]+$/i.test(url.pathname)||!url.pathname.endsWith('/')||a.hasAttribute('data-theme-link'))return;
    if(url.pathname==='/new-york/')url.searchParams.set('theme','new-york');
-   else if(theme!=='mint')url.searchParams.set('theme',theme);
+   else if(theme!==defaultTheme)url.searchParams.set('theme',theme);
+   else url.searchParams.delete('theme');
    a.href=url.pathname+url.search+url.hash;
   }
   for(const a of document.querySelectorAll('a[href]'))decorateLink(a);
